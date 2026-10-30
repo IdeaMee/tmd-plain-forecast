@@ -1,0 +1,127 @@
+/* ปิดการสแกนอัตโนมัติทั้งราก (ราก repo มี md ใน docs/ และ course/) แล้วสแกนเฉพาะโค้ดเว็บ */
+@import "tailwindcss" source(none);
+@source "../app";
+@source "../components";
+@source "../lib";
+
+/*
+ * โทเคนจาก DESIGN-expo.md (front matter) ชื่อเดียวกับมาตรฐาน ห้ามใส่ hex ในคอมโพเนนต์
+ * ส่วนที่ปรับสำหรับภาษาไทย (line-height, letter-spacing 0) ตาม docs/spec/design-system.md หัวข้อ 3.1 และ 4
+ */
+@theme {
+  --color-*: initial;
+  --color-primary: #000000;
+  --color-primary-active: #1a1a1a;
+  --color-text-link: #0d74ce;
+  --color-text-link-secondary: #476cff;
+  --color-ink: #171717;
+  --color-body: #60646c;
+  --color-body-strong: #171717;
+  --color-muted: #999999;
+  --color-muted-soft: #cccccc;
+  --color-hairline: #f0f0f3;
+  --color-hairline-soft: #f5f5f7;
+  --color-hairline-strong: #dcdee0;
+  --color-canvas: #ffffff;
+  --color-canvas-soft: #fafafa;
+  --color-surface-card: #ffffff;
+  --color-surface-strong: #f0f0f3;
+  --color-surface-dark: #171717;
+  --color-surface-dark-elevated: #1a1a1a;
+  --color-on-primary: #ffffff;
+  --color-on-dark: #ffffff;
+  --color-on-dark-soft: #b0b4ba;
+  --color-gradient-sky-light: #cfe7ff;
+  --color-gradient-sky-mid: #a8c8e8;
+  --color-accent-warning: #ab6400;
+  --color-accent-preview: #8145b5;
+  --color-accent-link-bright: #47c2ff;
+  --color-semantic-error: #eb8e90;
+  --color-semantic-success: #16a34a;
+
+  /* ชื่อรัศมีตามมาตรฐาน (md = 8px ไม่ใช่ 6px ของ Tailwind) */
+  --radius-*: initial;
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-xxl: 24px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  /* สเกลตัวอักษร: ขนาดและน้ำหนักตามมาตรฐาน, line-height ไทย (หัวข้อ 1.3, เนื้อหา 1.6) */
+  --text-display-mega: 4rem;
+  --text-display-mega--line-height: 1.3;
+  --text-display-mega--font-weight: 600;
+  --text-display-mega-mobile: 2rem;
+  --text-display-mega-mobile--line-height: 1.3;
+  --text-display-mega-mobile--font-weight: 600;
+  --text-display-xl: 3rem;
+  --text-display-xl--line-height: 1.3;
+  --text-display-xl--font-weight: 600;
+  --text-display-lg: 2.25rem;
+  --text-display-lg--line-height: 1.3;
+  --text-display-lg--font-weight: 600;
+  --text-display-md: 1.75rem;
+  --text-display-md--line-height: 1.3;
+  --text-display-md--font-weight: 600;
+  --text-display-sm: 1.375rem;
+  --text-display-sm--line-height: 1.3;
+  --text-display-sm--font-weight: 600;
+  --text-title-md: 1.125rem;
+  --text-title-md--line-height: 1.4;
+  --text-title-md--font-weight: 600;
+  --text-title-sm: 1rem;
+  --text-title-sm--line-height: 1.4;
+  --text-title-sm--font-weight: 600;
+  --text-body-md: 1rem;
+  --text-body-md--line-height: 1.6;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.6;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+  --text-button: 0.875rem;
+  --text-button--line-height: 1.4;
+  --text-button--font-weight: 500;
+  --text-nav-link: 0.875rem;
+  --text-nav-link--line-height: 1.4;
+  --text-nav-link--font-weight: 500;
+
+  --container-content: 1200px;
+}
+
+/* ฟอนต์อ้างตัวแปรที่ next/font ใส่ไว้บน <html> จึงต้องใช้ inline */
+@theme inline {
+  --font-sans: var(--font-anuphan), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-body);
+    font-size: var(--text-body-md);
+    line-height: var(--text-body-md--line-height);
+    letter-spacing: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+  }
+
+  /* โฟกัสคีย์บอร์ด: เส้น 2px สี ink ห่าง 2px ทุกองค์ประกอบ (design-system ข้อ D8) */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+}
