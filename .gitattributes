@@ -1,0 +1,8 @@
+# เก็บข้อความเป็น LF ใน repo เสมอ (ทีมใช้ Windows: กันคำเตือน CRLF และ diff ทั้งไฟล์)
+* text=auto eol=lf
+
+*.pdf binary
+*.ico binary
+*.png binary
+*.jpg binary
+*.pptx binary
