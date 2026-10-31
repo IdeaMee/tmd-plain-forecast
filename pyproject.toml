@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tmd-plain"
+version = "0.1.0"
+description = "ท่อประมวลผลสรุปพยากรณ์อากาศ TMD เป็นภาษาไทยง่ายๆ (งานรายวิชา NLP + ML)"
+readme = "README.md"
+requires-python = ">=3.12"
+# ใช้ร่วมกันทั้งสคริปต์บนเครื่องและฟังก์ชันบน Vercel จึงต้องน้อยที่สุด (ห้าม sklearn/numpy/pandas)
+dependencies = [
+  "pythainlp>=5.4,<6",
+  "pypdfium2>=5.15,<6",
+  "pdfminer.six>=20260107",
+  "pydantic>=2.14,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9.2",
+  "ruff>=0.17.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tmd_plain = ["*.toml", "resources/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["data", "course", "docs", "plans", "node_modules", ".next"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+# คอมเมนต์ภาษาไทยทำให้บรรทัดยาวเกินบ่อย (กฎ python.md อนุญาตให้ผ่อน E501)
+ignore = ["E501"]
