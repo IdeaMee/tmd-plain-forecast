@@ -1,0 +1,227 @@
+{
+  "$comment": "generated from src/tmd_plain/contract.py (contract v1); do not edit",
+  "$defs": {
+    "AdviceItem": {
+      "additionalProperties": false,
+      "properties": {
+        "general": {
+          "title": "General",
+          "type": "boolean"
+        },
+        "scope": {
+          "items": {
+            "enum": [
+              "north",
+              "northeast",
+              "central",
+              "east",
+              "south_east_coast",
+              "south_west_coast",
+              "bangkok_vicinity"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Scope",
+          "type": "array"
+        },
+        "source_unit_id": {
+          "minLength": 1,
+          "title": "Source Unit Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "scope",
+        "general",
+        "source_unit_id"
+      ],
+      "title": "AdviceItem",
+      "type": "object"
+    },
+    "Period": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date",
+          "title": "End",
+          "type": "string"
+        },
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "minItems": 1,
+          "title": "Lines",
+          "type": "array"
+        },
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "lines"
+      ],
+      "title": "Period",
+      "type": "object"
+    },
+    "RegionSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "advice": {
+          "items": {
+            "$ref": "#/$defs/AdviceItem"
+          },
+          "title": "Advice",
+          "type": "array"
+        },
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "title": "Lines",
+          "type": "array"
+        },
+        "periods": {
+          "items": {
+            "$ref": "#/$defs/Period"
+          },
+          "title": "Periods",
+          "type": "array"
+        }
+      },
+      "title": "RegionSummary",
+      "type": "object"
+    },
+    "SummaryLine": {
+      "additionalProperties": false,
+      "properties": {
+        "facts": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
+          },
+          "title": "Facts",
+          "type": "object"
+        },
+        "kind": {
+          "enum": [
+            "rain",
+            "temperature",
+            "wind",
+            "wave",
+            "fog",
+            "other"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "text"
+      ],
+      "title": "SummaryLine",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "doc_type": {
+      "enum": [
+        "daily",
+        "sevenday"
+      ],
+      "title": "Doc Type",
+      "type": "string"
+    },
+    "general_advice": {
+      "items": {
+        "$ref": "#/$defs/AdviceItem"
+      },
+      "title": "General Advice",
+      "type": "array"
+    },
+    "issue_id": {
+      "title": "Issue Id",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "title": "Issued At",
+      "type": "string"
+    },
+    "pipeline_version": {
+      "minLength": 1,
+      "title": "Pipeline Version",
+      "type": "string"
+    },
+    "regions": {
+      "additionalProperties": {
+        "$ref": "#/$defs/RegionSummary"
+      },
+      "propertyNames": {
+        "enum": [
+          "north",
+          "northeast",
+          "central",
+          "east",
+          "south_east_coast",
+          "south_west_coast",
+          "bangkok_vicinity"
+        ]
+      },
+      "title": "Regions",
+      "type": "object"
+    },
+    "source_label": {
+      "minLength": 1,
+      "title": "Source Label",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issue_id",
+    "doc_type",
+    "issued_at",
+    "source_label",
+    "regions",
+    "pipeline_version"
+  ],
+  "title": "Issue",
+  "type": "object"
+}
