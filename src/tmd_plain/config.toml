@@ -1,0 +1,9 @@
+# ค่าตั้งของท่อประมวลผล (พาธสัมพัทธ์กับราก repo) ค่าของโมเดล (k, m) เติมใน Phase 2.4
+pipeline_version = "0.1.0"
+max_upload_bytes = 4194304
+
+[paths]
+raw = "data/raw"
+labeled = "data/labeled"
+processed = "data/processed"
+models = "models"
