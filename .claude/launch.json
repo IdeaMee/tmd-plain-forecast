@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev", "-p", "3000"],
+      "port": 3000,
+      "env": { "NEXT_TELEMETRY_DISABLED": "1" }
+    },
+    {
+      "name": "web-local-data",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev", "-p", "3000"],
+      "port": 3000,
+      "env": { "NEXT_TELEMETRY_DISABLED": "1", "DATABASE_URL": "" }
+    }
+  ]
+}
