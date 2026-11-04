@@ -1,0 +1,23 @@
+# ป้ายที่ผู้ช่วย (Claude) ติดด้วยการอ่านความหมายตามคู่มือป้าย (Phase 2.2) ไม่ใช้กฎ keyword ของ baseline
+# คอลัมน์: unit_id <tab> label <tab> scope (เฉพาะ advice; N NE C E SE SW BKK คั่นด้วยช่องว่าง หรือ ALL = ไม่มีคำบอกที่ตั้ง) <tab> note
+d-3890d635	weather
+d-f07524b0	weather
+d-488542db	advice	N NE C E BKK SE SW	"บริเวณดังกล่าว" หน่วยก่อนหน้าคือไทยตอนบน แต่ย่อหน้าเดียวกันพูดถึงฝนหนักภาคใต้ และอันตรายที่ระบุ (ฝนตกสะสม น้ำท่วม) ตรงกับภาคใต้ จึงรวมทั้งสอง (D5+D7)
+d-71e8de59	cause
+d-4c7cf18a	cause
+d-a999f947	cause
+d-79c2e94b	advice	E SE SW	ทะเลอันดามันและอ่าวไทย + ชาวเรือ; ส่วนต้นเป็นคลื่น (weather) แต่มีคำแนะนำจึงเป็น advice
+d-f3ee2006	weather
+d-9570180d	weather
+d-f7c3cff4	advice	N NE C E BKK SE SW	"บริเวณดังกล่าว" หน่วยก่อนหน้าคือไทยตอนบน แต่อันตรายฝนหนักถึงหนักมาก/ฝนสะสมตรงกับภาคใต้ในย่อหน้าเดียวกัน รวมทั้งสอง (D7)
+d-c9b7832f	cause
+d-6ed292ae	weather
+d-3a805f3b	cause
+d-ab4f4fbf	cause		"ส่งผลให้มีลมฝ่ายตะวันออกพัดนำความชื้น" เป็นการอธิบายกลไก ไม่ใช่ผลต่อสภาพอากาศ
+d-ef7d8f39	weather
+d-a1ed4ed4	weather
+d-9e125f2f	advice	N NE C E BKK SE SW	ภาคใต้ + ประเทศไทยตอนบน
+d-37eca300	cause
+d-63cfef05	cause
+d-3fa15053	weather
+d-96f44346	cause
