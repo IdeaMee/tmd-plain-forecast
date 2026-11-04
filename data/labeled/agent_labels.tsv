@@ -105,3 +105,24 @@ s-0b343306	weather
 s-27bc2231	advice		
 s-b09f5d58	cause		
 d-1bc19a0c	weather		
+d-02874ad8	advice	N NE C E BKK SE SW	"บริเวณดังกล่าว" = ไทยตอนบน + ภาคกลางตอนล่าง กรุงเทพฯ ตะวันออก และภาคใต้ จากหน่วยก่อนหน้า
+d-85ac5bd8	cause		
+d-622af249	weather		
+d-4f3ac9c8	weather		
+d-f2fac9d7	weather		
+s-fb06a403	weather		
+s-d44849c4	advice	SE SW E	ภาคใต้ + ชาวเรือบริเวณอ่าวไทยและทะเลอันดามัน
+d-cebae81a	weather		
+d-060dccd5	advice	ALL	ไม่มีคำบอกที่ตั้ง (D6) แม้หน่วยก่อนหน้าพูดถึงไทยตอนบน
+d-f25b4fc1	cause		
+d-72fe50ce	cause		
+d-8dce8d6a	weather		
+d-98a555fd	cause		
+s-c0f078ab	weather		
+s-2042910f	cause		
+s-09b8d0cf	weather		
+s-851a2c1e	cause		กลไก + ฝนฟ้าคะนองภาคเหนือตอนบน (weather) + เหตุผลกลไก รวมในหน่วยเดียวเพราะไม่ตัดที่ "สำหรับ" ส่วนหลักเป็นกลไก
+s-a748ac3d	weather		
+s-548558f0	cause		
+s-f1330f26	weather		
+s-67f376e0	advice		กลไก + ความสูงคลื่น (weather) ในหน่วยเดียว ส่วนหลักเป็นกลไก
