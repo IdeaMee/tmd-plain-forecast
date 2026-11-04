@@ -126,3 +126,24 @@ s-a748ac3d	weather
 s-548558f0	cause		
 s-f1330f26	weather		
 s-67f376e0	advice		กลไก + ความสูงคลื่น (weather) ในหน่วยเดียว ส่วนหลักเป็นกลไก
+s-534553bd	advice	N NE C E BKK	ประเทศไทยตอนบน
+s-145b4db1	advice	SE SW E	ภาคใต้ + ชาวเรือบริเวณอ่าวไทยและทะเลอันดามัน
+s-b8bf4662	weather		
+s-b0099787	cause		
+s-c89110a4	weather		
+s-420e286b	cause		กลไก + ฝนภาคเหนือตอนบน (weather) รวมในหน่วยเดียว ส่วนหลักเป็นกลไก
+s-21f5bfdd	weather		
+s-dfce062c	cause		กลไก + ความสูงคลื่น (weather) ในหน่วยเดียว ส่วนหลักเป็นกลไก
+s-d796d248	advice	SE SW E	ภาคใต้ + ชาวเรือบริเวณอ่าวไทยและทะเลอันดามัน
+d-f0f41bb6	weather		
+d-49a919a9	weather		
+d-2b64d820	cause		
+d-4b00820e	weather		
+s-b90c0ee7	advice		
+s-b6c3368d	weather		
+s-08a77279	cause		กลไก + ฝนภาคเหนือตอนบน + แนวโน้มอุณหภูมิ (weather) รวมในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-db0d2607	cause		
+s-83dd1dca	cause		
+s-bc0a294a	weather		
+s-ad880da6	cause		กลไก + "หลังจากนั้นภาคใต้จะมีฝนลดลง" (weather) ในหน่วยเดียว ส่วนหลักเป็นกลไก
+s-d43ecf6a	cause		กลไก + ความสูงคลื่น (weather) ในหน่วยเดียว ส่วนหลักเป็นกลไก
