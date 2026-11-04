@@ -42,3 +42,24 @@ s-8fdbd38e	advice	ALL	"บริเวณดังกล่าว" หมาย�
 s-a22128dd	advice	SE SW E	ภาคใต้ + ชาวเรือบริเวณอ่าวไทยและทะเลอันดามัน
 d-ba56119c	weather
 d-5510a0ff	cause
+d-b2c2067f	cause
+d-f3ce5232	cause
+d-96de0e78	advice	E SE SW	ทะเลอันดามันและอ่าวไทย + ชาวเรือ
+s-8ad2a3ba	weather
+s-07c6e9de	weather		ขึ้นต้นด้วย "ในขณะที่" แต่เนื้อหาเป็นผล
+s-197fb8cf	cause		กลไก (ลมตะวันออกอ่อนลง) ต่อด้วยความสูงคลื่น (weather) ในหน่วยเดียวเพราะไม่ตัดที่ "สำหรับ" ส่วนหลักเป็นกลไก
+s-c35e612b	advice	SE SW E	ภาคใต้ + ชาวเรือบริเวณอ่าวไทยและทะเลอันดามัน
+d-60791115	weather
+s-ccfc7ea4	weather
+s-eda8e5e9	cause
+s-96bd819c	cause
+s-3c141a91	weather
+s-82e0eda2	cause
+s-eeb3fd65	cause
+s-c5fee400	weather
+s-2c82ded2	advice	ALL	"ขอให้ประชาชน..." ไม่ระบุที่ตั้ง + ชาวเรืออ่าวไทย/อันดามัน (รวมแล้วครบทุกภาค)
+d-e7b76157	weather
+d-5c258f13	cause
+d-43190416	weather
+d-a7532959	advice	C BKK	"บริเวณดังกล่าว" = ภาคกลาง รวมทั้งกรุงเทพมหานครและปริมณฑล จากหน่วยก่อนหน้า
+d-5da72913	cause
