@@ -63,3 +63,24 @@ d-5c258f13	cause
 d-43190416	weather
 d-a7532959	advice	C BKK	"บริเวณดังกล่าว" = ภาคกลาง รวมทั้งกรุงเทพมหานครและปริมณฑล จากหน่วยก่อนหน้า
 d-5da72913	cause
+d-989e3113	cause
+s-4ef8ea67	weather
+s-660aab8d	cause
+s-b94ea57e	cause
+s-c9748365	weather
+s-d156178a	cause		กลไก (คลื่นกระแสลมฝ่ายตะวันออก) ต่อด้วย "หลังจากนั้นประเทศไทยตอนบนจะเริ่มมีฝนลดลง" (weather) ส่วนหลักเป็นกลไก
+s-37f12f5b	weather
+s-4d7ac812	cause
+s-f0cbcd72	cause
+s-9acc6310	advice	ALL	"ขอให้ประชาชน..." ไม่ระบุที่ตั้ง + ชาวเรือ
+d-ba7ca15f	weather
+d-7833d51a	advice	N NE C BKK SE SW	"บริเวณดังกล่าว" = ภาคเหนือ ตะวันออกเฉียงเหนือ กลาง (C+BKK) และใต้ จากหน่วยก่อนหน้า
+d-b94ea57e	cause
+s-25868a80	weather
+s-4998bf56	cause
+s-dc5dc33d	weather
+s-ff4f52d2	weather
+s-61c0f633	cause		
+s-e45d9c4f	weather		
+s-8ca950d2	advice	N NE C E BKK	ประเทศไทยตอนบน
+s-5ea3a6b1	advice	SE SW E	ภาคใต้ + ชาวเรือบริเวณอ่าวไทยและทะเลอันดามัน
