@@ -21,3 +21,24 @@ d-37eca300	cause
 d-63cfef05	cause
 d-3fa15053	weather
 d-96f44346	cause
+d-ff07d490	weather
+d-96024fbf	weather
+d-35b8195a	advice	N NE C E BKK SE SW	"บริเวณดังกล่าว" หน่วยก่อนหน้าคือไทยตอนบน (ฝนหนักด้านตะวันตกของภาคกลาง) และย่อหน้าเดียวกันเริ่มด้วยภาคใต้ รวมทั้งสอง (D7)
+d-2417ff0b	cause
+d-6f9d1cd4	cause
+d-82e35eb1	cause
+s-d7960c09	weather
+s-ba56119c	weather
+s-5510a0ff	cause
+s-b2c2067f	cause
+s-f3ce5232	cause
+s-778af241	weather
+s-f6e97308	weather		ขึ้นต้นด้วย "ในขณะที่" แต่เนื้อหาเป็นผล (ฝนลดลง) ไม่ใช่กลไก
+s-3bff2a36	cause
+s-1ff5e13d	cause
+s-57879229	weather
+s-e2e3e9da	other		พายุไซโคลนในอ่าวเบงกอลที่ขึ้นฝั่งอินเดีย ไม่ใช่สภาพอากาศหรือกลไกของประเทศไทย
+s-8fdbd38e	advice	ALL	"บริเวณดังกล่าว" หมายถึงอินเดีย/อ่าวเบงกอล ไม่ใช่ภาคของไทย จึงเป็นคำแนะนำทั่วไปสำหรับผู้เดินทาง
+s-a22128dd	advice	SE SW E	ภาคใต้ + ชาวเรือบริเวณอ่าวไทยและทะเลอันดามัน
+d-ba56119c	weather
+d-5510a0ff	cause
