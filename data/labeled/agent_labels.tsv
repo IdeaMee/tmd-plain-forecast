@@ -210,3 +210,24 @@ d-91ec161a	weather
 d-f859bd8f	cause		
 d-9c268cf1	cause		
 d-48ac5cfd	advice	E SE SW	ชาวเรือ + เรือเล็กอ่าวไทยตอนล่าง
+d-7e86f1ad	advice	N NE C E BKK	ประเทศไทยตอนบน
+d-d1a77295	weather		
+d-f3fb7278	advice	SE SW	ภาคใต้
+d-3d0f3847	weather		
+d-8ebe1b8c	advice	N NE C E BKK	ประเทศไทยตอนบน
+d-c57396cc	cause		
+d-085fd2b5	cause		
+d-a1fcb7b9	cause		กลไก + คลื่นอ่าวไทยตอนล่าง (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+d-0abac1fe	weather		
+d-7018c7cb	advice	E SE SW	ชาวเรือบริเวณอ่าวไทยและทะเลอันดามัน + เรือเล็กอ่าวไทยตอนล่าง
+s-760fc8f3	weather		
+s-d96bcb25	weather		
+s-a5646106	cause		กลไก + ฝนภาคใต้ (weather) ติดกันเพราะ PDF รวมหัวข้อ "ภาคใต้" ส่วนแรกเป็นกลไก
+s-ec939258	cause		กลไก + คลื่น (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-576c9aee	weather		
+s-477fd285	cause		กลไก (มรสุม) + คลื่นอ่าวไทยตอนล่าง (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-78447a01	advice	E SE SW	ภาคใต้ + ชาวเรืออ่าวไทยและทะเลอันดามัน
+d-830c78c7	weather		
+d-167ff545	cause		
+d-979bc904	cause		
+d-c11207a0	weather		คลื่นลม
