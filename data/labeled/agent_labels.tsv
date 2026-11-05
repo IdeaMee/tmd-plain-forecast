@@ -272,3 +272,23 @@ d-faef4e06	cause
 d-3ddf56af	weather		แนวโน้ม "อนึ่ง" ท้ายหน่วยมีวลีนำเข้าคำแนะนำ
 d-ce7f7b3f	weather		
 d-c598e11d	weather		
+s-2aa06c8e	weather		
+s-50af5d49	weather		
+s-7804834e	cause		
+s-0d9ad144	cause		กลไก (มรสุม) + คลื่น (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-5c41f148	weather		
+s-9a28d439	weather		
+s-360de397	cause		
+s-3fd7362c	cause		กลไก (มรสุม) + คลื่นอ่าวไทยตอนล่าง (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-ef5f579c	advice	E SE SW	ภาคใต้ + ชาวเรือ + เรือเล็กอ่าวไทยตอนล่าง
+d-7167e701	weather		
+d-a9a6e40b	weather		
+d-9327f877	cause		
+d-32da9831	weather		
+d-0e925b66	cause		
+d-cec8d82f	cause		"ส่งผลให้มีลม...พัดนำความชื้น" ยังเป็นกลไก
+d-5d8d45cf	advice	ALL	คำแนะนำทั่วไป ไม่ระบุพื้นที่ (D6)
+d-f29f5dc5	advice	E SE SW	คลื่น (weather) + ชาวเรืออ่าวไทยและทะเลอันดามัน
+d-1adfa6aa	weather		แนวโน้ม "อนึ่ง" ท้ายหน่วยมีวลีนำเข้าคำแนะนำ
+d-2c3dc550	weather		ฝุ่นละออง (คู่มือหัวข้อ 4) "บริเวณดังกล่าว" อ้างพื้นที่ในหน่วยเอง
+d-ff0b5444	advice	E SE SW	คลื่น (weather) + ชาวเรือทะเลอ่าวไทยและอันดามัน
