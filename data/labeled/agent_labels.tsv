@@ -168,3 +168,24 @@ d-73832890	weather
 d-fa19fde6	advice	SE SW	ภาคใต้
 d-8e6ce348	weather		
 d-7cdcfd2a	weather		
+d-45b12932	advice	NE	ภาคตะวันออกเฉียงเหนือ
+d-e6f68f9c	cause		
+d-fb462dc0	cause		"ส่งผลให้มรสุม...มีกำลังแรงขึ้น" ยังเป็นกลไก
+d-2335be9a	weather		
+s-b5c44311	weather		
+s-08a56e04	cause		กลไก + ฝนภาคเหนือตอนบน + คลื่นอ่าวไทยตอนล่าง (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-3cfa4f32	weather		
+s-1f277c2d	cause		กลไก + ความสูงคลื่น (weather) ในหน่วยเดียว ส่วนหลักเป็นกลไก
+s-195d1644	advice	SE SW N NE C E BKK	ภาคใต้ + ประเทศไทยตอนบน + ชาวเรือ + เรือเล็กอ่าวไทยตอนล่าง
+d-adec28a4	weather		
+d-33e37fe4	advice	SE SW	ภาคใต้
+d-d6bc15a4	weather		
+d-1fc91bdf	advice	N NE C E BKK	ประเทศไทยตอนบน
+d-e8a3e269	cause		
+d-dd5da4c1	cause		
+d-e16072e0	cause		
+d-7738e3f9	weather		
+d-ffd00808	weather		
+d-c1d3557f	advice	E SE SW	ชาวเรือ (ทะเลอันดามันและอ่าวไทยจากหน่วยก่อนหน้า) + เรือเล็กอ่าวไทยตอนล่าง
+s-c0edc5fd	weather		
+s-e61e34a2	cause		กลไก (มรสุม) + สภาพอากาศไทยตอนบน (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
