@@ -147,3 +147,24 @@ s-83dd1dca	cause
 s-bc0a294a	weather		
 s-ad880da6	cause		กลไก + "หลังจากนั้นภาคใต้จะมีฝนลดลง" (weather) ในหน่วยเดียว ส่วนหลักเป็นกลไก
 s-d43ecf6a	cause		กลไก + ความสูงคลื่น (weather) ในหน่วยเดียว ส่วนหลักเป็นกลไก
+s-321cca29	advice	SE SW N NE C E BKK	ภาคใต้ + ประเทศไทยตอนบน + ชาวเรืออ่าวไทย/อันดามัน
+d-592b6ff4	weather		
+d-dbe5ac53	weather		
+d-76e9f7d8	cause		
+d-f85c802e	cause		
+d-1134e4a6	weather		
+d-7f182610	advice	E SE SW	ชาวเรือ (ทะเลอันดามันและอ่าวไทยจากหน่วยก่อนหน้า)
+d-4117dccd	cause		ตามตัวอย่างในคู่มือ: ส่วนกลไกก่อน "ส่งผลทำให้"
+d-8ab172ca	weather		ผลต่อสภาพอากาศหลัง "ส่งผลทำให้"
+s-c9b241d8	weather		
+s-0102d293	cause		กลไก (มรสุม) + สภาพอากาศไทยตอนบน (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-220eb5d8	cause		กลไก + ฝนภาคเหนือตอนบน (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-5ed6ce9e	weather		
+s-76032320	cause		กลไก (มรสุมอ่อนลง) + อุณหภูมิไทยตอนบนสูงขึ้น (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-5d809b3d	cause		
+s-475e2456	weather		
+s-1b0dd16e	advice	SE SW N NE C E BKK	ภาคใต้ + ประเทศไทยตอนบน + ชาวเรืออ่าวไทย/อันดามัน
+d-73832890	weather		
+d-fa19fde6	advice	SE SW	ภาคใต้
+d-8e6ce348	weather		
+d-7cdcfd2a	weather		
