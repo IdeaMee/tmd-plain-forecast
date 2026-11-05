@@ -231,3 +231,24 @@ d-830c78c7	weather
 d-167ff545	cause		
 d-979bc904	cause		
 d-c11207a0	weather		คลื่นลม
+d-eefed97b	weather		
+d-9a84e7ce	weather		
+d-b1c9c9a0	cause		
+d-3e085216	weather		คลื่นลม
+d-0394df82	advice	E SE SW	ชาวเรืออ่าวไทยและทะเลอันดามัน
+d-06ae3730	cause		
+d-7b1977a1	advice	E SE SW	คลื่นลม (weather) + คำแนะนำชาวเรือ ในหน่วยเดียว คำแนะนำมาก่อน
+d-ac5e2321	cause		
+s-13e3f67e	weather		
+s-b3ff6e6d	weather		
+s-bb8e3b1f	weather		
+s-25068abb	advice	E SE SW	ภาคใต้ + ชาวเรืออ่าวไทยและทะเลอันดามัน
+d-147dd859	weather		
+d-e73f0e6b	cause		
+d-df33d8ae	advice	E SE SW	ภาคใต้ + ชาวเรือ (มีคลื่นลมปนในหน่วยเดียว)
+d-1b6e8c99	cause		
+d-13fb59b8	cause		
+d-e6902fc5	weather		แนวโน้ม "อนึ่ง ในช่วงวันที่"
+d-af001d67	advice	ALL	คำแนะนำฝนสะสมไม่ระบุพื้นที่ (D6) + ชาวเรือ + ไทยตอนบน (weather) ปนในหน่วยเดียว
+d-76f68edb	advice	ALL	คำแนะนำทั่วไป ไม่ระบุพื้นที่ (D6)
+d-84c1bdf5	weather		
