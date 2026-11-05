@@ -189,3 +189,24 @@ d-ffd00808	weather
 d-c1d3557f	advice	E SE SW	ชาวเรือ (ทะเลอันดามันและอ่าวไทยจากหน่วยก่อนหน้า) + เรือเล็กอ่าวไทยตอนล่าง
 s-c0edc5fd	weather		
 s-e61e34a2	cause		กลไก (มรสุม) + สภาพอากาศไทยตอนบน (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-1d0ff1e5	cause		
+s-09804a12	cause		
+s-3ef4fcb2	weather		ผลหลัง "ส่งผลให้" + คลื่น + ฝนภาคใต้ช่วงถัดไป ทั้งหมดเป็นสภาพอากาศ
+s-f057e55d	advice	SE SW N NE C E BKK	ภาคใต้ + ประเทศไทยตอนบน + ชาวเรือ + เรือเล็กอ่าวไทยตอนล่าง
+d-e031e444	weather		
+d-5e629316	advice	N NE C E BKK	ประเทศไทยตอนบน
+d-2166dfdb	cause		
+d-71ee8c67	weather		
+s-eb960f91	weather		
+s-5535572d	cause		กลไก + คลื่นอ่าวไทยตอนล่าง (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-1a850d0e	weather		
+s-bc71e9e0	cause		กลไก + คลื่น + สภาพอากาศไทยตอนบนช่วงถัดไป (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก (ก้ำกึ่ง)
+s-4fed5fd1	cause		
+s-b0f836e7	weather		
+s-c24ea051	cause		
+s-a75186bb	advice	SE SW N NE C E BKK	ภาคใต้ + ประเทศไทยตอนบน + ชาวเรือ + เรือเล็กอ่าวไทยตอนล่าง
+d-30445cdd	weather		
+d-91ec161a	weather		
+d-f859bd8f	cause		
+d-9c268cf1	cause		
+d-48ac5cfd	advice	E SE SW	ชาวเรือ + เรือเล็กอ่าวไทยตอนล่าง
