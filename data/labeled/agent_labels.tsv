@@ -252,3 +252,23 @@ d-e6902fc5	weather		แนวโน้ม "อนึ่ง ในช่วงว
 d-af001d67	advice	ALL	คำแนะนำฝนสะสมไม่ระบุพื้นที่ (D6) + ชาวเรือ + ไทยตอนบน (weather) ปนในหน่วยเดียว
 d-76f68edb	advice	ALL	คำแนะนำทั่วไป ไม่ระบุพื้นที่ (D6)
 d-84c1bdf5	weather		
+d-0f362032	weather		
+d-6b7b2501	cause		
+d-43bf7768	cause		
+d-480f0d44	cause		
+d-a6dd5ac6	advice	SE SW	ภาคใต้
+d-72e2cfb8	advice	E SE SW	คลื่น (weather) + ชาวเรืออ่าวไทยและทะเลอันดามัน
+d-23e172d7	weather		แนวโน้ม "อนึ่ง" ท้ายหน่วยมีวลีนำเข้าคำแนะนำ "เพื่อความปลอดภัย..." แต่คำแนะนำอยู่หน่วยถัดไป
+d-eaa9cda2	advice	SE SW N NE C E BKK	"ช่วงเวลาดังกล่าว" รับพื้นที่จากหน่วยก่อนหน้า (ภาคใต้ + ทะเล + ไทยตอนบน) ตาม D5
+d-d5738e0b	advice	ALL	คำแนะนำทั่วไป (คู่มือหัวข้อ 4)
+s-f7e33bcf	weather		
+s-57cfbdb5	weather		
+s-bc88c9b9	cause		กลไก (มวลอากาศเย็น) + ฝนภาคใต้ (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-cd5833eb	weather		
+s-1a5193f6	cause		กลไก (มรสุม) + คลื่นอ่าวไทยตอนล่าง (weather) ในหน่วยเดียว ส่วนแรกเป็นกลไก
+s-6112dd47	advice	E SE SW	ภาคใต้ + ชาวเรืออ่าวไทยและทะเลอันดามัน
+d-3c1ff21a	weather		
+d-faef4e06	cause		
+d-3ddf56af	weather		แนวโน้ม "อนึ่ง" ท้ายหน่วยมีวลีนำเข้าคำแนะนำ
+d-ce7f7b3f	weather		
+d-c598e11d	weather		
