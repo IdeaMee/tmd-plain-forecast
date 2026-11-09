@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "regions": ["sin1"],
+  "functions": {
+    "api/**/*.py": {
+      "excludeFiles": "{docs/**,course/**,data/**,plans/**,.claude/**,tests/**,node_modules/**,.next/**,app/**,components/**,lib/**,public/**,scripts/**,db/**,models/eval/**,test-results/**,**/*.md}"
+    }
+  }
+}
