@@ -1,0 +1,612 @@
+{
+  "doc_type": "sevenday",
+  "general_advice": [
+    {
+      "general": true,
+      "scope": [
+        "north",
+        "northeast",
+        "central",
+        "east",
+        "south_east_coast",
+        "south_west_coast",
+        "bangkok_vicinity"
+      ],
+      "source_unit_id": "s-2c82ded2",
+      "text": "ในช่วงวันที่ 2-6 พ.ย.69 ขอให้ประชาชนระวังอันตรายจากฝนฟ้าคะนอง ลมกระโชกแรง รวมทั้งควรหลีกเลี่ยงการอยู่ในที่โล่งแจ้ง ใต้ต้นไม้ใหญ่ และป้ายโฆษณาที่ไม่แข็งแรง รวมทั้งระวังอันตรายจากฝนตกหนักและฝนตกสะสมที่เกิดขึ้นต่อเนื่อง ซึ่งอาจทำให้เกิดน้ำท่วมฉับพลันและน้ำป่าไหลหลาก รวมทั้งดินโคลนถล่ม โดยเฉพาะพื้นที่ลาดเชิงเขาใกล้ทางน้ำไหลผ่านและพื้นที่ลุ่มส่วนชาวเรือบริเวณอ่าวไทยและทะเลอันดามันควรตรวจสอบเส้นทางและเดินเรือด้วยความระมัดระวัง รวมทั้งหลีกเลี่ยงการเดินเรือในบริเวณที่มีฝนฟ้าคะนอง ตลอดช่วง"
+    }
+  ],
+  "issue_id": "261030",
+  "issued_at": "2026-10-30T00:00:00+07:00",
+  "pipeline_version": "0.1.0",
+  "regions": {
+    "bangkok_vicinity": {
+      "advice": [],
+      "lines": [],
+      "periods": [
+        {
+          "end": "2026-11-03",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "rain_area_pct_high": 40,
+                "rain_area_pct_low": 20,
+                "rain_area_tenths_high": 4,
+                "rain_area_tenths_low": 2,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 20-40 ของพื้นที่ (ราว 2-4 ใน 10 ส่วนของพื้นที่ภาค)"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออก",
+                "wind_speed_kmh_high": 20,
+                "wind_speed_kmh_low": 10
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออก ความเร็ว 10-20 กม./ชม."
+            }
+          ],
+          "start": "2026-10-31"
+        },
+        {
+          "end": "2026-11-06",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "glossary_terms": [
+                  "ฝนหนัก"
+                ],
+                "gusts": "ลมกระโชกแรง",
+                "heavy_rain": "ฝนตกหนักบางแห่ง",
+                "rain_area_pct_high": 60,
+                "rain_area_pct_low": 40,
+                "rain_area_tenths_high": 6,
+                "rain_area_tenths_low": 4,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 40-60 ของพื้นที่ (ราว 4-6 ใน 10 ส่วนของพื้นที่ภาค) มีลมกระโชกแรง มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-110.0 มิลลิเมตร)"
+            },
+            {
+              "facts": {
+                "temp_max_high": 35,
+                "temp_max_low": 32,
+                "temp_min_high": 28,
+                "temp_min_low": 24
+              },
+              "kind": "temperature",
+              "text": "อุณหภูมิต่ำสุด 24-28 องศาเซลเซียส สูงสุด 32-35 องศาเซลเซียส"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออกเฉียงใต้",
+                "wind_speed_kmh_high": 20,
+                "wind_speed_kmh_low": 10
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 10-20 กม./ชม."
+            }
+          ],
+          "start": "2026-11-04"
+        }
+      ]
+    },
+    "central": {
+      "advice": [],
+      "lines": [],
+      "periods": [
+        {
+          "end": "2026-11-03",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "rain_area_pct_high": 40,
+                "rain_area_pct_low": 20,
+                "rain_area_tenths_high": 4,
+                "rain_area_tenths_low": 2,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 20-40 ของพื้นที่ (ราว 2-4 ใน 10 ส่วนของพื้นที่ภาค)"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออก",
+                "wind_speed_kmh_high": 20,
+                "wind_speed_kmh_low": 10
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออก ความเร็ว 10-20 กม./ชม."
+            }
+          ],
+          "start": "2026-10-31"
+        },
+        {
+          "end": "2026-11-06",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "glossary_terms": [
+                  "ฝนหนัก"
+                ],
+                "gusts": "ลมกระโชกแรง",
+                "heavy_rain": "ฝนตกหนักบางแห่ง",
+                "rain_area_pct_high": 60,
+                "rain_area_pct_low": 40,
+                "rain_area_tenths_high": 6,
+                "rain_area_tenths_low": 4,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 40-60 ของพื้นที่ (ราว 4-6 ใน 10 ส่วนของพื้นที่ภาค) มีลมกระโชกแรง มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-110.0 มิลลิเมตร)"
+            },
+            {
+              "facts": {
+                "temp_max_high": 36,
+                "temp_max_low": 32,
+                "temp_min_high": 27,
+                "temp_min_low": 22
+              },
+              "kind": "temperature",
+              "text": "อุณหภูมิต่ำสุด 22-27 องศาเซลเซียส สูงสุด 32-36 องศาเซลเซียส"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออกเฉียงใต้",
+                "wind_speed_kmh_high": 20,
+                "wind_speed_kmh_low": 10
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 10-20 กม./ชม."
+            }
+          ],
+          "start": "2026-11-04"
+        }
+      ]
+    },
+    "east": {
+      "advice": [],
+      "lines": [],
+      "periods": [
+        {
+          "end": "2026-11-02",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "rain_area_pct_high": 40,
+                "rain_area_pct_low": 30,
+                "rain_area_tenths_high": 4,
+                "rain_area_tenths_low": 3,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 30-40 ของพื้นที่ (ราว 3-4 ใน 10 ส่วนของพื้นที่ภาค)"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออก",
+                "wind_speed_kmh_high": 30,
+                "wind_speed_kmh_low": 10
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออก ความเร็ว 10-30 กม./ชม."
+            },
+            {
+              "facts": {
+                "wave_m_high": 1,
+                "wave_m_low": 1,
+                "wave_qualifier": "ต่ำกว่า",
+                "wave_storm_m_high": 2,
+                "wave_storm_m_low": 2,
+                "wave_storm_qualifier": "สูงมากกว่า"
+              },
+              "kind": "wave",
+              "text": "ทะเลมีคลื่นต่ำกว่า 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+            }
+          ],
+          "start": "2026-10-31"
+        },
+        {
+          "end": "2026-11-06",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "glossary_terms": [
+                  "ฝนหนัก"
+                ],
+                "gusts": "ลมกระโชกแรง",
+                "heavy_rain": "ฝนตกหนักบางแห่ง",
+                "rain_area_pct_high": 60,
+                "rain_area_pct_low": 40,
+                "rain_area_tenths_high": 6,
+                "rain_area_tenths_low": 4,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 40-60 ของพื้นที่ (ราว 4-6 ใน 10 ส่วนของพื้นที่ภาค) มีลมกระโชกแรง มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-110.0 มิลลิเมตร)"
+            },
+            {
+              "facts": {
+                "temp_max_high": 35,
+                "temp_max_low": 31,
+                "temp_min_high": 27,
+                "temp_min_low": 22
+              },
+              "kind": "temperature",
+              "text": "อุณหภูมิต่ำสุด 22-27 องศาเซลเซียส สูงสุด 31-35 องศาเซลเซียส"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออกเฉียงใต้",
+                "wind_speed_kmh_high": 30,
+                "wind_speed_kmh_low": 10
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 10-30 กม./ชม."
+            },
+            {
+              "facts": {
+                "wave_m_high": 1,
+                "wave_m_low": 1,
+                "wave_qualifier": "ต่ำกว่า",
+                "wave_storm_m_high": 2,
+                "wave_storm_m_low": 2,
+                "wave_storm_qualifier": "สูงมากกว่า"
+              },
+              "kind": "wave",
+              "text": "ทะเลมีคลื่นต่ำกว่า 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+            }
+          ],
+          "start": "2026-11-03"
+        }
+      ]
+    },
+    "north": {
+      "advice": [],
+      "lines": [],
+      "periods": [
+        {
+          "end": "2026-11-01",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "glossary_terms": [
+                  "ฝนหนัก"
+                ],
+                "gusts": "ลมกระโชกแรง",
+                "heavy_rain": "ฝนตกหนักบางแห่ง",
+                "rain_area_pct_high": [
+                  "30",
+                  "40"
+                ],
+                "rain_area_pct_low": [
+                  "10",
+                  "30"
+                ],
+                "rain_area_tenths_high": [
+                  "3",
+                  "4"
+                ],
+                "rain_area_tenths_low": [
+                  "1",
+                  "3"
+                ],
+                "rain_kind": [
+                  "ฝนฟ้าคะนอง",
+                  "ฝนฟ้าคะนอง"
+                ]
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 10-30 ของพื้นที่ (ราว 1-3 ใน 10 ส่วนของพื้นที่ภาค) มีฝนฟ้าคะนองร้อยละ 30-40 ของพื้นที่ (ราว 3-4 ใน 10 ส่วนของพื้นที่ภาค) มีลมกระโชกแรง มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-110.0 มิลลิเมตร)"
+            },
+            {
+              "facts": {
+                "temp_max_high": 35,
+                "temp_max_low": 28,
+                "temp_min_high": 26,
+                "temp_min_low": 20
+              },
+              "kind": "temperature",
+              "text": "อุณหภูมิต่ำสุด 20-26 องศาเซลเซียส สูงสุด 28-35 องศาเซลเซียส"
+            },
+            {
+              "facts": {
+                "wind_dir": [
+                  "ตะวันออก",
+                  "ตะวันออกเฉียงใต้"
+                ],
+                "wind_speed_kmh_high": [
+                  "20",
+                  "20"
+                ],
+                "wind_speed_kmh_low": [
+                  "10",
+                  "10"
+                ]
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 10-20 กม./ชม."
+            }
+          ],
+          "start": "2026-10-31"
+        }
+      ]
+    },
+    "northeast": {
+      "advice": [],
+      "lines": [],
+      "periods": [
+        {
+          "end": "2026-11-02",
+          "lines": [
+            {
+              "facts": {
+                "area_part": "ทางตอนล่างของภาค",
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "rain_area_pct_high": 30,
+                "rain_area_pct_low": 10,
+                "rain_area_tenths_high": 3,
+                "rain_area_tenths_low": 1,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 10-30 ของพื้นที่ (ราว 1-3 ใน 10 ส่วนของพื้นที่ภาค) ทางตอนล่างของภาค"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออกเฉียงเหนือ",
+                "wind_speed_kmh_high": 20,
+                "wind_speed_kmh_low": 10
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออกเฉียงเหนือ ความเร็ว 10-20 กม./ชม."
+            }
+          ],
+          "start": "2026-10-31"
+        },
+        {
+          "end": "2026-11-06",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "glossary_terms": [
+                  "ฝนหนัก"
+                ],
+                "gusts": "ลมกระโชกแรง",
+                "heavy_rain": "ฝนตกหนักบางแห่ง",
+                "rain_area_pct_high": 60,
+                "rain_area_pct_low": 40,
+                "rain_area_tenths_high": 6,
+                "rain_area_tenths_low": 4,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 40-60 ของพื้นที่ (ราว 4-6 ใน 10 ส่วนของพื้นที่ภาค) มีลมกระโชกแรง มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-110.0 มิลลิเมตร)"
+            },
+            {
+              "facts": {
+                "temp_max_high": 35,
+                "temp_max_low": 31,
+                "temp_min_high": 25,
+                "temp_min_low": 21
+              },
+              "kind": "temperature",
+              "text": "อุณหภูมิต่ำสุด 21-25 องศาเซลเซียส สูงสุด 31-35 องศาเซลเซียส"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออก",
+                "wind_speed_kmh_high": 25,
+                "wind_speed_kmh_low": 10
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออก ความเร็ว 10-25 กม./ชม."
+            }
+          ],
+          "start": "2026-11-03"
+        }
+      ]
+    },
+    "south_east_coast": {
+      "advice": [],
+      "lines": [],
+      "periods": [
+        {
+          "end": "2026-11-03",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "glossary_terms": [
+                  "ฝนหนัก"
+                ],
+                "heavy_rain": "ฝนตกหนักบางแห่ง",
+                "rain_area_pct_high": 60,
+                "rain_area_pct_low": 40,
+                "rain_area_tenths_high": 6,
+                "rain_area_tenths_low": 4,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 40-60 ของพื้นที่ (ราว 4-6 ใน 10 ส่วนของพื้นที่ภาค) มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-110.0 มิลลิเมตร)"
+            }
+          ],
+          "start": "2026-10-31"
+        },
+        {
+          "end": "2026-11-06",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "glossary_terms": [
+                  "ฝนหนัก"
+                ],
+                "heavy_rain": "ฝนตกหนักบางแห่ง",
+                "rain_area_pct_high": 70,
+                "rain_area_pct_low": 60,
+                "rain_area_tenths_high": 7,
+                "rain_area_tenths_low": 6,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 60-70 ของพื้นที่ (ราว 6-7 ใน 10 ส่วนของพื้นที่ภาค) มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-110.0 มิลลิเมตร)"
+            },
+            {
+              "facts": {
+                "temp_max_high": 36,
+                "temp_max_low": 30,
+                "temp_min_high": 27,
+                "temp_min_low": 23
+              },
+              "kind": "temperature",
+              "text": "อุณหภูมิต่ำสุด 23-27 องศาเซลเซียส สูงสุด 30-36 องศาเซลเซียส"
+            },
+            {
+              "facts": {
+                "wind_area": "ตั้งแต่จังหวัด สุราษฎร์ธานีขึ้นมา:",
+                "wind_dir": "ตะวันออก",
+                "wind_speed_kmh_high": 30,
+                "wind_speed_kmh_low": 15
+              },
+              "kind": "wind",
+              "text": "ตั้งแต่จังหวัด สุราษฎร์ธานีขึ้นมา: ลมพัดจากทิศตะวันออก ความเร็ว 15-30 กม./ชม."
+            },
+            {
+              "facts": {
+                "wind_area": "ตั้งแต่จังหวัด นครศรีธรรมราชลงไป:",
+                "wind_dir": "ตะวันออกเฉียงใต้",
+                "wind_speed_kmh_high": 30,
+                "wind_speed_kmh_low": 15
+              },
+              "kind": "wind",
+              "text": "ตั้งแต่จังหวัด นครศรีธรรมราชลงไป: ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 15-30 กม./ชม."
+            },
+            {
+              "facts": {
+                "wave_m_high": 1,
+                "wave_m_low": 1,
+                "wave_qualifier": "สูงประมาณ",
+                "wave_storm_m_high": 2,
+                "wave_storm_m_low": 2,
+                "wave_storm_qualifier": "สูงมากกว่า"
+              },
+              "kind": "wave",
+              "text": "ตั้งแต่จังหวัด นครศรีธรรมราชลงไป: ทะเลมีคลื่นสูงราว 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+            }
+          ],
+          "start": "2026-11-04"
+        }
+      ]
+    },
+    "south_west_coast": {
+      "advice": [],
+      "lines": [],
+      "periods": [
+        {
+          "end": "2026-11-06",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "rain_area_pct_high": 60,
+                "rain_area_pct_low": 40,
+                "rain_area_tenths_high": 6,
+                "rain_area_tenths_low": 4,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 40-60 ของพื้นที่ (ราว 4-6 ใน 10 ส่วนของพื้นที่ภาค)"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออก",
+                "wind_speed_kmh_high": 30,
+                "wind_speed_kmh_low": 15
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออก ความเร็ว 15-30 กม./ชม."
+            },
+            {
+              "facts": {
+                "wave_m_high": 1,
+                "wave_m_low": 1,
+                "wave_qualifier": "สูงประมาณ",
+                "wave_storm_m_high": 2,
+                "wave_storm_m_low": 2,
+                "wave_storm_qualifier": "สูงมากกว่า"
+              },
+              "kind": "wave",
+              "text": "ทะเลมีคลื่นสูงราว 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+            }
+          ],
+          "start": "2026-10-30"
+        },
+        {
+          "end": "2026-11-06",
+          "lines": [
+            {
+              "facts": {
+                "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+                "glossary_terms": [
+                  "ฝนหนัก"
+                ],
+                "heavy_rain": "ฝนตกหนักบางแห่ง",
+                "rain_area_pct_high": 70,
+                "rain_area_pct_low": 60,
+                "rain_area_tenths_high": 7,
+                "rain_area_tenths_low": 6,
+                "rain_kind": "ฝนฟ้าคะนอง"
+              },
+              "kind": "rain",
+              "text": "มีฝนฟ้าคะนองร้อยละ 60-70 ของพื้นที่ (ราว 6-7 ใน 10 ส่วนของพื้นที่ภาค) มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-110.0 มิลลิเมตร)"
+            },
+            {
+              "facts": {
+                "temp_max_high": 36,
+                "temp_max_low": 31,
+                "temp_min_high": 27,
+                "temp_min_low": 23
+              },
+              "kind": "temperature",
+              "text": "อุณหภูมิต่ำสุด 23-27 องศาเซลเซียส สูงสุด 31-36 องศาเซลเซียส"
+            },
+            {
+              "facts": {
+                "wind_dir": "ตะวันออกเฉียงใต้",
+                "wind_speed_kmh_high": 30,
+                "wind_speed_kmh_low": 15
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 15-30 กม./ชม."
+            },
+            {
+              "facts": {
+                "wave_m_high": 1,
+                "wave_m_low": 1,
+                "wave_qualifier": "สูงประมาณ",
+                "wave_storm_m_high": 2,
+                "wave_storm_m_low": 2,
+                "wave_storm_qualifier": "สูงมากกว่า"
+              },
+              "kind": "wave",
+              "text": "ทะเลมีคลื่นสูงราว 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+            }
+          ],
+          "start": "2026-11-04"
+        }
+      ]
+    }
+  },
+  "source_label": "ฉบับวันที่ 30 ตุลาคม 2569"
+}

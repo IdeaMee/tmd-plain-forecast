@@ -1,0 +1,476 @@
+{
+  "doc_type": "daily",
+  "general_advice": [
+    {
+      "general": true,
+      "scope": [
+        "north",
+        "northeast",
+        "central",
+        "east",
+        "south_east_coast",
+        "south_west_coast",
+        "bangkok_vicinity"
+      ],
+      "source_unit_id": "d-dea9f438",
+      "text": "ขอให้ประชาชนดูแลรักษาสุขภาพเนื่องจากสภาพอากาศที่เปลี่ยนแปลง รวมทั้งระวังอันตรายจากฝนฟ้าคะนอง กับลมกระโชกแรงที่อาจเกิดขึ้นได้บางพื้นที่ ส่วนเกษตรกรควรป้องกันความเสียหายที่อาจจะเกิดกับผลผลิตทางการเกษตรไว้ด้วย"
+    },
+    {
+      "general": true,
+      "scope": [
+        "north",
+        "northeast",
+        "central",
+        "east",
+        "south_east_coast",
+        "south_west_coast",
+        "bangkok_vicinity"
+      ],
+      "source_unit_id": "d-d5738e0b",
+      "text": "ขอให้ประชาชนติดตามประกาศจากกรมอุตุนิยมวิทยาอย่างต่อเนื่อง"
+    }
+  ],
+  "issue_id": "181120260000",
+  "issued_at": "2026-11-18T00:00:00+07:00",
+  "pipeline_version": "0.1.0",
+  "regions": {
+    "bangkok_vicinity": {
+      "advice": [],
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "rain_area_pct_high": 30,
+            "rain_area_pct_low": 30,
+            "rain_area_tenths_high": 3,
+            "rain_area_tenths_low": 3,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 30 ของพื้นที่ (ราว 3 ใน 10 ส่วนของพื้นที่ภาค)"
+        },
+        {
+          "facts": {
+            "temp_max_high": 35,
+            "temp_max_low": 34,
+            "temp_min_high": 26,
+            "temp_min_low": 25
+          },
+          "kind": "temperature",
+          "text": "อุณหภูมิต่ำสุด 25-26 องศาเซลเซียส สูงสุด 34-35 องศาเซลเซียส"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออก",
+            "wind_speed_kmh_high": 20,
+            "wind_speed_kmh_low": 10
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออก ความเร็ว 10-20 กม./ชม."
+        }
+      ],
+      "periods": []
+    },
+    "central": {
+      "advice": [],
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "gusts": "ลมกระโชกแรงบางแห่ง",
+            "province": [
+              "นครสวรรค์",
+              "กาญจนบุรี"
+            ],
+            "rain_area_pct_high": 30,
+            "rain_area_pct_low": 30,
+            "rain_area_tenths_high": 3,
+            "rain_area_tenths_low": 3,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 30 ของพื้นที่ (ราว 3 ใน 10 ส่วนของพื้นที่ภาค) มีลมกระโชกแรงบางแห่ง ส่วนมากที่จังหวัดนครสวรรค์ และกาญจนบุรี"
+        },
+        {
+          "facts": {
+            "temp_max_high": 36,
+            "temp_max_low": 34,
+            "temp_min_high": 26,
+            "temp_min_low": 21
+          },
+          "kind": "temperature",
+          "text": "อุณหภูมิต่ำสุด 21-26 องศาเซลเซียส สูงสุด 34-36 องศาเซลเซียส"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออก",
+            "wind_speed_kmh_high": 20,
+            "wind_speed_kmh_low": 10
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออก ความเร็ว 10-20 กม./ชม."
+        }
+      ],
+      "periods": []
+    },
+    "east": {
+      "advice": [
+        {
+          "general": false,
+          "scope": [
+            "east",
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "source_unit_id": "d-a3282fc9",
+          "text": "สำหรับอ่าวไทยและทะเลอันดามัน บริเวณที่มีฝนฟ้าคะนองมีคลื่นสูงมากกว่า 2 เมตร ชาวเรือควรเดินเรือด้วยความระมัดระวัง รวมทั้งหลีกเลี่ยงการเดินเรือในบริเวณที่มีฝนฟ้าคะนอง"
+        }
+      ],
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "province": [
+              "นครนายก",
+              "ฉะเชิงเทรา",
+              "ชลบุรี",
+              "ระยอง"
+            ],
+            "rain_area_pct_high": 20,
+            "rain_area_pct_low": 20,
+            "rain_area_tenths_high": 2,
+            "rain_area_tenths_low": 2,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 20 ของพื้นที่ (ราว 2 ใน 10 ส่วนของพื้นที่ภาค) ส่วนมากที่จังหวัดนครนายก ฉะเชิงเทรา ชลบุรี และระยอง"
+        },
+        {
+          "facts": {
+            "temp_max_high": 36,
+            "temp_max_low": 33,
+            "temp_min_high": 26,
+            "temp_min_low": 23
+          },
+          "kind": "temperature",
+          "text": "อุณหภูมิต่ำสุด 23-26 องศาเซลเซียส สูงสุด 33-36 องศาเซลเซียส"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออก",
+            "wind_speed_kmh_high": 30,
+            "wind_speed_kmh_low": 15
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออก ความเร็ว 15-30 กม./ชม."
+        },
+        {
+          "facts": {
+            "wave_m_high": 1,
+            "wave_m_low": 1,
+            "wave_qualifier": "สูงประมาณ",
+            "wave_storm_m_high": 2,
+            "wave_storm_m_low": 2,
+            "wave_storm_qualifier": "สูงมากกว่า"
+          },
+          "kind": "wave",
+          "text": "ทะเลมีคลื่นสูงราว 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+        }
+      ],
+      "periods": []
+    },
+    "north": {
+      "advice": [],
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "gusts": "ลมกระโชกแรงบางแห่ง",
+            "province": [
+              "แม่ฮ่องสอน",
+              "เชียงใหม่",
+              "เชียงราย",
+              "ลำพูน",
+              "ลำปาง",
+              "พะเยา",
+              "น่าน",
+              "ตาก",
+              "กำแพงเพชร"
+            ],
+            "rain_area_pct_high": 40,
+            "rain_area_pct_low": 40,
+            "rain_area_tenths_high": 4,
+            "rain_area_tenths_low": 4,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 40 ของพื้นที่ (ราว 4 ใน 10 ส่วนของพื้นที่ภาค) มีลมกระโชกแรงบางแห่ง ส่วนมากที่จังหวัดแม่ฮ่องสอน เชียงใหม่ เชียงราย ลำพูน ลำปาง พะเยา น่าน ตาก และกำแพงเพชร"
+        },
+        {
+          "facts": {
+            "cold": "อากาศเย็น",
+            "glossary_terms": [
+              "อากาศเย็น",
+              "อากาศหนาว"
+            ],
+            "peak_feel": "อากาศหนาว",
+            "peak_place": "ยอดดอย",
+            "peak_temp_min_high": 15,
+            "peak_temp_min_low": 10,
+            "temp_max_high": 35,
+            "temp_max_low": 30,
+            "temp_min_high": 24,
+            "temp_min_low": 21
+          },
+          "kind": "temperature",
+          "text": "อากาศเย็น (คือ อุณหภูมิ 16.0-22.9 องศาเซลเซียส) อุณหภูมิต่ำสุด 21-24 องศาเซลเซียส สูงสุด 30-35 องศาเซลเซียส บนยอดดอย อากาศหนาว (คือ อุณหภูมิ 8.0-15.9 องศาเซลเซียส) ต่ำสุด 10-15 องศาเซลเซียส"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออกเฉียงใต้",
+            "wind_speed_kmh_high": 15,
+            "wind_speed_kmh_low": 10
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 10-15 กม./ชม."
+        }
+      ],
+      "periods": []
+    },
+    "northeast": {
+      "advice": [],
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "province": [
+              "เลย",
+              "หนองคาย",
+              "หนองบัวลำภู",
+              "ชัยภูมิ",
+              "นครราชสีมา"
+            ],
+            "rain_area_pct_high": 20,
+            "rain_area_pct_low": 20,
+            "rain_area_tenths_high": 2,
+            "rain_area_tenths_low": 2,
+            "rain_kind": "ฝน"
+          },
+          "kind": "rain",
+          "text": "มีฝนร้อยละ 20 ของพื้นที่ (ราว 2 ใน 10 ส่วนของพื้นที่ภาค) ส่วนมากที่จังหวัดเลย หนองคาย หนองบัวลำภู ชัยภูมิ และนครราชสีมา"
+        },
+        {
+          "facts": {
+            "glossary_terms": [
+              "อากาศเย็น",
+              "อากาศหนาว"
+            ],
+            "peak_feel": "อากาศเย็นถึงหนาว",
+            "peak_place": "ยอดภู",
+            "peak_temp_min_high": 18,
+            "peak_temp_min_low": 14,
+            "temp_max_high": 36,
+            "temp_max_low": 34,
+            "temp_min_high": 25,
+            "temp_min_low": 23
+          },
+          "kind": "temperature",
+          "text": "อุณหภูมิต่ำสุด 23-25 องศาเซลเซียส สูงสุด 34-36 องศาเซลเซียส บนยอดภู อากาศเย็นถึงหนาว (อากาศเย็น คือ อุณหภูมิ 16.0-22.9 องศาเซลเซียส, อากาศหนาว คือ อุณหภูมิ 8.0-15.9 องศาเซลเซียส) ต่ำสุด 14-18 องศาเซลเซียส"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออกเฉียงเหนือ",
+            "wind_speed_kmh_high": 30,
+            "wind_speed_kmh_low": 10
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออกเฉียงเหนือ ความเร็ว 10-30 กม./ชม."
+        }
+      ],
+      "periods": []
+    },
+    "south_east_coast": {
+      "advice": [
+        {
+          "general": false,
+          "scope": [
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "source_unit_id": "d-a6dd5ac6",
+          "text": "ขอให้ประชาชนในภาคใต้ระวังอันตรายจากฝนตกหนักและฝนที่ตกสะสม ซึ่งอาจทำให้เกิดน้ำท่วมฉับพลันและน้ำป่าไหลหลาก โดยเฉพาะพื้นที่ลาดเชิงเขาใกล้ทางน้ำไหลผ่านและพื้นที่ลุ่ม"
+        },
+        {
+          "general": false,
+          "scope": [
+            "east",
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "source_unit_id": "d-a3282fc9",
+          "text": "สำหรับอ่าวไทยและทะเลอันดามัน บริเวณที่มีฝนฟ้าคะนองมีคลื่นสูงมากกว่า 2 เมตร ชาวเรือควรเดินเรือด้วยความระมัดระวัง รวมทั้งหลีกเลี่ยงการเดินเรือในบริเวณที่มีฝนฟ้าคะนอง"
+        }
+      ],
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "glossary_terms": [
+              "ฝนหนัก"
+            ],
+            "heavy_rain": "ฝนตกหนักบางแห่ง",
+            "province": [
+              "นครศรีธรรมราช",
+              "พัทลุง",
+              "สงขลา",
+              "ปัตตานี",
+              "ยะลา",
+              "นราธิวาส"
+            ],
+            "rain_area_pct_high": 60,
+            "rain_area_pct_low": 60,
+            "rain_area_tenths_high": 6,
+            "rain_area_tenths_low": 6,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 60 ของพื้นที่ (ราว 6 ใน 10 ส่วนของพื้นที่ภาค) มีฝนตกหนักบางแห่ง (ฝนหนัก คือ ฝน 35.1-90.0 มิลลิเมตร) บริเวณจังหวัดนครศรีธรรมราช พัทลุง สงขลา ปัตตานี ยะลา และนราธิวาส"
+        },
+        {
+          "facts": {
+            "temp_max_high": 34,
+            "temp_max_low": 28,
+            "temp_min_high": 25,
+            "temp_min_low": 22
+          },
+          "kind": "temperature",
+          "text": "อุณหภูมิต่ำสุด 22-25 องศาเซลเซียส สูงสุด 28-34 องศาเซลเซียส"
+        },
+        {
+          "facts": {
+            "wind_area": "ตั้งแต่จังหวัดสุราษฎร์ธานีขึ้นมา:",
+            "wind_dir": "ตะวันออก",
+            "wind_speed_kmh_high": 30,
+            "wind_speed_kmh_low": 15
+          },
+          "kind": "wind",
+          "text": "ตั้งแต่จังหวัดสุราษฎร์ธานีขึ้นมา: ลมพัดจากทิศตะวันออก ความเร็ว 15-30 กม./ชม."
+        },
+        {
+          "facts": {
+            "wind_area": "ตั้งแต่จังหวัดนครศรีธรรมราชลงไป:",
+            "wind_dir": "ตะวันออกเฉียงใต้",
+            "wind_speed_kmh_high": 35,
+            "wind_speed_kmh_low": 15
+          },
+          "kind": "wind",
+          "text": "ตั้งแต่จังหวัดนครศรีธรรมราชลงไป: ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 15-35 กม./ชม."
+        },
+        {
+          "facts": {
+            "wave_m_high": 1,
+            "wave_m_low": 1,
+            "wave_qualifier": "สูงประมาณ",
+            "wave_storm_m_high": 2,
+            "wave_storm_m_low": 2,
+            "wave_storm_qualifier": "สูงมากกว่า"
+          },
+          "kind": "wave",
+          "text": "ตั้งแต่จังหวัดสุราษฎร์ธานีขึ้นมา: ทะเลมีคลื่นสูงราว 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+        },
+        {
+          "facts": {
+            "wave_m_high": 2,
+            "wave_m_low": 1,
+            "wave_qualifier": "สูง",
+            "wave_storm_m_high": 2,
+            "wave_storm_m_low": 2,
+            "wave_storm_qualifier": "สูงมากกว่า"
+          },
+          "kind": "wave",
+          "text": "ตั้งแต่จังหวัดนครศรีธรรมราชลงไป: ทะเลมีคลื่นสูง 1-2 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+        }
+      ],
+      "periods": []
+    },
+    "south_west_coast": {
+      "advice": [
+        {
+          "general": false,
+          "scope": [
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "source_unit_id": "d-a6dd5ac6",
+          "text": "ขอให้ประชาชนในภาคใต้ระวังอันตรายจากฝนตกหนักและฝนที่ตกสะสม ซึ่งอาจทำให้เกิดน้ำท่วมฉับพลันและน้ำป่าไหลหลาก โดยเฉพาะพื้นที่ลาดเชิงเขาใกล้ทางน้ำไหลผ่านและพื้นที่ลุ่ม"
+        },
+        {
+          "general": false,
+          "scope": [
+            "east",
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "source_unit_id": "d-a3282fc9",
+          "text": "สำหรับอ่าวไทยและทะเลอันดามัน บริเวณที่มีฝนฟ้าคะนองมีคลื่นสูงมากกว่า 2 เมตร ชาวเรือควรเดินเรือด้วยความระมัดระวัง รวมทั้งหลีกเลี่ยงการเดินเรือในบริเวณที่มีฝนฟ้าคะนอง"
+        }
+      ],
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "province": [
+              "พังงา",
+              "กระบี่",
+              "ตรัง",
+              "สตูล"
+            ],
+            "rain_area_pct_high": 60,
+            "rain_area_pct_low": 60,
+            "rain_area_tenths_high": 6,
+            "rain_area_tenths_low": 6,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 60 ของพื้นที่ (ราว 6 ใน 10 ส่วนของพื้นที่ภาค) ส่วนมากที่จังหวัดพังงา กระบี่ ตรัง และสตูล"
+        },
+        {
+          "facts": {
+            "temp_max_high": 35,
+            "temp_max_low": 33,
+            "temp_min_high": 25,
+            "temp_min_low": 23
+          },
+          "kind": "temperature",
+          "text": "อุณหภูมิต่ำสุด 23-25 องศาเซลเซียส สูงสุด 33-35 องศาเซลเซียส"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออก",
+            "wind_speed_kmh_high": 35,
+            "wind_speed_kmh_low": 15
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออก ความเร็ว 15-35 กม./ชม."
+        },
+        {
+          "facts": {
+            "wave_m_high": 1,
+            "wave_m_low": 1,
+            "wave_offshore_m_high": 2,
+            "wave_offshore_m_low": 1,
+            "wave_offshore_qualifier": "สูง",
+            "wave_qualifier": "สูงประมาณ",
+            "wave_storm_m_high": 2,
+            "wave_storm_m_low": 2,
+            "wave_storm_qualifier": "สูงมากกว่า"
+          },
+          "kind": "wave",
+          "text": "ทะเลมีคลื่นสูงราว 1 เมตร ห่างฝั่งคลื่นสูง 1-2 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+        }
+      ],
+      "periods": []
+    }
+  },
+  "source_label": "ประจำวันที่ 17 พฤศจิกายน 2569 23.00 น."
+}
