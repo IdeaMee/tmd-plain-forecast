@@ -1,4 +1,7 @@
+import type { CSSProperties } from "react";
+
 import { AdviceList } from "@/components/features/advice-list";
+import { LineIcon } from "@/components/features/line-icon";
 import { Card } from "@/components/ui/card";
 import type { RegionSummary, SummaryLine } from "@/lib/contract/issue";
 import { cn } from "@/lib/cn";
@@ -10,25 +13,34 @@ type ForecastCardProps = {
   className?: string;
   // โหมดโฟกัสภาคเดียว: หัวข้อใหญ่ขึ้น
   focused?: boolean;
+  // ลำดับการ์ด ใช้เหลื่อมเวลาตอนการ์ดเข้า (D13)
+  index?: number;
 };
 
 function Lines({ lines }: { lines: SummaryLine[] }) {
   return (
-    <dl className="space-y-3">
+    <dl className="grid content-start gap-3.5">
       {lines.map((line, i) => (
         <div key={`${line.kind}-${i}`}>
-          <dt className="text-caption font-semibold text-body">{LINE_KIND_LABELS[line.kind]}</dt>
-          <dd className="text-body-md text-ink">{line.text}</dd>
+          <dt className="flex items-center gap-1.5 text-caption font-semibold text-body">
+            <LineIcon kind={line.kind} />
+            {LINE_KIND_LABELS[line.kind]}
+          </dt>
+          <dd className="mt-0.5 text-body-md text-ink">{line.text}</dd>
         </div>
       ))}
     </dl>
   );
 }
 
-// การ์ดภาค: สรุปสภาพอากาศ (รายวัน = lines, 7 วัน = แยกตามช่วงวัน) + คำแนะนำของภาคนั้น
-export function ForecastCard({ title, summary, className, focused = false }: ForecastCardProps) {
+// การ์ดภาค (ดีไซน์ A): บรรทัดสรุปมีไอคอน + ป้ายชนิด, คำแนะนำของภาคใต้เส้นคั่น · เข้าแบบเหลื่อมเวลา ยกขึ้นตอนโฮเวอร์
+export function ForecastCard({ title, summary, className, focused = false, index = 0 }: ForecastCardProps) {
   return (
-    <Card className={cn("flex flex-col gap-4", className)}>
+    <Card
+      motion="lift"
+      className={cn("flex animate-enter-up flex-col gap-4 stagger", className)}
+      style={{ "--i": index } as CSSProperties}
+    >
       <h3 className={focused ? "text-display-sm" : "text-title-md"}>{title}</h3>
       {summary.lines.length > 0 ? <Lines lines={summary.lines} /> : null}
       {summary.periods.map((period) => (
@@ -38,7 +50,7 @@ export function ForecastCard({ title, summary, className, focused = false }: For
         </section>
       ))}
       {summary.advice.length > 0 ? (
-        <section className="space-y-2 border-t border-hairline pt-4">
+        <section className="mt-auto space-y-2 border-t border-hairline pt-4">
           <h4 className="text-title-sm">คำแนะนำสำหรับภาคนี้</h4>
           <AdviceList items={summary.advice} />
         </section>
