@@ -2,6 +2,8 @@
 
 import { useId, useRef, useState, type DragEvent, type FormEvent } from "react";
 
+import { GenericResult } from "@/app/demo/_components/generic-result";
+import { TraceStepper } from "@/app/demo/_components/trace-stepper";
 import { IssueSummary } from "@/components/features/issue-summary";
 import { Alert } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -30,6 +32,7 @@ const WARNING_ICON = (
 export function UploadForm() {
   const inputId = useId();
   const hintId = useId();
+  const resultId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [file, setFile] = useState<File | null>(null);
   const [status, setStatus] = useState<Status>({ kind: "idle" });
@@ -97,7 +100,8 @@ export function UploadForm() {
             เลือกไฟล์ PDF พยากรณ์ของกรมอุตุนิยมวิทยา
           </label>
           <p id={hintId} className="text-body-sm text-body">
-            ลากไฟล์มาวางในกรอบนี้ หรือกดปุ่มเลือกไฟล์ (พยากรณ์รายวันหรือพยากรณ์ 7 วัน ไม่เกิน 4 MB)
+            ลากไฟล์มาวางในกรอบนี้ หรือกดปุ่มเลือกไฟล์ (ไม่เกิน 4 MB · พยากรณ์รายวัน/7 วันได้สรุปเต็ม
+            เอกสารอื่นของกรมแสดงแบบโหมดทั่วไป)
           </p>
           {/* ช่องเลือกไฟล์จริง (โฟกัสด้วยคีย์บอร์ดได้) ซ่อนด้วยสายตาเพราะปุ่มของเบราว์เซอร์เป็นภาษาอังกฤษ ("Choose File") */}
           <div className="flex flex-wrap items-center gap-3">
@@ -148,6 +152,13 @@ export function UploadForm() {
             <p className="mt-1">{status.message}</p>
           </Alert>
         ) : null}
+        {status.kind === "notice" ? (
+          // ไม่ใช่ข้อผิดพลาด จึงไม่ใช้ไอคอนเตือน
+          <Alert>
+            <p className="font-semibold">อ่านไฟล์นี้ได้แล้ว</p>
+            <p className="mt-1">{status.message}</p>
+          </Alert>
+        ) : null}
         {status.kind === "ok" ? <p className="sr-only">สรุปเสร็จแล้ว ผลอยู่ด้านล่าง</p> : null}
       </div>
 
@@ -161,18 +172,37 @@ export function UploadForm() {
 
       <div>
         {status.kind === "ok" ? (
-          <section className="space-y-6" aria-labelledby={`${inputId}-result`}>
-            <div className="space-y-1">
-              <h2 id={`${inputId}-result`} className="text-display-sm">
-                ผลสรุป{status.issue.doc_type === "daily" ? "พยากรณ์รายวัน" : "พยากรณ์ 7 วัน"}
-              </h2>
-              <p className="text-body-md text-ink">{status.issue.source_label}</p>
-              <p className="text-body-sm text-body">
-                คำนวณจากไฟล์ที่อัปโหลด ผลจาก PDF อาจแม่นน้อยกว่าผลบนหน้าหลัก ตรวจกับประกาศฉบับเต็มก่อนใช้ตัดสินใจ
-              </p>
-            </div>
-            <IssueSummary issue={status.issue} />
-          </section>
+          <div className="space-y-8">
+            {status.result.trace ? <TraceStepper trace={status.result.trace} resultId={resultId} /> : null}
+            <section className="space-y-6" aria-labelledby={resultId}>
+              {status.result.kind === "issue" ? (
+                <>
+                  <div className="space-y-1">
+                    <h2 id={resultId} tabIndex={-1} className="text-display-sm">
+                      ผลสรุป{status.result.document.doc_type === "daily" ? "พยากรณ์รายวัน" : "พยากรณ์ 7 วัน"}
+                    </h2>
+                    <p className="text-body-md text-ink">{status.result.document.source_label}</p>
+                    <p className="text-body-sm text-body">
+                      คำนวณจากไฟล์ที่อัปโหลด ผลจาก PDF อาจแม่นน้อยกว่าผลบนหน้าหลัก ตรวจกับประกาศฉบับเต็มก่อนใช้ตัดสินใจ
+                    </p>
+                  </div>
+                  <IssueSummary issue={status.result.document} />
+                </>
+              ) : (
+                <>
+                  <div className="space-y-1">
+                    <h2 id={resultId} tabIndex={-1} className="text-display-sm">
+                      ผลอ่านเอกสาร (โหมดทั่วไป)
+                    </h2>
+                    {status.result.document.title ? (
+                      <p className="text-body-md text-ink">{status.result.document.title}</p>
+                    ) : null}
+                  </div>
+                  <GenericResult document={status.result.document} />
+                </>
+              )}
+            </section>
+          </div>
         ) : null}
       </div>
     </div>
