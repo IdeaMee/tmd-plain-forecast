@@ -28,6 +28,7 @@ export default defineConfig({
   webServer: [server(3100), server(3101, path.join(fixtures, "empty")), server(3102, path.join(fixtures, "broken"))],
   projects: [
     { name: "home", testMatch: "home.spec.ts", use: { baseURL: "http://localhost:3100" } },
+    { name: "demo", testMatch: "demo.spec.ts", use: { baseURL: "http://localhost:3100" } },
     { name: "empty", testMatch: "empty.spec.ts", use: { baseURL: "http://localhost:3101" } },
     { name: "error", testMatch: "error.spec.ts", use: { baseURL: "http://localhost:3102" } },
   ],
