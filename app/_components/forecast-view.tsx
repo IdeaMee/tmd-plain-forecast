@@ -1,16 +1,13 @@
 import Link from "next/link";
 
-import { AdviceList } from "@/components/features/advice-list";
-import { ForecastCard } from "@/components/features/forecast-card";
 import { DocTypeTabs, RegionTabs } from "@/components/features/forecast-tabs";
+import { IssueSummary } from "@/components/features/issue-summary";
 import { RoundPicker } from "@/components/features/round-picker";
 import { Alert } from "@/components/ui/alert";
 import { buttonVariants } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { REGION_KEYS } from "@/lib/contract/issue";
 import { cn } from "@/lib/cn";
 import { getIssue, getLatestIssue, listRecentIssues } from "@/lib/data/forecasts";
-import { isRegionKey, REGION_LABELS } from "@/lib/format/thai";
+import { isRegionKey } from "@/lib/format/thai";
 import { groupByDay } from "@/lib/history";
 import { homeHref, parseHomeQuery } from "@/lib/routes";
 
@@ -32,7 +29,6 @@ export async function ForecastView({ searchParams }: ForecastViewProps) {
     listRecentIssues(query.type),
     query.issue ? getIssue(query.type, query.issue) : getLatestIssue(query.type),
   ]);
-  const regions = query.region ? [query.region] : REGION_KEYS;
   const typeName = query.type === "daily" ? "พยากรณ์รายวัน" : "พยากรณ์ 7 วัน";
 
   return (
@@ -79,29 +75,7 @@ export async function ForecastView({ searchParams }: ForecastViewProps) {
             />
           ) : null}
 
-          {issue.general_advice.length > 0 ? (
-            <Card className="space-y-3">
-              <h2 className="text-title-md">ข้อแนะนำทั่วไป (ทุกภาค)</h2>
-              <AdviceList items={issue.general_advice} />
-            </Card>
-          ) : null}
-
-          <h2 className="sr-only">สรุปรายภาค</h2>
-          <div className={cn("grid gap-4", !query.region && "sm:grid-cols-2 lg:grid-cols-3")}>
-            {regions.map((key, i) => (
-              <ForecastCard
-                key={key}
-                title={REGION_LABELS[key]}
-                summary={issue.regions[key]}
-                focused={query.region !== null}
-                className={cn(
-                  query.region && "mx-auto w-full max-w-3xl",
-                  // 7 ใบ: ใบสุดท้ายกว้างเต็มแถว ไม่เหลือช่องว่าง (ui-spec หัวข้อ 4)
-                  !query.region && i === regions.length - 1 && "sm:col-span-2 lg:col-span-3",
-                )}
-              />
-            ))}
-          </div>
+          <IssueSummary issue={issue} region={query.region} />
         </>
       )}
     </div>
