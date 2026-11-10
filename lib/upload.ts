@@ -1,0 +1,41 @@
+// ตรรกะของหน้า /demo (ฟังก์ชันบริสุทธิ์ ทดสอบได้): ตรวจไฟล์ก่อนส่ง และแปลงคำตอบของ /api/summarize
+import type { Issue } from "@/lib/contract/issue";
+import { ERROR_MESSAGES_TH, type ErrorCode, summarizeResponseSchema } from "@/lib/contract/summarize";
+
+// เท่ากับ max_upload_bytes ใน src/tmd_plain/config.toml (upload.test.ts ตรวจ) ต่ำกว่าเพดาน body 4.5 MB ของ Vercel
+export const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
+export const SUMMARIZE_URL = "/api/summarize";
+export const NETWORK_MESSAGE_TH = "ติดต่อระบบสรุปไม่สำเร็จ กรุณาลองใหม่อีกครั้ง";
+
+export type FileInfo = { name: string; size: number; type: string };
+
+export type UploadOutcome =
+  | { kind: "ok"; issue: Issue }
+  | { kind: "error"; code: ErrorCode; message: string }
+  | { kind: "network"; message: string };
+
+/** ตรวจในเบราว์เซอร์ก่อนส่ง: ไม่ผ่านคืนรหัสตามสัญญา (ข้อความเดียวกับที่ฟังก์ชันตอบ) ผ่านคืน null */
+export function checkFile(file: FileInfo): ErrorCode | null {
+  if (file.size === 0) return "empty_file";
+  if (file.size > MAX_UPLOAD_BYTES) return "too_large";
+  const looksPdf = file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf");
+  return looksPdf ? null : "unsupported_document";
+}
+
+export function errorOutcome(code: ErrorCode): UploadOutcome {
+  return { kind: "error", code, message: ERROR_MESSAGES_TH[code] };
+}
+
+/** คำตอบที่ไม่ผ่านสัญญา (เช่น หน้า 404/413 ของแพลตฟอร์มที่ไม่ใช่ JSON ของเรา) = ติดต่อระบบไม่สำเร็จ */
+export function readResponse(body: unknown): UploadOutcome {
+  const parsed = summarizeResponseSchema.safeParse(body);
+  if (!parsed.success) return { kind: "network", message: NETWORK_MESSAGE_TH };
+  if (parsed.data.ok) return { kind: "ok", issue: parsed.data.issue };
+  return { kind: "error", code: parsed.data.error.code, message: parsed.data.error.message_th };
+}
+
+/** ขนาดไฟล์อ่านง่าย เช่น "312 KB", "4.2 MB" */
+export function formatSize(bytes: number): string {
+  if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
