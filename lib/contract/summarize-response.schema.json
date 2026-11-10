@@ -1,0 +1,1286 @@
+{
+  "$comment": "generated from src/tmd_plain/contract.py (contract v2); do not edit",
+  "$defs": {
+    "AdviceItem": {
+      "additionalProperties": false,
+      "properties": {
+        "general": {
+          "title": "General",
+          "type": "boolean"
+        },
+        "scope": {
+          "items": {
+            "enum": [
+              "north",
+              "northeast",
+              "central",
+              "east",
+              "south_east_coast",
+              "south_west_coast",
+              "bangkok_vicinity"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Scope",
+          "type": "array"
+        },
+        "source_unit_id": {
+          "minLength": 1,
+          "title": "Source Unit Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "scope",
+        "general",
+        "source_unit_id"
+      ],
+      "title": "AdviceItem",
+      "type": "object"
+    },
+    "EffectPeriod": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "End"
+        },
+        "start": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Start"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "EffectPeriod",
+      "type": "object"
+    },
+    "ErrorDetail": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "unsupported_document",
+            "too_large",
+            "extract_failed",
+            "empty_file"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "message_th": {
+          "minLength": 1,
+          "title": "Message Th",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message_th"
+      ],
+      "title": "ErrorDetail",
+      "type": "object"
+    },
+    "GenericDocument": {
+      "additionalProperties": false,
+      "properties": {
+        "char_count": {
+          "minimum": 0,
+          "title": "Char Count",
+          "type": "integer"
+        },
+        "glossary": {
+          "items": {
+            "$ref": "#/$defs/GlossaryEntry"
+          },
+          "title": "Glossary",
+          "type": "array"
+        },
+        "has_region_headings": {
+          "title": "Has Region Headings",
+          "type": "boolean"
+        },
+        "page_count": {
+          "minimum": 1,
+          "title": "Page Count",
+          "type": "integer"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/$defs/GenericSection"
+          },
+          "title": "Sections",
+          "type": "array"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title"
+        },
+        "tmd_like": {
+          "title": "Tmd Like",
+          "type": "boolean"
+        },
+        "truncated": {
+          "default": false,
+          "title": "Truncated",
+          "type": "boolean"
+        },
+        "warnings": {
+          "items": {
+            "const": "not_tmd_like",
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        }
+      },
+      "required": [
+        "tmd_like",
+        "page_count",
+        "char_count",
+        "has_region_headings"
+      ],
+      "title": "GenericDocument",
+      "type": "object"
+    },
+    "GenericSection": {
+      "additionalProperties": false,
+      "properties": {
+        "heading": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Heading"
+        },
+        "units": {
+          "items": {
+            "$ref": "#/$defs/GenericUnit"
+          },
+          "title": "Units",
+          "type": "array"
+        }
+      },
+      "title": "GenericSection",
+      "type": "object"
+    },
+    "GenericUnit": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "dates": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dates",
+          "type": "array"
+        },
+        "label": {
+          "enum": [
+            "weather",
+            "advice",
+            "cause",
+            "other"
+          ],
+          "title": "Label",
+          "type": "string"
+        },
+        "numbers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Numbers",
+          "type": "array"
+        },
+        "provinces": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provinces",
+          "type": "array"
+        },
+        "regions": {
+          "items": {
+            "enum": [
+              "north",
+              "northeast",
+              "central",
+              "east",
+              "south_east_coast",
+              "south_west_coast",
+              "bangkok_vicinity"
+            ],
+            "type": "string"
+          },
+          "title": "Regions",
+          "type": "array"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "uncertain": {
+          "title": "Uncertain",
+          "type": "boolean"
+        },
+        "unit_id": {
+          "minLength": 1,
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "unit_id",
+        "text",
+        "label",
+        "confidence",
+        "uncertain"
+      ],
+      "title": "GenericUnit",
+      "type": "object"
+    },
+    "GlossaryEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "explanation": {
+          "minLength": 1,
+          "title": "Explanation",
+          "type": "string"
+        },
+        "term": {
+          "minLength": 1,
+          "title": "Term",
+          "type": "string"
+        }
+      },
+      "required": [
+        "term",
+        "explanation"
+      ],
+      "title": "GlossaryEntry",
+      "type": "object"
+    },
+    "Issue": {
+      "additionalProperties": false,
+      "properties": {
+        "doc_type": {
+          "enum": [
+            "daily",
+            "sevenday"
+          ],
+          "title": "Doc Type",
+          "type": "string"
+        },
+        "general_advice": {
+          "items": {
+            "$ref": "#/$defs/AdviceItem"
+          },
+          "title": "General Advice",
+          "type": "array"
+        },
+        "issue_id": {
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "title": "Issued At",
+          "type": "string"
+        },
+        "pipeline_version": {
+          "minLength": 1,
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "regions": {
+          "additionalProperties": {
+            "$ref": "#/$defs/RegionSummary"
+          },
+          "propertyNames": {
+            "enum": [
+              "north",
+              "northeast",
+              "central",
+              "east",
+              "south_east_coast",
+              "south_west_coast",
+              "bangkok_vicinity"
+            ]
+          },
+          "title": "Regions",
+          "type": "object"
+        },
+        "source_label": {
+          "minLength": 1,
+          "title": "Source Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_id",
+        "doc_type",
+        "issued_at",
+        "source_label",
+        "regions",
+        "pipeline_version"
+      ],
+      "title": "Issue",
+      "type": "object"
+    },
+    "Period": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date",
+          "title": "End",
+          "type": "string"
+        },
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "minItems": 1,
+          "title": "Lines",
+          "type": "array"
+        },
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end",
+        "lines"
+      ],
+      "title": "Period",
+      "type": "object"
+    },
+    "QuotedAdvice": {
+      "additionalProperties": false,
+      "properties": {
+        "regions": {
+          "items": {
+            "enum": [
+              "north",
+              "northeast",
+              "central",
+              "east",
+              "south_east_coast",
+              "south_west_coast",
+              "bangkok_vicinity"
+            ],
+            "type": "string"
+          },
+          "title": "Regions",
+          "type": "array"
+        },
+        "source_unit_id": {
+          "minLength": 1,
+          "title": "Source Unit Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "source_unit_id"
+      ],
+      "title": "QuotedAdvice",
+      "type": "object"
+    },
+    "RegionSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "advice": {
+          "items": {
+            "$ref": "#/$defs/AdviceItem"
+          },
+          "title": "Advice",
+          "type": "array"
+        },
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "title": "Lines",
+          "type": "array"
+        },
+        "periods": {
+          "items": {
+            "$ref": "#/$defs/Period"
+          },
+          "title": "Periods",
+          "type": "array"
+        }
+      },
+      "title": "RegionSummary",
+      "type": "object"
+    },
+    "SeaArea": {
+      "additionalProperties": false,
+      "properties": {
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "title": "Lines",
+          "type": "array"
+        },
+        "name_th": {
+          "minLength": 1,
+          "title": "Name Th",
+          "type": "string"
+        },
+        "parts": {
+          "items": {
+            "$ref": "#/$defs/SeaPart"
+          },
+          "title": "Parts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "name_th"
+      ],
+      "title": "SeaArea",
+      "type": "object"
+    },
+    "SeaPart": {
+      "additionalProperties": false,
+      "properties": {
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "minItems": 1,
+          "title": "Lines",
+          "type": "array"
+        },
+        "name_th": {
+          "minLength": 1,
+          "title": "Name Th",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name_th",
+        "lines"
+      ],
+      "title": "SeaPart",
+      "type": "object"
+    },
+    "ShippingIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "advice": {
+          "items": {
+            "$ref": "#/$defs/QuotedAdvice"
+          },
+          "title": "Advice",
+          "type": "array"
+        },
+        "areas": {
+          "additionalProperties": {
+            "$ref": "#/$defs/SeaArea"
+          },
+          "propertyNames": {
+            "enum": [
+              "gulf_of_thailand",
+              "andaman_malacca",
+              "kota_bharu_singapore",
+              "ca_mau_cape"
+            ]
+          },
+          "title": "Areas",
+          "type": "object"
+        },
+        "doc_type": {
+          "const": "shipping",
+          "title": "Doc Type",
+          "type": "string"
+        },
+        "issue_id": {
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "title": "Issued At",
+          "type": "string"
+        },
+        "overview": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "title": "Overview",
+          "type": "array"
+        },
+        "pipeline_version": {
+          "minLength": 1,
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "source_label": {
+          "minLength": 1,
+          "title": "Source Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_id",
+        "doc_type",
+        "issued_at",
+        "source_label",
+        "areas",
+        "pipeline_version"
+      ],
+      "title": "ShippingIssue",
+      "type": "object"
+    },
+    "SummarizeError": {
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "$ref": "#/$defs/ErrorDetail"
+        },
+        "ok": {
+          "const": false,
+          "title": "Ok",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ok",
+        "error"
+      ],
+      "title": "SummarizeError",
+      "type": "object"
+    },
+    "SummarizeGenericOk": {
+      "additionalProperties": false,
+      "properties": {
+        "document": {
+          "$ref": "#/$defs/GenericDocument"
+        },
+        "kind": {
+          "const": "generic",
+          "title": "Kind",
+          "type": "string"
+        },
+        "ok": {
+          "const": true,
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "trace": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Trace"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "ok",
+        "kind",
+        "document"
+      ],
+      "title": "SummarizeGenericOk",
+      "type": "object"
+    },
+    "SummarizeIssueOk": {
+      "additionalProperties": false,
+      "properties": {
+        "document": {
+          "$ref": "#/$defs/Issue"
+        },
+        "kind": {
+          "const": "issue",
+          "title": "Kind",
+          "type": "string"
+        },
+        "ok": {
+          "const": true,
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "trace": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Trace"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "ok",
+        "kind",
+        "document"
+      ],
+      "title": "SummarizeIssueOk",
+      "type": "object"
+    },
+    "SummarizeShippingOk": {
+      "additionalProperties": false,
+      "properties": {
+        "document": {
+          "$ref": "#/$defs/ShippingIssue"
+        },
+        "kind": {
+          "const": "shipping",
+          "title": "Kind",
+          "type": "string"
+        },
+        "ok": {
+          "const": true,
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "trace": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Trace"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "ok",
+        "kind",
+        "document"
+      ],
+      "title": "SummarizeShippingOk",
+      "type": "object"
+    },
+    "SummarizeWarningOk": {
+      "additionalProperties": false,
+      "properties": {
+        "document": {
+          "$ref": "#/$defs/WarningNotice"
+        },
+        "kind": {
+          "const": "warning",
+          "title": "Kind",
+          "type": "string"
+        },
+        "ok": {
+          "const": true,
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "trace": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Trace"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "ok",
+        "kind",
+        "document"
+      ],
+      "title": "SummarizeWarningOk",
+      "type": "object"
+    },
+    "SummarizeWeeklyOk": {
+      "additionalProperties": false,
+      "properties": {
+        "document": {
+          "$ref": "#/$defs/WeeklySummary"
+        },
+        "kind": {
+          "const": "weekly",
+          "title": "Kind",
+          "type": "string"
+        },
+        "ok": {
+          "const": true,
+          "title": "Ok",
+          "type": "boolean"
+        },
+        "trace": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Trace"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "ok",
+        "kind",
+        "document"
+      ],
+      "title": "SummarizeWeeklyOk",
+      "type": "object"
+    },
+    "SummaryLine": {
+      "additionalProperties": false,
+      "properties": {
+        "facts": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
+          },
+          "title": "Facts",
+          "type": "object"
+        },
+        "kind": {
+          "enum": [
+            "rain",
+            "temperature",
+            "wind",
+            "wave",
+            "fog",
+            "other"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "text"
+      ],
+      "title": "SummaryLine",
+      "type": "object"
+    },
+    "TableCell": {
+      "additionalProperties": false,
+      "properties": {
+        "facts": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
+          },
+          "title": "Facts",
+          "type": "object"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "TableCell",
+      "type": "object"
+    },
+    "Trace": {
+      "additionalProperties": false,
+      "properties": {
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/TraceStep"
+          },
+          "title": "Steps",
+          "type": "array"
+        },
+        "truncated": {
+          "default": false,
+          "title": "Truncated",
+          "type": "boolean"
+        }
+      },
+      "title": "Trace",
+      "type": "object"
+    },
+    "TraceStep": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "additionalProperties": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                },
+                "type": "object"
+              }
+            ]
+          },
+          "title": "Data",
+          "type": "object"
+        },
+        "id": {
+          "enum": [
+            "read_pdf",
+            "clean",
+            "detect_type",
+            "segment",
+            "units",
+            "tokenize",
+            "filter_tokens",
+            "classify",
+            "scope",
+            "extract",
+            "template",
+            "verify",
+            "result"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "note_th": {
+          "default": "",
+          "title": "Note Th",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "done",
+            "skipped",
+            "failed"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "title_th": {
+          "minLength": 1,
+          "title": "Title Th",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title_th",
+        "status"
+      ],
+      "title": "TraceStep",
+      "type": "object"
+    },
+    "WarningNotice": {
+      "additionalProperties": false,
+      "properties": {
+        "doc_type": {
+          "const": "warning",
+          "title": "Doc Type",
+          "type": "string"
+        },
+        "effect": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EffectPeriod"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "issue_id": {
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "title": "Issued At",
+          "type": "string"
+        },
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "title": "Lines",
+          "type": "array"
+        },
+        "next_issue_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Next Issue At"
+        },
+        "notice_no": {
+          "title": "Notice No",
+          "type": "string"
+        },
+        "pipeline_version": {
+          "minLength": 1,
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "precautions": {
+          "items": {
+            "$ref": "#/$defs/QuotedAdvice"
+          },
+          "title": "Precautions",
+          "type": "array"
+        },
+        "provinces": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provinces",
+          "type": "array"
+        },
+        "regions": {
+          "items": {
+            "enum": [
+              "north",
+              "northeast",
+              "central",
+              "east",
+              "south_east_coast",
+              "south_west_coast",
+              "bangkok_vicinity"
+            ],
+            "type": "string"
+          },
+          "title": "Regions",
+          "type": "array"
+        },
+        "series_no": {
+          "minimum": 1,
+          "title": "Series No",
+          "type": "integer"
+        },
+        "source_label": {
+          "minLength": 1,
+          "title": "Source Label",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_id",
+        "doc_type",
+        "issued_at",
+        "source_label",
+        "title",
+        "series_no",
+        "notice_no",
+        "pipeline_version"
+      ],
+      "title": "WarningNotice",
+      "type": "object"
+    },
+    "WeeklyRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "title": "Lines",
+          "type": "array"
+        },
+        "rain_max": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TableCell"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "temp_max": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TableCell"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "temp_min": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TableCell"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "WeeklyRegion",
+      "type": "object"
+    },
+    "WeeklySummary": {
+      "additionalProperties": false,
+      "properties": {
+        "doc_type": {
+          "const": "weekly",
+          "title": "Doc Type",
+          "type": "string"
+        },
+        "issue_id": {
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "issued_at": {
+          "format": "date-time",
+          "title": "Issued At",
+          "type": "string"
+        },
+        "overview": {
+          "items": {
+            "$ref": "#/$defs/SummaryLine"
+          },
+          "title": "Overview",
+          "type": "array"
+        },
+        "pipeline_version": {
+          "minLength": 1,
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "regions": {
+          "additionalProperties": {
+            "$ref": "#/$defs/WeeklyRegion"
+          },
+          "propertyNames": {
+            "enum": [
+              "north",
+              "northeast",
+              "central",
+              "east",
+              "south_east_coast",
+              "south_west_coast",
+              "bangkok_vicinity"
+            ]
+          },
+          "title": "Regions",
+          "type": "object"
+        },
+        "source_label": {
+          "minLength": 1,
+          "title": "Source Label",
+          "type": "string"
+        },
+        "week_end": {
+          "format": "date",
+          "title": "Week End",
+          "type": "string"
+        },
+        "week_start": {
+          "format": "date",
+          "title": "Week Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue_id",
+        "doc_type",
+        "issued_at",
+        "source_label",
+        "week_start",
+        "week_end",
+        "regions",
+        "pipeline_version"
+      ],
+      "title": "WeeklySummary",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "anyOf": [
+    {
+      "discriminator": {
+        "mapping": {
+          "generic": "#/$defs/SummarizeGenericOk",
+          "issue": "#/$defs/SummarizeIssueOk",
+          "shipping": "#/$defs/SummarizeShippingOk",
+          "warning": "#/$defs/SummarizeWarningOk",
+          "weekly": "#/$defs/SummarizeWeeklyOk"
+        },
+        "propertyName": "kind"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/$defs/SummarizeIssueOk"
+        },
+        {
+          "$ref": "#/$defs/SummarizeShippingOk"
+        },
+        {
+          "$ref": "#/$defs/SummarizeWarningOk"
+        },
+        {
+          "$ref": "#/$defs/SummarizeWeeklyOk"
+        },
+        {
+          "$ref": "#/$defs/SummarizeGenericOk"
+        }
+      ]
+    },
+    {
+      "$ref": "#/$defs/SummarizeError"
+    }
+  ]
+}

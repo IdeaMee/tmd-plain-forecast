@@ -1,5 +1,5 @@
 {
-  "$comment": "generated from src/tmd_plain/contract.py (contract v1); do not edit",
+  "$comment": "generated from src/tmd_plain/contract.py (contract v2); do not edit",
   "$defs": {
     "AdviceItem": {
       "additionalProperties": false,
