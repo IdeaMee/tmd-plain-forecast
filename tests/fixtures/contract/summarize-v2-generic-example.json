@@ -1,0 +1,120 @@
+{
+  "ok": true,
+  "kind": "generic",
+  "document": {
+    "title": "ลักษณะอากาศทั่วไป",
+    "tmd_like": true,
+    "warnings": [],
+    "page_count": 3,
+    "char_count": 3482,
+    "has_region_headings": true,
+    "sections": [
+      {
+        "heading": "ลักษณะอากาศทั่วไป",
+        "units": [
+          {
+            "unit_id": "fixture-g1",
+            "text": "บริเวณประเทศไทยตอนบน จะมีอากาศเย็นและมีอากาศหนาวในบางช่วง โดยเฉพาะตอนบนของภาคเหนือและภาคตะวันออกเฉียงเหนือ กับมีหมอกหนาหลายพื้นที่",
+            "label": "weather",
+            "confidence": 0.94,
+            "uncertain": false,
+            "regions": ["north", "northeast"],
+            "provinces": [],
+            "numbers": [],
+            "dates": []
+          },
+          {
+            "unit_id": "fixture-g2",
+            "text": "คลื่นลมในทะเลอ่าวไทยยังคงมีกำลังแรง จะมีคลื่นสูง 2 - 4 เมตร",
+            "label": "weather",
+            "confidence": 0.88,
+            "uncertain": false,
+            "regions": [],
+            "provinces": [],
+            "numbers": ["2 - 4 เมตร"],
+            "dates": []
+          },
+          {
+            "unit_id": "fixture-g3",
+            "text": "เนื่องจาก มรสุมตะวันออกเฉียงเหนือยังคงพัดปกคลุมประเทศไทย",
+            "label": "cause",
+            "confidence": 0.55,
+            "uncertain": true,
+            "regions": [],
+            "provinces": [],
+            "numbers": [],
+            "dates": []
+          }
+        ]
+      },
+      {
+        "heading": null,
+        "units": [
+          {
+            "unit_id": "fixture-g4",
+            "text": "ส่วนอุณหภูมิเฉลี่ยจะสูงกว่าค่าปกติประมาณ 1 – 2 องศาเซลเซียส",
+            "label": "weather",
+            "confidence": 0.81,
+            "uncertain": false,
+            "regions": [],
+            "provinces": [],
+            "numbers": ["1 – 2 องศาเซลเซียส"],
+            "dates": []
+          }
+        ]
+      }
+    ],
+    "glossary": [{ "term": "อากาศเย็น", "explanation": "อุณหภูมิ 16.0-22.9 องศาเซลเซียส" }],
+    "truncated": false
+  },
+  "trace": {
+    "steps": [
+      {
+        "id": "read_pdf",
+        "title_th": "อ่าน PDF",
+        "status": "done",
+        "note_th": "ดึงข้อความจาก 3 หน้า",
+        "data": { "pages": 3, "chars": 3482 }
+      },
+      {
+        "id": "detect_type",
+        "title_th": "ตรวจชนิดเอกสาร",
+        "status": "done",
+        "note_th": "ไม่ใช่ชนิดที่รู้จัก ใช้โหมดทั่วไป",
+        "data": { "doc_type": "generic", "tmd_like": true }
+      },
+      {
+        "id": "tokenize",
+        "title_th": "ตัดคำ (newmm)",
+        "status": "done",
+        "note_th": "ตัวอย่างหน่วยแรก",
+        "data": { "tokens": ["บริเวณ", "ประเทศไทย", "ตอนบน", " ", "จะ", "มี", "อากาศ", "เย็น"] }
+      },
+      {
+        "id": "filter_tokens",
+        "title_th": "คัดคำ",
+        "status": "done",
+        "note_th": "ทิ้งช่องว่างและเครื่องหมาย ตัวเลขเป็น <num>",
+        "data": { "dropped": [" "], "kept_count": 7 }
+      },
+      {
+        "id": "classify",
+        "title_th": "จัดประเภทด้วย Naive Bayes",
+        "status": "done",
+        "note_th": "หน่วยแรก",
+        "data": {
+          "scores": { "weather": 0.94, "advice": 0.02, "cause": 0.03, "other": 0.01 },
+          "top_words": ["อากาศ", "หนาว", "หมอก"]
+        }
+      },
+      {
+        "id": "result",
+        "title_th": "ผลลัพธ์",
+        "status": "done",
+        "note_th": "4 หน่วยใน 2 ส่วน",
+        "data": { "units": 4, "sections": 2 }
+      }
+    ],
+    "truncated": false
+  }
+}
