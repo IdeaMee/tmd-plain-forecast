@@ -18,7 +18,8 @@ export default function DemoPage() {
           <h1 className="text-display-md sm:text-display-lg">ลองอัปโหลด PDF พยากรณ์</h1>
           <p className="max-w-prose text-body-md text-ink">
             เลือกไฟล์ PDF พยากรณ์อากาศรายวันหรือพยากรณ์ 7 วันที่ดาวน์โหลดจากเว็บไซต์กรมอุตุนิยมวิทยา
-            ระบบจะสรุปเป็นภาษาไทยง่ายๆ แยก 7 ภาคด้วยวิธีเดียวกับหน้าหลัก
+            ระบบจะสรุปเป็นภาษาไทยง่ายๆ แยก 7 ภาคด้วยวิธีเดียวกับหน้าหลัก และแสดงทีละขั้นว่าระบบทำอะไรกับไฟล์
+            เอกสารชนิดอื่นของกรมจะแสดงแบบโหมดทั่วไป (ข้อความต้นฉบับพร้อมป้ายประเภทประโยค ไม่เขียนใหม่)
           </p>
           <Disclaimer />
           <ul className="max-w-prose list-disc space-y-1 pl-5 text-body-md text-ink">
