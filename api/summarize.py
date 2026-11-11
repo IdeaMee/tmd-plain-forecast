@@ -1,4 +1,4 @@
-"""POST /api/summarize (Phase 5.1): body = ไฟล์ PDF ดิบ (Content-Type: application/pdf) -> JSON ตามสัญญา.
+"""POST /api/summarize (Phase 5.1, v2 ตั้งแต่ 10.2): body = ไฟล์ PDF ดิบ -> JSON ตามสัญญา · ?trace=1 = มีภาพขั้นตอน.
 
 ไฟล์ทางเข้าบางๆ: อ่านคำขอ -> tmd_plain.service -> ตอบ JSON · ไม่เก็บไฟล์และผลลัพธ์
 ส่ง PDF ดิบแทน multipart เพราะไม่ต้องแยกส่วน (โมดูล cgi ถูกลบใน Python 3.13) และไม่มีส่วนหัวกินเพดาน 4.5 MB ของ Vercel
@@ -18,9 +18,10 @@ os.environ.setdefault("PYTHAINLP_READ_ONLY", "1")
 os.environ.setdefault("PYTHAINLP_OFFLINE", "1")
 os.environ.setdefault("PYTHAINLP_DATA", "/tmp/pythainlp-data")
 
-from tmd_plain.classify.model_io import load_labeler  # noqa: E402
+from urllib.parse import parse_qs, urlparse  # noqa: E402
+
+from tmd_plain.classify.model_io import Classifier, load_classifier  # noqa: E402
 from tmd_plain.contract import error_response  # noqa: E402
-from tmd_plain.extract.advice import Labeler  # noqa: E402
 from tmd_plain.service import http_status, summarize_pdf  # noqa: E402
 
 logging.basicConfig(level=logging.INFO)
@@ -30,9 +31,14 @@ MODELS = Path(__file__).resolve().parents[1] / "models"
 
 
 @cache
-def _labeler() -> Labeler:
+def _classifier() -> Classifier:
     # โหลดโมเดลครั้งเดียวต่อ instance
-    return load_labeler(MODELS)
+    return load_classifier(MODELS)
+
+
+def _wants_trace(path: str) -> bool:
+    # ?trace=1 ขอภาพขั้นตอน (หน้า /demo ขอเสมอ) ค่าอื่นหรือไม่ส่ง = ไม่มี trace
+    return parse_qs(urlparse(path).query).get("trace", [""])[0] == "1"
 
 
 def _read_chunked(handler: BaseHTTPRequestHandler) -> bytes:
@@ -64,7 +70,7 @@ def _read_body(handler: BaseHTTPRequestHandler) -> bytes:
 class handler(BaseHTTPRequestHandler):  # noqa: N801 (ชื่อที่ Vercel กำหนด)
     def do_POST(self) -> None:  # noqa: N802
         try:
-            result = summarize_pdf(_read_body(self), _labeler())
+            result = summarize_pdf(_read_body(self), _classifier(), _wants_trace(self.path))
         except Exception:
             # ด่านสุดท้าย (F7): ข้อผิดพลาดที่ไม่คาดต้องได้ JSON ตามสัญญา ไม่ใช่ 500 เปล่า
             logger.exception("summarize crashed")
