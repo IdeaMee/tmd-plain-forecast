@@ -1,28 +1,27 @@
-"""บริการของหน้า /demo: ไฟล์ที่อัปโหลด -> คำตอบตามสัญญา (ทดสอบได้โดยไม่ต้องมี Vercel, ไม่เก็บไฟล์).
+"""บริการของหน้า /demo: ไฟล์ที่อัปโหลด -> คำตอบตามสัญญา v2 (ทดสอบได้โดยไม่ต้องมี Vercel, ไม่เก็บไฟล์).
 
-ลำดับ: ไฟล์ว่าง -> ขนาด -> เป็น PDF ไหม -> ดึงข้อความ -> ชนิดเอกสาร -> วันเวลาจากหัวเอกสาร -> ท่อประมวลผล
--> ตรวจ F1-F5 ซ้ำ (PDF ที่ไม่เคยเห็นอาจอ่านเพี้ยน ถ้าไม่ผ่านตอบข้อผิดพลาดแทนการแสดงค่าที่ไม่มีที่มา)
+ลำดับ: ไฟล์ว่าง -> ขนาด -> เป็น PDF ไหม -> ดึงข้อความ -> ชนิดเอกสาร (ทะเบียนใน doctypes/) -> ตัวสร้างผลของชนิดนั้น
+ภาพขั้นตอนสร้างหลังได้ผลแล้ว จากผลระหว่างทางเท่านั้น จึงเปิดหรือปิดก็ได้ผลสรุปเดียวกันทุกไบต์
 """
 
 from __future__ import annotations
 
-import logging
-
+from tmd_plain.classify.model_io import Classifier, with_label_cache
 from tmd_plain.config import load_config
-from tmd_plain.contract import SummarizeError, SummarizeOk, error_response
-from tmd_plain.extract.advice import Labeler
-from tmd_plain.generate.assemble import meta_from_text
-from tmd_plain.generate.fidelity import check_issue
-from tmd_plain.pipeline import assemble_or_error, document_from_bytes, parse_or_error
-
-logger = logging.getLogger(__name__)
+from tmd_plain.contract import OkResponse, SummarizeError, error_response, ok_response
+from tmd_plain.doctypes.common import pdf_steps
+from tmd_plain.doctypes.registry import spec_for
+from tmd_plain.pipeline import document_from_bytes
+from tmd_plain.tracing import build_trace
 
 PDF_MAGIC = b"%PDF-"
 # มาตรฐาน PDF ยอมให้มีไบต์อื่นนำหน้าหัวไฟล์ได้ภายใน 1024 ไบต์แรก
 PDF_MAGIC_WINDOW = 1024
 
 
-def summarize_pdf(data: bytes, label_of: Labeler) -> SummarizeOk | SummarizeError:
+def summarize_pdf(
+    data: bytes, classifier: Classifier, trace: bool = False
+) -> OkResponse | SummarizeError:
     if not data:
         return error_response("empty_file")
     if len(data) > load_config()["max_upload_bytes"]:
@@ -33,29 +32,20 @@ def summarize_pdf(data: bytes, label_of: Labeler) -> SummarizeOk | SummarizeErro
     doc = document_from_bytes(data)
     if isinstance(doc, SummarizeError):
         return doc
-    parsed = parse_or_error(doc)
-    if isinstance(parsed, SummarizeError):
-        return parsed
-    meta = meta_from_text(parsed.doc_type, doc.text)
-    if meta is None:
-        return error_response("extract_failed")
-    issue = assemble_or_error(parsed, meta, label_of)
-    if isinstance(issue, SummarizeError):
-        return issue
-    problems = check_issue(issue, parsed)
-    if problems:
-        logger.warning(
-            "fidelity check failed issue=%s count=%d first=%s",
-            issue.issue_id,
-            len(problems),
-            problems[0],
-        )
-        return error_response("extract_failed")
-    return SummarizeOk(ok=True, issue=issue)
+    if not doc.text.strip():
+        return error_response("empty_file")
+    # ชนิดที่ไม่รู้จักได้โหมดทั่วไป (10.3) unsupported_document จึงเหลือแค่ไฟล์ที่ไม่ใช่ PDF
+    spec = spec_for(doc.text)
+    classifier = with_label_cache(classifier)
+    run = spec.run(doc, classifier)
+    if isinstance(run, SummarizeError):
+        return run
+    steps = build_trace(pdf_steps(doc, spec) + spec.trace(run, classifier)) if trace else None
+    return ok_response(spec.kind, run.document, steps)
 
 
-def http_status(result: SummarizeOk | SummarizeError) -> int:
+def http_status(result: OkResponse | SummarizeError) -> int:
     """200 สำเร็จ, 413 ไฟล์ใหญ่เกิน, 422 ไฟล์ใช้ไม่ได้ (เนื้อคำตอบเป็น JSON ตามสัญญาทุกกรณี)."""
-    if isinstance(result, SummarizeOk):
+    if not isinstance(result, SummarizeError):
         return 200
     return 413 if result.error.code == "too_large" else 422
