@@ -38,6 +38,9 @@
   --color-accent-link-bright: #47c2ff;
   --color-semantic-error: #eb8e90;
   --color-semantic-success: #16a34a;
+  /* เพิ่มในดีไซน์ v2 แนวทาง A (D11, ADR 0016) ข้อความบนพื้นนี้ใช้ ink หรือ body เท่านั้น */
+  --color-num-tint: #eaf3fd;
+  --color-warning-tint: #fbf3e8;
 
   /* ชื่อรัศมีตามมาตรฐาน (md = 8px ไม่ใช่ 6px ของ Tailwind) */
   --radius-*: initial;
@@ -52,6 +55,48 @@
   --radius-full: 9999px;
 
   --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.04);
+  /* แผงเมนู/เมนูย่อย (D12) */
+  --shadow-panel: 0 12px 24px rgba(0, 0, 0, 0.08);
+
+  /*
+   * การเคลื่อนไหว (D13): DESIGN-expo.md ไม่กำหนด (animation timings อยู่นอกขอบเขต) ค่าจากต้นแบบ A
+   * เคลื่อนแค่ transform/opacity ไม่ทำอนิเมชันกับค่าตัวเลข ปิดทั้งหมดเมื่อ prefers-reduced-motion
+   */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0, 0, 0, 1);
+  --ease-exit: cubic-bezier(0.3, 0, 1, 1);
+  --stagger: 40ms;
+
+  --animate-enter-up: enter-up var(--duration-slow) var(--ease-enter) backwards;
+  --animate-drop-in: drop-in var(--duration-slow) var(--ease-enter) backwards;
+  --animate-fade-in: fade-in var(--duration-base) var(--ease-enter) backwards;
+  --animate-pop: pop var(--duration-base) var(--ease-standard);
+
+  @keyframes enter-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+  @keyframes drop-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes pop {
+    from {
+      transform: scale(0.94);
+    }
+  }
 
   /* สเกลตัวอักษร: ขนาดและน้ำหนักตามมาตรฐาน, line-height ไทย (หัวข้อ 1.3, เนื้อหา 1.6) */
   --text-display-mega: 4rem;
@@ -124,4 +169,20 @@
     outline: 2px solid var(--color-ink);
     outline-offset: 2px;
   }
+
+  /* ผู้ใช้ขอลดการเคลื่อนไหว: ปิดอนิเมชันและทรานสิชันทุกชิ้น (D13) สถานะสุดท้ายแสดงทันที */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ระยะเหลื่อมของรายการที่เข้าทีละชิ้น: ตั้ง --i (ลำดับ) บนแต่ละชิ้นผ่าน style */
+@utility stagger {
+  animation-delay: calc(var(--i, 0) * var(--stagger));
 }
