@@ -1,0 +1,820 @@
+{
+  "char_count": 3586,
+  "glossary": [
+    {
+      "explanation": "อุณหภูมิ 16.0-22.9 องศาเซลเซียส",
+      "term": "อากาศเย็น"
+    }
+  ],
+  "has_region_headings": false,
+  "page_count": 3,
+  "sections": [
+    {
+      "heading": null,
+      "units": [
+        {
+          "confidence": 0.3603,
+          "dates": [],
+          "label": "cause",
+          "numbers": [
+            "22",
+            "2569"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "ฉบับที่ 22/2569",
+          "uncertain": true,
+          "unit_id": "g-5d9800ea"
+        },
+        {
+          "confidence": 0.4212,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
+          "uncertain": true,
+          "unit_id": "g-8cbebf01"
+        },
+        {
+          "confidence": 0.9973,
+          "dates": [
+            "16 – 30 พฤศจิกายน พ.ศ. 2569"
+          ],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ระหว่างวันที่ 16 – 30 พฤศจิกายน พ.ศ. 2569",
+          "uncertain": false,
+          "unit_id": "g-75b4f619"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "north",
+            "northeast",
+            "central",
+            "east",
+            "bangkok_vicinity"
+          ],
+          "text": "ในระยะครึ่งหลังของเดือนพฤศจิกายน บริเวณความกดอากาศสูงจากประเทศจีนจะแผ่ลงมาปกคลุมประเทศไทยตอนบนเป็นระลอกๆ",
+          "uncertain": false,
+          "unit_id": "g-22685216"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "north",
+            "northeast",
+            "central",
+            "east",
+            "south_east_coast",
+            "south_west_coast",
+            "bangkok_vicinity"
+          ],
+          "text": "ประกอบกับมรสุมตะวันออกเฉียงเหนือพัดปกคลุมบริเวณประเทศไทยและอ่าวไทย และมีร่องมรสุมพาดผ่านบริเวณภาคใต้ในบางช่วง ลักษณะดังกล่าวทำให้บริเวณประเทศไทยตอนบนมีฝนลดลง แต่ยังมีฝนในบางพื้นที่กับมีอากาศเย็นในตอนเช้าบริเวณภาคเหนือและภาคตะวันออกเฉียงเหนือ",
+          "uncertain": false,
+          "unit_id": "g-29eb19d2"
+        },
+        {
+          "confidence": 0.9999,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [
+            "ชุมพร"
+          ],
+          "regions": [
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "text": "ส่วนภาคใต้ยังคงมีฝนตกหนาแน่น โดยเฉพาะทางฝั่งตะวันออกตั้งแต่จังหวัดชุมพรลงไป ซึ่งอาจทำให้เกิดสภาวะน้ำท่วม",
+          "uncertain": false,
+          "unit_id": "g-f427b0fd"
+        },
+        {
+          "confidence": 0.9989,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "2 - 3 เมตร",
+            "1 - 2 เมตร"
+          ],
+          "provinces": [],
+          "regions": [
+            "east",
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "text": "อนึ่ง คลื่นลมบริเวณอ่าวไทยจะมีกำลังแรง โดยจะคลื่นสูง 2 - 3 เมตร ในบางช่วง ส่วนทะเลอันดามันจะมีคลื่นสูง 1 - 2 เมตร",
+          "uncertain": false,
+          "unit_id": "g-e2436461"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "other",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ในระยะครึ่งหลังของเดือนนี้มักมีหย่อมความกดอากาศต่ำกำลังแรงหรือพายุหมุนเขตร้อนบริเวณทะเลจีนใต้ตอนล่าง ซึ่งอาจเคลื่อนตัวเข้าใกล้ประเทศไทย ทำให้หลายพื้นที่มีฝนตกชุกและฝนตกหนักในบางแห่ง เกษตรกรควรระวังอันตรายและป้องกันความสียหายจากสภาวะดังกล่าว โดยติดตามพยากรณ์อากาศ พยากรณ์อากาศเกษตร และประกาศกรมอุตุนิยมวิทยา จากกรมอุตุนิยมวิทยาอย่างใกล้ชิด",
+          "uncertain": false,
+          "unit_id": "g-2ddce0b7"
+        },
+        {
+          "confidence": 0.9966,
+          "dates": [],
+          "label": "other",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "north",
+            "northeast",
+            "central",
+            "east",
+            "bangkok_vicinity"
+          ],
+          "text": "ระยะนี้บริเวณประเทศไทยตอนบนเป็นช่วงฤดูหนาว โดยภาคเหนือและภาคตะวันออกเฉียงเหนือตอนบนจะมีอากาศหนาวเย็นกว่าบริเวณอื่น เกษตรกรควรให้ความอบอุ่นแก่ตนเอง อย่างเพียงพอและดูแลรักษาสุขภาพให้แข็งแรงเพื่อป้องกันการเจ็บป่วย รวมทั้งระวังโรคที่เกี่ยวกับระบบทางเดินหายใจ",
+          "uncertain": false,
+          "unit_id": "g-bf07bff8"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "advice",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "text": "อนึ่ง พื้นที่การเกษตรที่อยู่นอกเขตชลประทานเกษตรกรควรปลูกพืชที่อายุการเก็บเกี่ยวสั้นและใช้น้ำน้อย สำหรับภาคใต้จะมีฝนตกชุกกับมีฝนตกหนักถึงหนักมากบางพื้นที่ เกษตรกรควรระวังอันตรายและป้องกันความเสียหายจากสภาวะน้ำท่วมฉับพลัน น้ำป่าไหลหลาก",
+          "uncertain": false,
+          "unit_id": "g-d74d1f7f"
+        },
+        {
+          "confidence": 0.9518,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "east",
+            "south_east_coast"
+          ],
+          "text": "อนึ่ง ในช่วงที่มรสุมตะวันออกเฉียงเหนือมีกำลังแรง คลื่นลมบริเวณอ่าวไทยจะมีกำลังแรงขึ้น ชาวเรือและชาวประมงควรเพิ่มความระมัดระวังในการเดินเรือ",
+          "uncertain": false,
+          "unit_id": "g-4b974cb8"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "advice",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "สัตว์เลี้ยง เกษตรกรควรควบคุมอุณหภูมิภายในโรงเรือนเลี้ยงสัตว์อย่าให้เปลี่ยนแปลงรวดเร็ว เพื่อป้องกันสัตว์เลี้ยงปรับตัวไม่ทัน อ่อนแอ และเป็นโรคได้ง่าย รวมทั้งควรจัดทำแผงกำบังลมหนาว โดยเฉพาะสัตว์ที่ยังเล็กควรเพิ่มความอบอุ่นภายในโรงเรือนเลี้ยงสัตว์ และควรหมั่นสังเกตหากพบตัวที่เป็นโรคควรรีบแยกออกจากกลุ่ม เพื่อป้องกันเชื้อโรคแพร่ไปยังตัวอื่นๆ",
+          "uncertain": true,
+          "unit_id": "g-aa0ab7eb"
+        },
+        {
+          "confidence": 0.8292,
+          "dates": [],
+          "label": "advice",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "สัตว์น้ำ เกษตรกรควรดูแลสภาพน้ำให้เหมาะสมกับสัตว์น้ำที่เลี้ยง รวมทั้งควรลดปริมาณอาหาร เนื่องอุณหภูมิที่ลดลงทำให้สัตว์น้ำกินอาหารน้อยลง อาหารที่เหลือจะทำให้น้ำเน่าเสีย",
+          "uncertain": true,
+          "unit_id": "g-1e7dfba6"
+        },
+        {
+          "confidence": 0.9995,
+          "dates": [],
+          "label": "advice",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "อนึ่ง ในช่วงที่คลื่นลมมีกำลังแรง ผู้ที่เลี้ยงสัตว์น้ำชายฝั่ง ควรระวังและป้องกันความเสียหาย ที่อาจเกิดขึ้น หากสัตว์น้ำโตได้ขนาด ควรทยอยจับขายไปก่อนบางส่วนเพื่อลดความเสี่ยง",
+          "uncertain": false,
+          "unit_id": "g-45e9eae8"
+        },
+        {
+          "confidence": 0.9906,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "north",
+            "northeast",
+            "central",
+            "east",
+            "bangkok_vicinity"
+          ],
+          "text": "ไม้ผล บริเวณประเทศไทยตอนบน ไม้ผลที่ออกดอกในช่วงฤดูหนาว เช่น ลำไยและลิ้นจี่ เป็นต้น เกษตรกรควรกำจัดวัชพืชบริเวณโคนต้นให้โล่งเตียน ดินบริเวณโคนต้นแห้ง เมื่อมีอุณหภูมิลดลงจนอากาศหนาวเย็นเพียงพอและยาวนานที่เหมาะสมก็จะกระตุ้นให้พืชแตกตาดอกได้ดีขึ้น",
+          "uncertain": true,
+          "unit_id": "g-e7b5c94c"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "text": "ส่วนภาคใต้จะมีฝนตกชุกโดยเฉพาะทางฝั่งตะวันออกซึ่งจะทำให้ดินและอากาศมีความชื้นสูง เกษตรกรควรระวังโรคพืชที่เกิดจากเชื้อราและแบคทีเรีย เช่น โรครากเน่าโคนเน่า โรคราสีชมพูและโรคแคงเกอร์ในพืชตระกูลส้ม เป็นต้น",
+          "uncertain": true,
+          "unit_id": "g-8267aca2"
+        },
+        {
+          "confidence": 0.9754,
+          "dates": [
+            "16 พฤศจิกายน 2569"
+          ],
+          "label": "weather",
+          "numbers": [
+            "02-3992322"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "เผยแพร่โดย ส่วนอุตุนิยมวิทยาเกษตร กองพัฒนาอุตุนิยมวิทยา ออกประกาศวันที่ 16 พฤศจิกายน 2569 กรมอุตุนิยมวิทยา โทร.02-3992322",
+          "uncertain": false,
+          "unit_id": "g-cbdafa2b"
+        },
+        {
+          "confidence": 0.4212,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "AS",
+          "uncertain": true,
+          "unit_id": "g-d00bb3f3"
+        },
+        {
+          "confidence": 0.8962,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "สภาวะอากาศ",
+          "uncertain": false,
+          "unit_id": "g-04d90bd5"
+        },
+        {
+          "confidence": 0.4212,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "คำเตือน",
+          "uncertain": true,
+          "unit_id": "g-168c57d4"
+        },
+        {
+          "confidence": 0.6646,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "สภาวะอากาศที่มีผลกระทบต่อการเกษตร",
+          "uncertain": true,
+          "unit_id": "g-d294d347"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "31-33"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "31-33",
+          "uncertain": false,
+          "unit_id": "g-fb6f9375"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "20-22"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "20-22",
+          "uncertain": false,
+          "unit_id": "g-ab2e929c"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "30-32"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "30-32",
+          "uncertain": false,
+          "unit_id": "g-68bd7b5f"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "21-23"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "21-23",
+          "uncertain": false,
+          "unit_id": "g-c1f73b1a"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "32-34"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "32-34",
+          "uncertain": false,
+          "unit_id": "g-b857f507"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "23-25"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "23-25",
+          "uncertain": false,
+          "unit_id": "g-390ed8d8"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "32-34"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "32-34",
+          "uncertain": false,
+          "unit_id": "g-b857f507-2"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "24-26"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "24-26",
+          "uncertain": false,
+          "unit_id": "g-5685fad5"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "31-33"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "31-33",
+          "uncertain": false,
+          "unit_id": "g-fb6f9375-2"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "23-25"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "23-25",
+          "uncertain": false,
+          "unit_id": "g-390ed8d8-2"
+        },
+        {
+          "confidence": 0.9945,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "พยากรณ์อากาศเกษตรรายปักษ์",
+          "uncertain": true,
+          "unit_id": "g-65a31242"
+        },
+        {
+          "confidence": 0.9973,
+          "dates": [
+            "16 - 30 พฤศจิกายน 2569"
+          ],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ระหว่างวันที่ 16 - 30 พฤศจิกายน 2569",
+          "uncertain": false,
+          "unit_id": "g-8ec60e73"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "3-5 มม."
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "3-5 มม./วัน",
+          "uncertain": true,
+          "unit_id": "g-5fda7cad"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "6-8"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "6-8 ชม./วัน",
+          "uncertain": true,
+          "unit_id": "g-2bdca6f8"
+        },
+        {
+          "confidence": 0.8328,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "น้ำระเหย อุณหภูมิ (oซ.)",
+          "uncertain": true,
+          "unit_id": "g-21759344"
+        },
+        {
+          "confidence": 0.9945,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "จำนวนชั่วโมง",
+          "uncertain": false,
+          "unit_id": "g-0e0ca17e"
+        },
+        {
+          "confidence": 0.5084,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ที่มีแสงแดด",
+          "uncertain": true,
+          "unit_id": "g-37d47d2d"
+        },
+        {
+          "confidence": 0.4212,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ความสูง",
+          "uncertain": true,
+          "unit_id": "g-05459128"
+        },
+        {
+          "confidence": 0.8372,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ของคลื่น",
+          "uncertain": false,
+          "unit_id": "g-b06c5fb1"
+        },
+        {
+          "confidence": 0.8322,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "2-3 เมตร"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "2-3 เมตร",
+          "uncertain": false,
+          "unit_id": "g-84e8bbf5"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "32-34"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "32-34",
+          "uncertain": false,
+          "unit_id": "g-b857f507-3"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "24-26"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "24-26",
+          "uncertain": false,
+          "unit_id": "g-5685fad5-2"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "6-8"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "6-8 ชม./วัน",
+          "uncertain": true,
+          "unit_id": "g-2bdca6f8-2"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "6-8"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "6-8 ชม./วัน",
+          "uncertain": true,
+          "unit_id": "g-2bdca6f8-3"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "3-7"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "3-7 ชม./วัน",
+          "uncertain": true,
+          "unit_id": "g-f2a89b1a"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "6-8"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "6-8 ชม./วัน",
+          "uncertain": true,
+          "unit_id": "g-2bdca6f8-4"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "3-4 มม."
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "3-4 มม./วัน",
+          "uncertain": true,
+          "unit_id": "g-5fcb5354"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "3-5 มม."
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "3-5 มม./วัน",
+          "uncertain": true,
+          "unit_id": "g-5fda7cad-2"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "3-4 มม."
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "3-4 มม./วัน",
+          "uncertain": true,
+          "unit_id": "g-5fcb5354-2"
+        },
+        {
+          "confidence": 0.575,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "2-4 มม."
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "2-4 มม./วัน",
+          "uncertain": true,
+          "unit_id": "g-895ff2c9"
+        },
+        {
+          "confidence": 0.8322,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "1-2 เมตร"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "1-2 เมตร",
+          "uncertain": false,
+          "unit_id": "g-3bf53389"
+        },
+        {
+          "confidence": 0.8322,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "1-2 เมตร"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "1-2 เมตร",
+          "uncertain": false,
+          "unit_id": "g-3bf53389-2"
+        },
+        {
+          "confidence": 0.7625,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ปริมาณฝนรวม",
+          "uncertain": true,
+          "unit_id": "g-383c976a"
+        },
+        {
+          "confidence": 0.9993,
+          "dates": [
+            "16 - 30 พฤศจิกายน 2569"
+          ],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ช่วงวันที่ 16 - 30 พฤศจิกายน 2569",
+          "uncertain": false,
+          "unit_id": "g-401018f9"
+        },
+        {
+          "confidence": 0.555,
+          "dates": [],
+          "label": "advice",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ปริมาณฝนรวมที่ต่างจากค่าปกติ",
+          "uncertain": true,
+          "unit_id": "g-778ce582"
+        },
+        {
+          "confidence": 0.9993,
+          "dates": [
+            "16 - 30 พฤศจิกายน 2569"
+          ],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ช่วงวันที่ 16 - 30 พฤศจิกายน 2569",
+          "uncertain": false,
+          "unit_id": "g-401018f9-2"
+        },
+        {
+          "confidence": 0.8328,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "อุณหภูมิสูงสุดเฉลี่ย",
+          "uncertain": true,
+          "unit_id": "g-3a6d4071"
+        },
+        {
+          "confidence": 0.9993,
+          "dates": [
+            "16 - 30 พฤศจิกายน 2569"
+          ],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ช่วงวันที่ 16 - 30 พฤศจิกายน 2569",
+          "uncertain": false,
+          "unit_id": "g-401018f9-3"
+        },
+        {
+          "confidence": 0.8328,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "อุณหภูมิต่ำสุดเฉลี่ย",
+          "uncertain": true,
+          "unit_id": "g-8e548b53"
+        },
+        {
+          "confidence": 0.9993,
+          "dates": [
+            "16 - 30 พฤศจิกายน 2569"
+          ],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ช่วงวันที่ 16 - 30 พฤศจิกายน 2569",
+          "uncertain": false,
+          "unit_id": "g-401018f9-4"
+        },
+        {
+          "confidence": 0.4212,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ศูนย์ภูมิอากาศ กองพัฒนาอุตุนิยมวิทยา",
+          "uncertain": true,
+          "unit_id": "g-21a2db96"
+        }
+      ]
+    }
+  ],
+  "title": "พยากรณ์อากาศเกษตรรายปักษ์",
+  "tmd_like": true,
+  "truncated": false,
+  "warnings": []
+}

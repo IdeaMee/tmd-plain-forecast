@@ -1,0 +1,571 @@
+{
+  "char_count": 4165,
+  "glossary": [],
+  "has_region_headings": false,
+  "page_count": 5,
+  "sections": [
+    {
+      "heading": null,
+      "units": [
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "other",
+          "numbers": [
+            "1",
+            "300 เมตร",
+            "2",
+            "850 มิลลิบาร์",
+            "1.5 กิโลเมตร",
+            "200 มิลลิบาร์",
+            "11 กิโลเมตร",
+            "3"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "สถานการณ์ปัจจุบัน พบว่า ปรากฏการณ์เอนโซอยู่ในสภาวะเอญนีโญกำลังปานกลาง โดยในช่วงกลางเดือนที่ผ่านมาอุณหภูมิผิวน้ำทะเลของมหาสมุทรแปซิฟิกบริเวณเขตศูนย์สูตรทางด้านตะวันออกของเส้นเขตวันสากล (เส้น Date Line) สูงกว่าค่าปกติและต่ำกว่าค่าปกติบริเวณใกล้เส้นเขตวันสากลและทางตะวันตกของเส้นดังกล่าว ดังรูปที่ 1 ส่วนอุณหภูมิน้ำทะเลที่อยู่ลึกจากผิวน้ำลงไปจนถึงระดับ 300 เมตร ในช่วงสองเดือนที่ผ่านมา พบว่า บริเวณมหาสมุทรแปซิฟิกตอนกลางค่อนไปทางตะวันออกและแปซิฟิกตะวันออกมีค่าสูงกว่าค่าปกติเพิ่มมากขึ้นโดยยังคงเกิดขึ้นอย่างต่อเนื่อง ดังรูปที่ 2 ลักษณะดังกล่าวส่งผลให้ระบบการหมุนเวียนบรรยากาศที่ระดับ 850 มิลลิบาร์ (เฮกโตปาสคาล: hPa) หรือที่ความสูงประมาณ 1.5 กิโลเมตร จากระดับน้ำทะเลปานกลาง มีลมตะวันตกที่มีกำลังแรงกว่าปกติพัดปกคลุมบริเวณด้านตะวันตกของมหาสมุทรแปซิฟิกแถบศูนย์สูตรไปจนถึงบริเวณทางตอนกลางค่อนไปทางตะวันออก ขณะที่บริเวณมหาสมุทรแปซิฟิกตะวันออกจะมีลมตะวันออกที่มีกำลังแรงกว่าปกติพัดปกคลุม สำหรับลมที่ระดับ 200 มิลลิบาร์ (เฮกโตปาสคาล: hPa) หรือที่ความสูงประมาณ 11 กิโลเมตร จากระดับน้ำทะเลปานกลาง มีลมตะวันออกที่มีกำลังแรงกว่าปกติพัดปกคลุมทางตะวันตกไปจนถึงบริเวณตอนกลางค่อนไปทางตะวันออกของมหาสมุทรแปซิฟิกแถบศูนย์สูตร และมีลมตะวันตกที่มีกำลังแรงกว่าค่าปกติพัดปกคลุมด้านตะวันออกของมหาสมุทรแปซิฟิกแถบศูนย์สูตร โดยมีลักษณะการไหลวนแบบแอนติไซโคลนิกเกิดขึ้นในบริเวณมหาสมุทรแปซิฟิกตอนกลางค่อนไปทางตะวันออก ดังรูปที่ 3 การคาดหมาย จากอุณหภูมิผิวน้ำทะเลของมหาสมุทรแปซิฟิกบริเวณเขตศูนย์สูตรทางด้านตะวันออกของเส้นเขตวันสากล ที่สูงกว่าค่าปกติ และต่ำกว่าค่าปกติบริเวณใกล้กับเส้นเขตวันสากลและทางตะวันตกของเส้นดังกล่าวและระบบการหมุนเวียนบรรยากาศบริเวณมหาสมุทรแปซิฟิกเขตศูนย์สูตร",
+          "uncertain": false,
+          "unit_id": "g-df080dfa"
+        },
+        {
+          "confidence": 0.9599,
+          "dates": [
+            "เดือนมีนาคม – พฤษภาคม 2570",
+            "เดือนกันยายน – พฤศจิกายน 2569"
+          ],
+          "label": "other",
+          "numbers": [
+            "ร้อยละ 90",
+            "4",
+            "5"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "ประกอบกับเมื่อวิเคราะห์ข้อมูลด้วยวิธีการทางสถิติและแบบจำลองเชิงพลวัตแล้ว คาดว่า ปรากฏการณ์เอนโซที่อยู่ในสภาวะเอลนีโญในปัจจุบัน จะคงสภาวะนี้ต่อไปจนถึงช่วงเดือนมีนาคม – พฤษภาคม 2570 โดยมีโอกาสที่จะพัฒนาตัวเป็นเอลนีโญกำลังแรงมากในช่วงเดือนกันยายน – พฤศจิกายน 2569 ด้วยความน่าจะเป็นมากกว่าร้อยละ 90 ดังรูปที่ 4 และรูปที่ 5",
+          "uncertain": true,
+          "unit_id": "g-ca42cc5d"
+        },
+        {
+          "confidence": 0.9994,
+          "dates": [],
+          "label": "other",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "หมายเหตุ กรมอุตุนิยมวิทยาจะเฝ้าติดตามสถานการณ์ปรากฏการณ์เอลนีโญ / ลานีญา อย่างใกล้ชิดและจะเผยแพร่ข่าวความคืบหน้าให้ประชาชนได้ทราบเป็นระยะๆ จึง",
+          "uncertain": true,
+          "unit_id": "g-ac5aeca4"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "16 สิงหาคม 2569",
+            "12 กันยายน 2569"
+          ],
+          "label": "other",
+          "numbers": [
+            "1",
+            "0.5",
+            "2.5 องศาเซลเซียส",
+            "1.0 องศาเซลเซียส"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "ขอให้ติดตามข่าวจากกรมอุตุนิยมวิทยาต่อไปด้วยรูปที่ 1 แสดงถึงอุณหภูมิผิวน้ำทะเลเฉลี่ยบริเวณมหาสมุทรแปซิฟิกแถบศูนย์สูตรระหว่างวันที่ 16 สิงหาคม 2569 ถึง 12 กันยายน 2569 โดยอุณหภูมิผิวน้ำทะเลเฉลี่ยของมหาสมุทรแปซิฟิกแถบศูนย์สูตรบริเวณทางตะวันออกของเส้นเขตวันสากล ต่างจากค่าปกติ 0.5 ถึง 2.5 องศาเซลเซียส ส่วนบริเวณมหาสมุทรแปซิฟิกทางด้านตะวันตกของเส้นวันสากลต่างจากค่าปกติ -1.0 องศาเซลเซียส",
+          "uncertain": false,
+          "unit_id": "g-9956c8a3"
+        },
+        {
+          "confidence": 0.9847,
+          "dates": [],
+          "label": "cause",
+          "numbers": [
+            "2"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "รูปที่ 2 อุณหภูมิน้ำทะเลที่อยู่ลึกจากผิวน้ำ",
+          "uncertain": true,
+          "unit_id": "g-6f5887c4"
+        },
+        {
+          "confidence": 0.6246,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "300 เมตร"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "ลงไปจนถึงระดับ 300 เมตร ในช่วงสอง",
+          "uncertain": true,
+          "unit_id": "g-d3e2ec5b"
+        },
+        {
+          "confidence": 0.9277,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "เดือนที่ผ่านมา พบว่าบริเวณมหาสมุทร",
+          "uncertain": true,
+          "unit_id": "g-7b2076e8"
+        },
+        {
+          "confidence": 0.9999,
+          "dates": [],
+          "label": "other",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "แปซิฟิกตอนกลางค่อนไปทางตะวันออก",
+          "uncertain": false,
+          "unit_id": "g-6ee5b0de"
+        },
+        {
+          "confidence": 0.55,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "และแปซิฟิกตะวันออกมีค่าสูงกว่าค่าปกติ",
+          "uncertain": true,
+          "unit_id": "g-59f55965"
+        },
+        {
+          "confidence": 0.9887,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "เพิ่มมากขึ้นโดยยังคงเกิดขึ้นอย่างต่อเนื่อง",
+          "uncertain": false,
+          "unit_id": "g-f721931b"
+        },
+        {
+          "confidence": 0.9343,
+          "dates": [],
+          "label": "advice",
+          "numbers": [
+            "3",
+            "850"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "รูปที่ 3 การหมุนเวียนบรรยากาศที่ระดับ 850",
+          "uncertain": false,
+          "unit_id": "g-dd964598"
+        },
+        {
+          "confidence": 0.999,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "มิลลิบาร์(เฮกโตปาสคาล: hPa) หรือที่ความสูง",
+          "uncertain": true,
+          "unit_id": "g-4339728f"
+        },
+        {
+          "confidence": 0.7771,
+          "dates": [],
+          "label": "cause",
+          "numbers": [
+            "1.5 กิโลเมตร"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "ประมาณ 1.5 กิโลเมตร จากระดับน้ำทะเล",
+          "uncertain": true,
+          "unit_id": "g-257376eb"
+        },
+        {
+          "confidence": 0.9467,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ปานกลาง มีลมตะวันตกที่มีกำลังแรงกว่า",
+          "uncertain": false,
+          "unit_id": "g-d51fbee4"
+        },
+        {
+          "confidence": 0.6915,
+          "dates": [],
+          "label": "other",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ปกติพัดปกคลุมบริเวณด้านตะวันตกของ",
+          "uncertain": true,
+          "unit_id": "g-72e2cd67"
+        },
+        {
+          "confidence": 0.7985,
+          "dates": [],
+          "label": "advice",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "มหาสมุทรแปซิฟิกแถบศูนย์สูตรไปจนถึง",
+          "uncertain": true,
+          "unit_id": "g-5b73aa31"
+        },
+        {
+          "confidence": 0.9123,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "บ ริ เ ว ณ ท า ง ต อ น ก ล า ง ค่ อ น ไ ป ท า ง",
+          "uncertain": true,
+          "unit_id": "g-0e33be3b"
+        },
+        {
+          "confidence": 0.5869,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ตะวันออก ขณะที่บริเวณมหาสมุทร",
+          "uncertain": true,
+          "unit_id": "g-51064e80"
+        },
+        {
+          "confidence": 0.6838,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "แปซิฟิกตะวันออกจะมีลมตะวันออกที่มี",
+          "uncertain": true,
+          "unit_id": "g-1348641d"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "กำลังแรงกว่าปกติพัดปกคลุม",
+          "uncertain": false,
+          "unit_id": "g-78b4aba9"
+        },
+        {
+          "confidence": 0.709,
+          "dates": [],
+          "label": "cause",
+          "numbers": [
+            "200 มิลลิบาร์"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "สำหรับลมที่ระดับ 200 มิลลิบาร์ (เฮกโต",
+          "uncertain": true,
+          "unit_id": "g-5a1313e6"
+        },
+        {
+          "confidence": 0.9995,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ปาสคาล: hPa) หรือที่ความสูงประมาณ",
+          "uncertain": false,
+          "unit_id": "g-7dff2135"
+        },
+        {
+          "confidence": 0.9118,
+          "dates": [],
+          "label": "cause",
+          "numbers": [
+            "11 กิโลเมตร"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "11 กิโลเมตร จากระดับน้ำทะเลปานกลาง",
+          "uncertain": false,
+          "unit_id": "g-64369a0e"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "มีลมตะวันออกที่มีกำลังแรงกว่าปกติพัด",
+          "uncertain": false,
+          "unit_id": "g-e82da1e3"
+        },
+        {
+          "confidence": 0.9796,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ปกคลุมทางตะวันตกไปจนถึงบริเวณ",
+          "uncertain": false,
+          "unit_id": "g-2daccc07"
+        },
+        {
+          "confidence": 0.9999,
+          "dates": [],
+          "label": "other",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ตอนกลางค่อนไปทางตะวันออกของ",
+          "uncertain": false,
+          "unit_id": "g-7af5876b"
+        },
+        {
+          "confidence": 0.5901,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "มหาสมุทรแปซิฟิกแถบศูนย์สูตร และมีลม",
+          "uncertain": true,
+          "unit_id": "g-28ae2586"
+        },
+        {
+          "confidence": 0.9996,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ตะวันตกที่มีกำลังแรงกว่าค่าปกติพัดปก",
+          "uncertain": false,
+          "unit_id": "g-2f1d3cfc"
+        },
+        {
+          "confidence": 0.7183,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "คลุมด้านตะวันออกของมหาสมุทรแปซิฟิก",
+          "uncertain": true,
+          "unit_id": "g-a4f881b9"
+        },
+        {
+          "confidence": 0.999,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "แถบศูนย์สูตร โดยมีลักษณะการไหลวน",
+          "uncertain": false,
+          "unit_id": "g-03b85a79"
+        },
+        {
+          "confidence": 0.523,
+          "dates": [],
+          "label": "advice",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "แบบแอนติไซโคลนิกเกิดขึ้นในบริเวณ",
+          "uncertain": true,
+          "unit_id": "g-a31231ff"
+        },
+        {
+          "confidence": 0.99,
+          "dates": [],
+          "label": "other",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "มหาสมุทรแปซิฟิกตอนกลางค่อนไปทาง",
+          "uncertain": false,
+          "unit_id": "g-bd670b89"
+        }
+      ]
+    },
+    {
+      "heading": "ตะวันออก",
+      "units": [
+        {
+          "confidence": 0.6137,
+          "dates": [
+            "เดือนกันยายน 2569",
+            "พฤษภาคม 2570",
+            "เดือนมีนาคม – พฤษภาคม 2570"
+          ],
+          "label": "advice",
+          "numbers": [
+            "4",
+            "3",
+            "5"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "รูปที่ 4 ผลการคาดการณ์ปรากฏการณ์ ENSO ราย 3 เดือน ระหว่างเดือนกันยายน 2569 ถึง พฤษภาคม 2570 แสดงให้เห็นว่า สภาวะเอลนีโญในปัจจุบัน จะคงสภาวะนี้ต่อไปจนถึงช่วงเดือนมีนาคม – พฤษภาคม 2570 รูปที่ 5 ผลการติดตามและคาดการณ์",
+          "uncertain": true,
+          "unit_id": "g-e07f6c98"
+        },
+        {
+          "confidence": 0.8028,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "อุณหภูมิน้ำทะเลบริเวณตอนกลางของ",
+          "uncertain": false,
+          "unit_id": "g-15c31ca6"
+        },
+        {
+          "confidence": 0.4246,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "มหาสมุทรแปซิฟิกเขตศูนย์สูตร บริเวณ",
+          "uncertain": true,
+          "unit_id": "g-ee4a3c28"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "3.4",
+            "5"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "Nino 3.4 (ละติจูด 5",
+          "uncertain": false,
+          "unit_id": "g-95185427"
+        },
+        {
+          "confidence": 0.6535,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "5"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "o N -5",
+          "uncertain": true,
+          "unit_id": "g-7904597d"
+        },
+        {
+          "confidence": 0.4052,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "o S และลองจิจูด",
+          "uncertain": true,
+          "unit_id": "g-464a8b51"
+        },
+        {
+          "confidence": 0.6535,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "170"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "o W - 170",
+          "uncertain": true,
+          "unit_id": "g-68f8a520"
+        },
+        {
+          "confidence": 0.6371,
+          "dates": [],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "o W) จากแบบจำลองเชิงพลวัต",
+          "uncertain": true,
+          "unit_id": "g-8736c879"
+        },
+        {
+          "confidence": 0.8556,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ของศูนย์พยากรณ์ต่างๆ",
+          "uncertain": true,
+          "unit_id": "g-6292efeb"
+        },
+        {
+          "confidence": 0.4212,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ที่มา : National Weather Service; Climate Prediction Centre : NOAA",
+          "uncertain": true,
+          "unit_id": "g-a5fac00c"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "other",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "ผลกระทบที่จะเกิดขึ้นกับประเทศไทย คาดว่า ในช่วงเดือนตุลาคมถึงเดือนธันวาคม ประเทศไทยจะมีปริมาณฝนรวมอยู่ในเกณฑ์ต่ำกว่าค่าปกติส่วนอุณหภูมิมีแนวโน้มที่จะสูงกว่าค่าปกติศูนย์นวัตกรรมภูมิอากาศแห่งชาติ",
+          "uncertain": false,
+          "unit_id": "g-170f0a2a"
+        },
+        {
+          "confidence": 0.7985,
+          "dates": [],
+          "label": "advice",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "กรมอุตุนิยมวิทยา",
+          "uncertain": true,
+          "unit_id": "g-3765827b"
+        },
+        {
+          "confidence": 0.8298,
+          "dates": [
+            "22 กันยายน 2569"
+          ],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [],
+          "text": "22 กันยายน 2569",
+          "uncertain": false,
+          "unit_id": "g-7116356d"
+        }
+      ]
+    }
+  ],
+  "title": "การเฝ้าระวังปรากฏการณ์เอลนีโญ/ลานีญา เดือนกันยายน พ.ศ.2569",
+  "tmd_like": true,
+  "truncated": false,
+  "warnings": []
+}

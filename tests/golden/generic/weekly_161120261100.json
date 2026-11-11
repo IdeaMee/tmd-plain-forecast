@@ -1,0 +1,554 @@
+{
+  "char_count": 3220,
+  "glossary": [
+    {
+      "explanation": "อุณหภูมิ 16.0-22.9 องศาเซลเซียส",
+      "term": "อากาศเย็น"
+    }
+  ],
+  "has_region_headings": true,
+  "page_count": 3,
+  "sections": [
+    {
+      "heading": "ระหว่างวันที่ 9 - 15 พฤศจิกายน 2569",
+      "units": [
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "cause",
+          "numbers": [
+            "1"
+          ],
+          "provinces": [],
+          "regions": [
+            "north",
+            "northeast",
+            "central",
+            "east",
+            "bangkok_vicinity"
+          ],
+          "text": "1. บริเวณความกดอากาศสูงกำลังค่อนข้างแรงจากประเทศจีนได้แผ่ลงมาปกคลุมประเทศไทยตอนบนและทะเลจีนใต้ในระยะครึ่งแรกของสัปดาห์ จากนั้นอ่อนกำลังลง",
+          "uncertain": false,
+          "unit_id": "g-7d273804"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "10-12 พ.ย."
+          ],
+          "label": "cause",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "north",
+            "east",
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "text": "ประกอบกับมรสุมตะวันออกเฉียงเหนือกำลังปานกลางพัดปกคลุมอ่าวไทยและภาคใต้โดยมีคลื่นกระแสลมฝ่ายตะวันตกได้เคลื่อนผ่านประเทศเมียนมาเข้าปกคลุมภาคเหนือตอนบนและประเทศลาวตอนบนในช่วงวันที่ 10-12 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-eb926a78"
+        },
+        {
+          "confidence": 0.9998,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "north",
+            "northeast",
+            "central",
+            "east",
+            "bangkok_vicinity"
+          ],
+          "text": "ประกอบกับมีลมฝ่ายตะวันออกปกคลุมประเทศไทยตอนบนในระยะปลายสัปดาห์ลักษณะดังกล่าวทำให้บริเวณประเทศไทยตอนบนมีอุณหภูมิลดลง โดยบริเวณภาคเหนือและภาคตะวันออกเฉียงเหนือมีอากาศเย็น กับมีฝนตกในบางพื้นที่",
+          "uncertain": false,
+          "unit_id": "g-84656fea"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "text": "ส่วนภาคใต้มีฝนตกหนาแน่นตลอดสัปดาห์โดยเฉพาะทางฝั่งตะวันออกของภาค",
+          "uncertain": false,
+          "unit_id": "g-a8e09126"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "ร้อยละ 30-70 ของพื้นที่"
+          ],
+          "provinces": [],
+          "regions": [
+            "north"
+          ],
+          "text": "ภาคเหนือ มีอากาศเย็นทั่วไปเกือบตลอดสัปดาห์โดยมีฝนร้อยละ 30-70 ของพื้นที่ส่วนมากทางตอนบนของภาคในระยะครึ่งแรกสัปดาห์กับมีฝนหนักบางพื้นที่",
+          "uncertain": false,
+          "unit_id": "g-a3495959"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "northeast"
+          ],
+          "text": "ภาคตะวันออกเฉียงเหนือ มีอากาศเย็นทั่วไปเกือบตลอดสัปดาห์โดยมีฝนบางพื้นที่ในบางวัน",
+          "uncertain": false,
+          "unit_id": "g-25929534"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "weather",
+          "numbers": [],
+          "provinces": [],
+          "regions": [
+            "central",
+            "bangkok_vicinity"
+          ],
+          "text": "ภาคกลาง มีอากาศเย็นบางพื้นที่ โดยมีฝนบางพื้นที่ในบางวัน",
+          "uncertain": false,
+          "unit_id": "g-b49807da"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "ร้อยละ 10-40 ของพื้นที่"
+          ],
+          "provinces": [],
+          "regions": [
+            "east"
+          ],
+          "text": "ภาคตะวันออก มีอากาศเย็นบางพื้นที่ในระยะกลางสัปดาห์โดยมีฝนร้อยละ 10-40 ของพื้นที่ส่วนมากในระยะครึ่งหลังของสัปดาห์ กับมีฝนหนักบางพื้นที่",
+          "uncertain": false,
+          "unit_id": "g-4a3b453a"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "13 พ.ย.",
+            "9-13 พ.ย.",
+            "12-13 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "ร้อยละ 60-90 ของพื้นที่",
+            "10 วัน",
+            "11 วัน",
+            "12"
+          ],
+          "provinces": [
+            "ชุมพร",
+            "นครศรีธรรมราช",
+            "สุราษฎร์ธานี",
+            "สงขลา",
+            "ปัตตานี"
+          ],
+          "regions": [
+            "south_east_coast"
+          ],
+          "text": "ภาคใต้ฝั่งตะวันออก มีฝนร้อยละ 60-90 ของพื้นที่เกือบตลอดสัปดาห์กับมีฝนหนักหลายพื้นที่ และมีฝนหนักมากบางพื้นที่ในวันที่ 10 วันที่ 11 วันที่ 12 และวันที่ 13 พ.ย. นอกจากนี้มีรายงานน้ำท่วมต่อเนื่องบริเวณจังหวัดชุมพรและมีรายงานน้ำท่วมบริเวณจังหวัดนครศรีธรรมราช ในวันที่ 9-13 พ.ย. จังหวัดสุราษฎร์ธานี สงขลาและปัตตานี ในวันที่ 12-13 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-7cd168b9"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "15 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "ร้อยละ 40-90 ของพื้นที่",
+            "12",
+            "14"
+          ],
+          "provinces": [],
+          "regions": [
+            "south_west_coast"
+          ],
+          "text": "ภาคใต้ฝั่งตะวันตก มีฝนร้อยละ 40-90 ของพื้นที่กับมีฝนหนักบางพื้นที่ในวันที่ 12 และวันที่ 14 และวันที่ 15 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-9c6b46f7"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "ร้อยละ 30-40 ของพื้นที่"
+          ],
+          "provinces": [
+            "กรุงเทพมหานคร"
+          ],
+          "regions": [
+            "bangkok_vicinity"
+          ],
+          "text": "กรุงเทพมหานครและปริมณฑล มีอากาศเย็นบางพื้นที่ในบางวัน โดยมีฝนบางพื้นที่ในวันแรกของสัปดาห์ ส่วนในช่วงปลายสัปดาห์มีฝนร้อยละ 30-40 ของพื้นที่กับมีฝนหนักบางแห่ง",
+          "uncertain": false,
+          "unit_id": "g-0643fd4d"
+        },
+        {
+          "confidence": 0.6551,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "2"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "2. รายงานปริมาณฝนสูงสุดตามภาคต่าง ๆ ของประเทศไทยมีดังนี้",
+          "uncertain": true,
+          "unit_id": "g-673f17c6"
+        },
+        {
+          "confidence": 0.9983,
+          "dates": [
+            "11 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "50.4 มม."
+          ],
+          "provinces": [
+            "เชียงราย"
+          ],
+          "regions": [
+            "north"
+          ],
+          "text": "ภาคเหนือ 50.4 มม. ที่อ.ดอยหลวง จ.เชียงราย เมื่อวันที่ 11 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-dcab21b8"
+        },
+        {
+          "confidence": 0.9982,
+          "dates": [
+            "15 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "26.4 มม."
+          ],
+          "provinces": [
+            "บุรีรัมย์"
+          ],
+          "regions": [
+            "northeast"
+          ],
+          "text": "ภาคตะวันออกเฉียงเหนือ 26.4 มม. ที่อ.เฉลิมพระเกียรติ จ.บุรีรัมย์ เมื่อวันที่ 15 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-f04876e3"
+        },
+        {
+          "confidence": 0.9992,
+          "dates": [
+            "14 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "24.0 มม."
+          ],
+          "provinces": [
+            "ลพบุรี"
+          ],
+          "regions": [
+            "central",
+            "bangkok_vicinity"
+          ],
+          "text": "ภาคกลาง 24.0 มม. ที่ โรงเรียนบ้านวังทอง อ.ลำสนธิ จ.ลพบุรี เมื่อวันที่ 14 พ.ย.",
+          "uncertain": true,
+          "unit_id": "g-37be64ca"
+        },
+        {
+          "confidence": 0.9982,
+          "dates": [
+            "15 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "49.5 มม."
+          ],
+          "provinces": [
+            "ปราจีนบุรี"
+          ],
+          "regions": [
+            "east"
+          ],
+          "text": "ภาคตะวันออก 49.5 มม. ที่สถานีทดลอพืชไร่ปราจีนบุรี อ.กบินทร์บุรี จ.ปราจีนบุรี เมื่อวันที่ 15 พ.ย.",
+          "uncertain": true,
+          "unit_id": "g-19dabdd7"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "12 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "310.5 มม."
+          ],
+          "provinces": [
+            "ชุมพร"
+          ],
+          "regions": [
+            "south_east_coast"
+          ],
+          "text": "ภาคใต้ฝั่งตะวันออก 310.5 มม. ที่อ.หลังสวน จ.ชุมพร เมื่อวันที่ 12 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-e44a37c3"
+        },
+        {
+          "confidence": 0.9999,
+          "dates": [
+            "15 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "54.5 มม."
+          ],
+          "provinces": [
+            "ตรัง"
+          ],
+          "regions": [
+            "south_east_coast",
+            "south_west_coast"
+          ],
+          "text": "ภาคใต้ฝั่งตะวันตก 54.5 มม. ที่ สวนพฤกษศาสตร์ภาคใต้เข้าช่อง อ.นาโยง จ.ตรัง เมื่อวันที่ 15 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-f6956f28"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "15 พ.ย.",
+            "9 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "39.8 มม.",
+            "20.2 มม."
+          ],
+          "provinces": [
+            "กรุงเทพมหานคร",
+            "ปทุมธานี"
+          ],
+          "regions": [
+            "bangkok_vicinity"
+          ],
+          "text": "กรุงเทพมหานคร 39.8 มม. ที่ โรงเรียนวัดบึงทองหลาง เขตบึงทองหลาง เมื่อวันที่ 15 พ.ย. ปริมณฑล 20.2 มม. ที่ อ.ธัญบุรี จ.ปทุมธานี เมื่อวันที่ 9 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-5e37e2e1"
+        },
+        {
+          "confidence": 0.6262,
+          "dates": [],
+          "label": "weather",
+          "numbers": [
+            "2"
+          ],
+          "provinces": [],
+          "regions": [],
+          "text": "2. รายงานอุณหภูมิต่ำสุดตามภาคต่าง ๆ ของประเทศไทยมีดังนี้",
+          "uncertain": true,
+          "unit_id": "g-693a78f8"
+        },
+        {
+          "confidence": 0.9983,
+          "dates": [
+            "12 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "16.5"
+          ],
+          "provinces": [
+            "เชียงราย"
+          ],
+          "regions": [
+            "north"
+          ],
+          "text": "ภาคเหนือ 16.5° ซ. ที่อ.เมืองเชียงราย จ.เชียงราย เมื่อวันที่ 12 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-3db022d7"
+        },
+        {
+          "confidence": 0.9342,
+          "dates": [
+            "15 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "8.8"
+          ],
+          "provinces": [
+            "เชียงใหม่"
+          ],
+          "regions": [
+            "north"
+          ],
+          "text": "(8.8 ° ซ. ที่ ยอดดอยอินทนนท์ อ.จอมทอง จ.เชียงใหม่ เมื่อวันที่ 15 พ.ย.)",
+          "uncertain": true,
+          "unit_id": "g-02e3fd2b"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "11 พ.ย.",
+            "12 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "16.2",
+            "10.0"
+          ],
+          "provinces": [
+            "หนองบัวลำภู",
+            "เลย"
+          ],
+          "regions": [
+            "northeast"
+          ],
+          "text": "ภาคตะวันออกเฉียงเหนือ 16.2 ° ซ. ที่อ.หนองบัวลำภู จ.หนองบัวลำภู เมื่อวันที่ 11 พ.ย. (10.0 ° ซ. ที่ อุทยานแห่งชาติภูเรือ อ.ภูเรือ จ.เลย เมื่อวันที่ 11,12 พ.ย.)",
+          "uncertain": true,
+          "unit_id": "g-0bec9d33"
+        },
+        {
+          "confidence": 0.9997,
+          "dates": [
+            "12 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "19.0"
+          ],
+          "provinces": [
+            "นครสวรรค์"
+          ],
+          "regions": [
+            "central",
+            "bangkok_vicinity"
+          ],
+          "text": "ภาคกลาง 19.0 ° ซ. ที่กกษ.นครสรรค์ อ.ตากฟ้า จ.นครสวรรค์ เมื่อวันที่ 12 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-9719ac0d"
+        },
+        {
+          "confidence": 0.9982,
+          "dates": [
+            "11 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "20.3"
+          ],
+          "provinces": [
+            "สระแก้ว"
+          ],
+          "regions": [
+            "east"
+          ],
+          "text": "ภาคตะวันออก 20.3 ° ซ. ที่อ.เมืองสระแก้ว จ.สระแก้ว เมื่อวันที่ 11 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-c715d08c"
+        },
+        {
+          "confidence": 0.9342,
+          "dates": [
+            "11 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "15.1"
+          ],
+          "provinces": [
+            "นครนายก"
+          ],
+          "regions": [
+            "east"
+          ],
+          "text": "(15.1 ° ซ. ที่ สถานีอุตุนิยมวิทยาเขาเขียว อ.เมืองนครนายก จ.นครนายก เมื่อวันที่ 11 พ.ย.)",
+          "uncertain": true,
+          "unit_id": "g-fa5d1648"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "12 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "19.8"
+          ],
+          "provinces": [
+            "เพชรบุรี"
+          ],
+          "regions": [
+            "south_east_coast"
+          ],
+          "text": "ภาคใต้ฝั่งตะวันออก 19.8 ° ซ. ที่อ.เมืองเพชรบุรี จ.เพชรบุรี เมื่อวันที่ 12 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-38fb87c4"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "9 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "22.5"
+          ],
+          "provinces": [
+            "กระบี่"
+          ],
+          "regions": [
+            "south_west_coast"
+          ],
+          "text": "ภาคใต้ฝั่งตะวันตก 22.5 ° ซ. ที่ อ.เมืองกระบี่ จ.กระบี่ เมื่อวันที่ 9 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-56a3535a"
+        },
+        {
+          "confidence": 1.0,
+          "dates": [
+            "9 พ.ย.",
+            "14 พ.ย."
+          ],
+          "label": "weather",
+          "numbers": [
+            "23.1",
+            "22.8"
+          ],
+          "provinces": [
+            "กรุงเทพมหานคร",
+            "นครปฐม"
+          ],
+          "regions": [
+            "central",
+            "bangkok_vicinity"
+          ],
+          "text": "กรุงเทพมหานคร 23.1 ° ซ. ที่ สนามบินดอนเมือง เขตดอนเมือง เมื่อวันที่ 9 พ.ย. ปริมณฑล 22.8 ° ซ. ที่ อ.กำแพงแสน จ.นครปฐม เมื่อวันที่ 14 พ.ย.",
+          "uncertain": false,
+          "unit_id": "g-9c834240"
+        }
+      ]
+    }
+  ],
+  "title": "สรุปสภาวะอากาศในรอบสัปดาห์",
+  "tmd_like": true,
+  "truncated": false,
+  "warnings": []
+}
