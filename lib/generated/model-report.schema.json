@@ -1,0 +1,704 @@
+{
+  "$comment": "สร้างโดย scripts/export_model_report.py ห้ามแก้มือ",
+  "$defs": {
+    "Confusion": {
+      "additionalProperties": false,
+      "properties": {
+        "matrix": {
+          "items": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "title": "Matrix",
+          "type": "array"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "matrix"
+      ],
+      "title": "Confusion",
+      "type": "object"
+    },
+    "Facts": {
+      "additionalProperties": false,
+      "properties": {
+        "keyword_agrees_with_labels": {
+          "title": "Keyword Agrees With Labels",
+          "type": "integer"
+        },
+        "num_token": {
+          "title": "Num Token",
+          "type": "string"
+        },
+        "other_units": {
+          "title": "Other Units",
+          "type": "integer"
+        },
+        "total_units": {
+          "title": "Total Units",
+          "type": "integer"
+        },
+        "vocab_all": {
+          "title": "Vocab All",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "total_units",
+        "keyword_agrees_with_labels",
+        "other_units",
+        "vocab_all",
+        "num_token"
+      ],
+      "title": "Facts",
+      "type": "object"
+    },
+    "KnnExample": {
+      "additionalProperties": false,
+      "properties": {
+        "neighbors": {
+          "items": {
+            "$ref": "#/$defs/Neighbor"
+          },
+          "title": "Neighbors",
+          "type": "array"
+        },
+        "predicted": {
+          "title": "Predicted",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "true_label": {
+          "title": "True Label",
+          "type": "string"
+        },
+        "unit_id": {
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "unit_id",
+        "text",
+        "true_label",
+        "predicted",
+        "neighbors"
+      ],
+      "title": "KnnExample",
+      "type": "object"
+    },
+    "LearningPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "fraction": {
+          "title": "Fraction",
+          "type": "number"
+        },
+        "knn_dev_accuracy": {
+          "title": "Knn Dev Accuracy",
+          "type": "number"
+        },
+        "knn_dev_macro_f1": {
+          "title": "Knn Dev Macro F1",
+          "type": "number"
+        },
+        "nb_dev_accuracy": {
+          "title": "Nb Dev Accuracy",
+          "type": "number"
+        },
+        "nb_dev_macro_f1": {
+          "title": "Nb Dev Macro F1",
+          "type": "number"
+        },
+        "train_groups": {
+          "title": "Train Groups",
+          "type": "integer"
+        },
+        "train_units": {
+          "title": "Train Units",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "fraction",
+        "train_groups",
+        "train_units",
+        "nb_dev_accuracy",
+        "nb_dev_macro_f1",
+        "knn_dev_accuracy",
+        "knn_dev_macro_f1"
+      ],
+      "title": "LearningPoint",
+      "type": "object"
+    },
+    "Mistake": {
+      "additionalProperties": false,
+      "properties": {
+        "confidence": {
+          "title": "Confidence",
+          "type": "number"
+        },
+        "note_th": {
+          "title": "Note Th",
+          "type": "string"
+        },
+        "predicted": {
+          "title": "Predicted",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "true_label": {
+          "title": "True Label",
+          "type": "string"
+        },
+        "unit_id": {
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "unit_id",
+        "text",
+        "true_label",
+        "predicted",
+        "confidence",
+        "note_th"
+      ],
+      "title": "Mistake",
+      "type": "object"
+    },
+    "ModelResult": {
+      "additionalProperties": false,
+      "properties": {
+        "dev": {
+          "title": "Dev",
+          "type": "number"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "test_all": {
+          "title": "Test All",
+          "type": "number"
+        },
+        "test_all_weighted": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Test All Weighted"
+        },
+        "test_new": {
+          "title": "Test New",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "dev",
+        "test_all",
+        "test_all_weighted",
+        "test_new"
+      ],
+      "title": "ModelResult",
+      "type": "object"
+    },
+    "NbExample": {
+      "additionalProperties": false,
+      "properties": {
+        "correct": {
+          "title": "Correct",
+          "type": "boolean"
+        },
+        "log_prior": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Log Prior",
+          "type": "object"
+        },
+        "log_score": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Log Score",
+          "type": "object"
+        },
+        "posterior": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Posterior",
+          "type": "object"
+        },
+        "predicted": {
+          "title": "Predicted",
+          "type": "string"
+        },
+        "push_words": {
+          "items": {
+            "$ref": "#/$defs/WordScore"
+          },
+          "title": "Push Words",
+          "type": "array"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "true_label": {
+          "title": "True Label",
+          "type": "string"
+        },
+        "unit_id": {
+          "title": "Unit Id",
+          "type": "string"
+        },
+        "unknown_words": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unknown Words",
+          "type": "array"
+        }
+      },
+      "required": [
+        "unit_id",
+        "text",
+        "true_label",
+        "predicted",
+        "correct",
+        "log_prior",
+        "log_score",
+        "posterior",
+        "push_words",
+        "unknown_words"
+      ],
+      "title": "NbExample",
+      "type": "object"
+    },
+    "Neighbor": {
+      "additionalProperties": false,
+      "properties": {
+        "distance": {
+          "title": "Distance",
+          "type": "number"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "unit_id": {
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "unit_id",
+        "text",
+        "label",
+        "distance"
+      ],
+      "title": "Neighbor",
+      "type": "object"
+    },
+    "PipelineStep": {
+      "additionalProperties": false,
+      "properties": {
+        "detail_th": {
+          "title": "Detail Th",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "rule",
+            "ml"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "title_th": {
+          "title": "Title Th",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title_th",
+        "kind",
+        "detail_th"
+      ],
+      "title": "PipelineStep",
+      "type": "object"
+    },
+    "SentenceRoleReport": {
+      "additionalProperties": false,
+      "properties": {
+        "by_doc_type": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object"
+          },
+          "title": "By Doc Type",
+          "type": "object"
+        },
+        "chosen": {
+          "title": "Chosen",
+          "type": "string"
+        },
+        "confusion": {
+          "items": {
+            "$ref": "#/$defs/Confusion"
+          },
+          "title": "Confusion",
+          "type": "array"
+        },
+        "facts": {
+          "$ref": "#/$defs/Facts"
+        },
+        "group_th": {
+          "title": "Group Th",
+          "type": "string"
+        },
+        "id": {
+          "enum": [
+            "sentence-role",
+            "warning-role"
+          ],
+          "title": "Id",
+          "type": "string"
+        },
+        "knn_examples": {
+          "items": {
+            "$ref": "#/$defs/KnnExample"
+          },
+          "title": "Knn Examples",
+          "type": "array"
+        },
+        "label_source_th": {
+          "title": "Label Source Th",
+          "type": "string"
+        },
+        "labels": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Labels",
+          "type": "array"
+        },
+        "labels_th": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Labels Th",
+          "type": "object"
+        },
+        "learning_curve": {
+          "items": {
+            "$ref": "#/$defs/LearningPoint"
+          },
+          "title": "Learning Curve",
+          "type": "array"
+        },
+        "mistakes": {
+          "items": {
+            "$ref": "#/$defs/Mistake"
+          },
+          "title": "Mistakes",
+          "type": "array"
+        },
+        "nb_examples": {
+          "items": {
+            "$ref": "#/$defs/NbExample"
+          },
+          "title": "Nb Examples",
+          "type": "array"
+        },
+        "pipeline": {
+          "items": {
+            "$ref": "#/$defs/PipelineStep"
+          },
+          "title": "Pipeline",
+          "type": "array"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/$defs/ModelResult"
+          },
+          "title": "Results",
+          "type": "array"
+        },
+        "split_note_th": {
+          "title": "Split Note Th",
+          "type": "string"
+        },
+        "splits": {
+          "items": {
+            "$ref": "#/$defs/SplitCount"
+          },
+          "title": "Splits",
+          "type": "array"
+        },
+        "title_th": {
+          "title": "Title Th",
+          "type": "string"
+        },
+        "token_examples": {
+          "items": {
+            "$ref": "#/$defs/TokenExample"
+          },
+          "title": "Token Examples",
+          "type": "array"
+        },
+        "top_words": {
+          "additionalProperties": {
+            "items": {
+              "$ref": "#/$defs/WordScore"
+            },
+            "type": "array"
+          },
+          "title": "Top Words",
+          "type": "object"
+        },
+        "tuning": {
+          "$ref": "#/$defs/Tuning"
+        }
+      },
+      "required": [
+        "id",
+        "title_th",
+        "group_th",
+        "split_note_th",
+        "labels",
+        "labels_th",
+        "chosen",
+        "label_source_th",
+        "pipeline",
+        "splits",
+        "by_doc_type",
+        "token_examples",
+        "top_words",
+        "nb_examples",
+        "knn_examples",
+        "tuning",
+        "results",
+        "confusion",
+        "learning_curve",
+        "mistakes",
+        "facts"
+      ],
+      "title": "SentenceRoleReport",
+      "type": "object"
+    },
+    "SplitCount": {
+      "additionalProperties": false,
+      "properties": {
+        "by_label": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "By Label",
+          "type": "object"
+        },
+        "split": {
+          "title": "Split",
+          "type": "string"
+        },
+        "total": {
+          "title": "Total",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "split",
+        "total",
+        "by_label"
+      ],
+      "title": "SplitCount",
+      "type": "object"
+    },
+    "TokenExample": {
+      "additionalProperties": false,
+      "properties": {
+        "counts": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Counts",
+          "type": "object"
+        },
+        "dropped": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dropped",
+          "type": "array"
+        },
+        "kept": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Kept",
+          "type": "array"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "tokens": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tokens",
+          "type": "array"
+        },
+        "unit_id": {
+          "title": "Unit Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "unit_id",
+        "label",
+        "text",
+        "tokens",
+        "dropped",
+        "kept",
+        "counts"
+      ],
+      "title": "TokenExample",
+      "type": "object"
+    },
+    "Tuning": {
+      "additionalProperties": false,
+      "properties": {
+        "best_k": {
+          "title": "Best K",
+          "type": "integer"
+        },
+        "best_m_factor": {
+          "title": "Best M Factor",
+          "type": "number"
+        },
+        "knn_k": {
+          "items": {
+            "$ref": "#/$defs/TuningPoint"
+          },
+          "title": "Knn K",
+          "type": "array"
+        },
+        "nb_m_factor": {
+          "items": {
+            "$ref": "#/$defs/TuningPoint"
+          },
+          "title": "Nb M Factor",
+          "type": "array"
+        },
+        "vocab_train": {
+          "title": "Vocab Train",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nb_m_factor",
+        "knn_k",
+        "best_m_factor",
+        "best_k",
+        "vocab_train"
+      ],
+      "title": "Tuning",
+      "type": "object"
+    },
+    "TuningPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "dev_accuracy": {
+          "title": "Dev Accuracy",
+          "type": "number"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "dev_accuracy"
+      ],
+      "title": "TuningPoint",
+      "type": "object"
+    },
+    "WordScore": {
+      "additionalProperties": false,
+      "properties": {
+        "score": {
+          "title": "Score",
+          "type": "number"
+        },
+        "word": {
+          "title": "Word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "word",
+        "score"
+      ],
+      "title": "WordScore",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "models": {
+      "items": {
+        "$ref": "#/$defs/SentenceRoleReport"
+      },
+      "minItems": 1,
+      "title": "Models",
+      "type": "array"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "version",
+    "models"
+  ],
+  "title": "ModelReport",
+  "type": "object"
+}
