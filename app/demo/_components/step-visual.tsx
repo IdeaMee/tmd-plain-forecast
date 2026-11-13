@@ -406,3 +406,16 @@ function Body({ step, steps }: StepVisualProps) {
       return null;
   }
 }
+
+const RESULT_LABELS: Record<string, string> = {
+  lines: "ประโยคสรุป",
+  advice: "คำแนะนำ",
+  sections: "ส่วน",
+  units: "หน่วยประโยค",
+};
+
+/** ภาพของขั้นหนึ่ง: ขั้นที่ข้ามแสดงเหตุผล ขั้นที่ข้อมูลถูกตัดเพราะเกินเพดานแสดงแค่คำอธิบาย */
+export function StepVisual({ step, steps }: StepVisualProps) {
+  if (step.status !== "done" || Object.keys(step.data).length === 0) return null;
+  return <Body step={step} steps={steps} />;
+}
