@@ -17,7 +17,8 @@ type ForecastCardProps = {
   index?: number;
 };
 
-function Lines({ lines }: { lines: SummaryLine[] }) {
+// บรรทัดสรุปพร้อมไอคอนและป้ายชนิด ใช้ร่วมกับการ์ดพื้นที่ทะเล (shipping-summary.tsx)
+export function SummaryLines({ lines }: { lines: SummaryLine[] }) {
   return (
     <dl className="grid content-start gap-3.5">
       {lines.map((line, i) => (
@@ -42,11 +43,11 @@ export function ForecastCard({ title, summary, className, focused = false, index
       style={{ "--i": index } as CSSProperties}
     >
       <h3 className={focused ? "text-display-sm" : "text-title-md"}>{title}</h3>
-      {summary.lines.length > 0 ? <Lines lines={summary.lines} /> : null}
+      {summary.lines.length > 0 ? <SummaryLines lines={summary.lines} /> : null}
       {summary.periods.map((period) => (
         <section key={`${period.start}-${period.end}`} className="space-y-2">
           <h4 className="text-title-sm">{thaiDateRange(period.start, period.end)}</h4>
-          <Lines lines={period.lines} />
+          <SummaryLines lines={period.lines} />
         </section>
       ))}
       {summary.advice.length > 0 ? (

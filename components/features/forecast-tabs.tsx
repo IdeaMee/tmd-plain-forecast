@@ -10,12 +10,20 @@ export function DocTypeTabs({ query }: ForecastTabsProps) {
   return (
     <TabLinks
       label="ชนิดพยากรณ์"
+      variant="segmented"
       items={[
-        { href: homeHref({ type: "daily", issue: null, region: query.region }), label: "พยากรณ์รายวัน", current: query.type === "daily" },
+        { href: homeHref({ type: "daily", issue: null, region: query.region }), label: "พยากรณ์รายวัน", shortLabel: "รายวัน", current: query.type === "daily" },
         {
           href: homeHref({ type: "sevenday", issue: null, region: query.region }),
           label: "พยากรณ์ 7 วัน",
+          shortLabel: "7 วัน",
           current: query.type === "sevenday",
+        },
+        {
+          href: homeHref({ type: "shipping", issue: null, region: null }),
+          label: "พยากรณ์เดินเรือ",
+          shortLabel: "เดินเรือ",
+          current: query.type === "shipping",
         },
       ]}
     />
@@ -27,7 +35,6 @@ export function RegionTabs({ query }: ForecastTabsProps) {
   return (
     <TabLinks
       label="เลือกภาค"
-      scroll
       items={[
         { href: homeHref({ ...query, region: null }), label: "ทุกภาค", current: query.region === null },
         ...REGION_KEYS.map((key) => ({
