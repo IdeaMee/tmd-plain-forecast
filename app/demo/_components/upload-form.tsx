@@ -92,7 +92,7 @@ export function UploadForm() {
           onDrop={onDrop}
           data-testid="dropzone"
           className={cn(
-            "space-y-3 rounded-lg border-2 border-dashed border-hairline-strong bg-canvas-soft p-6",
+            "space-y-3 rounded-lg border-2 border-dashed border-hairline-strong bg-canvas-soft p-6 transition-colors duration-(--duration-base)",
             dragging && "border-ink bg-surface-strong",
           )}
         >
@@ -147,14 +147,14 @@ export function UploadForm() {
           <p className="text-body-md text-ink">กำลังอ่านและสรุปไฟล์ อาจใช้เวลาสักครู่</p>
         ) : null}
         {status.kind === "error" || status.kind === "network" ? (
-          <Alert tone="warning" icon={WARNING_ICON}>
+          <Alert tone="warning" icon={WARNING_ICON} className="animate-fade-in">
             <p className="font-semibold">สรุปไฟล์นี้ไม่ได้</p>
             <p className="mt-1">{status.message}</p>
           </Alert>
         ) : null}
         {status.kind === "notice" ? (
           // ไม่ใช่ข้อผิดพลาด จึงไม่ใช้ไอคอนเตือน
-          <Alert>
+          <Alert className="animate-fade-in">
             <p className="font-semibold">อ่านไฟล์นี้ได้แล้ว</p>
             <p className="mt-1">{status.message}</p>
           </Alert>
@@ -172,7 +172,7 @@ export function UploadForm() {
 
       <div>
         {status.kind === "ok" ? (
-          <div className="space-y-8">
+          <div className="animate-fade-in space-y-8">
             {status.result.trace ? <TraceStepper trace={status.result.trace} resultId={resultId} /> : null}
             <section className="space-y-6" aria-labelledby={resultId}>
               {status.result.kind === "issue" ? (
