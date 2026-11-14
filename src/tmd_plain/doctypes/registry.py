@@ -47,9 +47,21 @@ def _forecast_specs() -> tuple[DocTypeSpec, ...]:
     )
 
 
+def _shipping_specs() -> tuple[DocTypeSpec, ...]:
+    from tmd_plain.doctypes.shipping.runner import run_shipping, trace_shipping
+
+    return (DocTypeSpec("shipping", "shipping", run_shipping, trace_shipping),)
+
+
+def _warning_specs() -> tuple[DocTypeSpec, ...]:
+    from tmd_plain.doctypes.warning.runner import run_warning, trace_warning
+
+    return (DocTypeSpec("warning", "warning", run_warning, trace_warning),)
+
+
 @cache
 def registry() -> dict[str, DocTypeSpec]:
-    return {spec.key: spec for spec in _forecast_specs()}
+    return {spec.key: spec for spec in (*_forecast_specs(), *_shipping_specs(), *_warning_specs())}
 
 
 @cache
