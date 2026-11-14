@@ -1,4 +1,4 @@
-// smoke test 15 ข้อบนเว็บจริง (vercel-deploy-checklist ส่วนที่ 4) · ไม่แก้ข้อมูลใน DB
+// smoke test บนเว็บจริง (15 ข้อเดิม + ข้อเพิ่มของรอบ v2) (vercel-deploy-checklist ส่วนที่ 4) · ไม่แก้ข้อมูลใน DB
 // ไฟล์ PDF จริงอ่านจาก data/raw (ไม่ขึ้น repo) ถ้าไม่มีข้อนั้นถูกข้าม · ภาพหน้าจออยู่ test-results/screens/smoke-*.png
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -9,6 +9,9 @@ const RAW = path.resolve("data/raw");
 const DAILY_PDF = path.join(RAW, "daily", "daily_161120261800.pdf");
 const SEVENDAY_PDF = path.join(RAW, "sevenday", "sevenday_261116.pdf");
 const NON_TMD_PDF = path.resolve("course/slides/0_MiniProject.pdf");
+// 10.3-10.4: เอกสาร TMD ชนิดอื่น (โหมดทั่วไป) และอินโฟกราฟิกภาพล้วน
+const ENSO_PDF = path.join(RAW, "generic", "generic_enso_2569_09.pdf");
+const IMAGE_ONLY_PDF = path.join(RAW, "agro7", "agro7_11112026.pdf");
 const LATEST_DAILY = "ประจำวันที่ 16 พฤศจิกายน 2569 17.00 น.";
 const FILE_LABEL = "เลือกไฟล์ PDF พยากรณ์ของกรมอุตุนิยมวิทยา";
 const SUBMIT = "สรุปพยากรณ์จากไฟล์นี้";
@@ -65,6 +68,12 @@ test("05 /demo: PDF รายวันจริง ได้ 7 ภาค", async
   await upload(page, DAILY_PDF);
   await expect(page.getByRole("heading", { level: 3 })).toHaveCount(7, { timeout: 60_000 });
   await expect(page.getByText(LATEST_DAILY)).toBeVisible();
+  // 10.4: ภาพขั้นตอนจากฟังก์ชันจริง 13 ขั้น เดินด้วยปุ่มได้
+  const box = page.getByRole("region", { name: "ระบบทำอะไรกับไฟล์นี้ทีละขั้น" });
+  await expect(box.getByText("ขั้นที่ 1 จาก 13")).toBeVisible();
+  for (let i = 0; i < 12; i++) await box.getByRole("button", { name: "ถัดไป" }).click();
+  await expect(box.getByText("ขั้นที่ 13 จาก 13")).toBeVisible();
+  await expect(box.getByRole("button", { name: "ถัดไป" })).toBeDisabled();
 });
 
 test("06 /demo: PDF 7 วันจริง ได้ 7 ภาค", async ({ page }) => {
@@ -75,19 +84,45 @@ test("06 /demo: PDF 7 วันจริง ได้ 7 ภาค", async ({ pag
   await expect(page.getByRole("heading", { level: 2, name: "ผลสรุปพยากรณ์ 7 วัน" })).toBeVisible();
 });
 
-test("07 /demo: PDF ที่ไม่ใช่พยากรณ์ของ TMD ถูกปฏิเสธ", async ({ page }) => {
+// ตั้งแต่ 10.3-10.4 PDF ชนิดอื่นที่มีข้อความได้โหมดทั่วไป (ไม่ปฏิเสธ) ไม่ใช่เอกสาร TMD = แสดงพร้อมคำเตือน
+test("07 /demo: PDF ที่ไม่ใช่ของ TMD ได้โหมดทั่วไปพร้อมคำเตือน", async ({ page }) => {
   test.skip(!existsSync(NON_TMD_PDF), "ไม่มีสไลด์วิชา");
   await page.goto("/demo");
   await upload(page, NON_TMD_PDF);
-  await expect(page.getByRole("status").getByText("ไม่ใช่พยากรณ์อากาศรายวันหรือพยากรณ์ 7 วัน")).toBeVisible({
+  await expect(page.getByRole("heading", { level: 2, name: "ผลอ่านเอกสาร (โหมดทั่วไป)" })).toBeVisible({
     timeout: 60_000,
+  });
+  await expect(page.getByText("ไฟล์นี้ดูไม่เหมือนเอกสารของกรมอุตุนิยมวิทยา")).toBeVisible();
+});
+
+test("07b /demo: เอกสาร TMD ชนิดอื่น (ENSO) ได้โหมดทั่วไป + ภาพขั้นตอนไม่มีขั้นแม่แบบ", async ({ page }) => {
+  test.skip(!existsSync(ENSO_PDF), "ไม่มีข้อมูลดิบ");
+  await page.goto("/demo");
+  await upload(page, ENSO_PDF);
+  await expect(page.getByRole("heading", { level: 2, name: "ผลอ่านเอกสาร (โหมดทั่วไป)" })).toBeVisible({
+    timeout: 60_000,
+  });
+  await expect(page.getByText("ไฟล์นี้ดูไม่เหมือนเอกสารของกรมอุตุนิยมวิทยา")).toHaveCount(0);
+  const box = page.getByRole("region", { name: "ระบบทำอะไรกับไฟล์นี้ทีละขั้น" });
+  await expect(box.getByText(/^ขั้นที่ 1 จาก 12$/)).toBeVisible();
+  await page.setViewportSize({ width: 375, height: 812 });
+  await noHorizontalScroll(page);
+  await page.screenshot({ path: "test-results/screens/smoke-demo-generic-375.png", fullPage: true });
+});
+
+test("07c /demo: PDF ภาพล้วน (ไม่มีชั้นข้อความ) ได้ข้อความ extract_failed", async ({ page }) => {
+  test.skip(!existsSync(IMAGE_ONLY_PDF), "ไม่มีข้อมูลดิบ");
+  await page.goto("/demo");
+  await upload(page, IMAGE_ONLY_PDF);
+  await expect(page.getByRole("status").getByText("อ่านหรือสรุปข้อความในไฟล์ไม่สำเร็จ")).toBeVisible({
+    timeout: 90_000,
   });
 });
 
 test("08 /demo: ไฟล์ที่ไม่ใช่ PDF ถูกปฏิเสธก่อนส่ง", async ({ page }) => {
   await page.goto("/demo");
   await upload(page, { name: "notes.txt", mimeType: "text/plain", buffer: Buffer.from("hello") });
-  await expect(page.getByRole("status").getByText("ไม่ใช่พยากรณ์อากาศรายวันหรือพยากรณ์ 7 วัน")).toBeVisible();
+  await expect(page.getByRole("status").getByText("ไฟล์นี้ไม่ใช่ PDF")).toBeVisible();
 });
 
 test("09 /demo: ไฟล์เกิน 4 MB ถูกปฏิเสธก่อนส่ง", async ({ page }) => {
@@ -171,4 +206,20 @@ test.describe("15 ภาพหน้าจอ 320 และ 375 px ไม่ม�
       }
     });
   }
+});
+
+// 8.2: หน้า /model ขึ้นครบ ตัวเลขความแม่นตรงกับไฟล์รายงานใน repo (ตรวจว่า deploy ตรงกับโค้ด)
+test("16 /model: ครบ 9 ส่วน ความแม่นตรงกับ model-report.json เข้าได้จากเมนู", async ({ page }) => {
+  const report = JSON.parse(readFileSync(path.resolve("lib/generated/model-report.json"), "utf-8")).models[0];
+  const chosen = report.results.find((r: { name: string }) => r.name === report.chosen);
+  const res = await page.goto("/model");
+  expect(res?.status()).toBe(200);
+  await expect(page.getByRole("heading", { level: 1, name: "โมเดลทำงานอย่างไร" })).toBeVisible();
+  for (let n = 1; n <= 9; n++) await expect(page.getByText(`ส่วนที่ ${n}`, { exact: true })).toBeVisible();
+  await expect(page.getByText(`${(chosen.test_new * 100).toFixed(1)}%`).first()).toBeVisible();
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/");
+  const nav = page.getByRole("navigation", { name: "เมนูหลัก" });
+  await nav.getByRole("button", { name: "ความรู้" }).click();
+  await expect(nav.getByRole("link", { name: /โมเดลทำงานอย่างไร/ })).toHaveAttribute("href", "/model");
 });
