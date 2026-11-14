@@ -122,7 +122,7 @@ WarningNotice {
   title: string            // ข้อความหลังคำว่า "เรื่อง" คำต่อคำ (หลายบรรทัดรวมเป็นบรรทัดเดียว) = คำบอกความรุนแรงของ TMD เอง เช่น "ฝนตกหนักถึงหนักมากบริเวณภาคใต้"
   series_no: int           // ฉบับที่ 7
   notice_no: string        // "315/2569"
-  effect: { text: string (คำต่อคำ เช่น "มีผลกระทบจนถึงวันที่ ..."), start: date | null, end: date | null }
+  effect: { text: string (คำต่อคำ เช่น "มีผลกระทบจนถึงวันที่ ..."), start: date | null, end: date | null } | null   // ไม่มีบรรทัดในต้นฉบับ = null (ADR 0018)
   next_issue_at: datetime | null
   regions: RegionKey[]     // ภาคที่กล่าวถึง (กฎแบบ scope.py ใน 11.2)
   provinces: string[]      // ชื่อจังหวัดที่พบ คำต่อคำ
@@ -196,14 +196,14 @@ TraceStep {
 ```
 - `kind` เป็นตัวแยกชนิดของ `document` (discriminated union) · ส่ง `?trace=1` จึงมี `trace` ไม่ส่งได้ `null` (10.2) · เพดาน trace เป็นค่าคงที่ในสัญญา `TRACE_MAX_BYTES` = 262144, `TRACE_MAX_ITEMS` = 50 (ทั้ง Python และ Zod)
 - ความหมายรหัสเปลี่ยนเพราะมีโหมดทั่วไป (ใช้จริงตั้งแต่ 10.3): `unsupported_document` = ไม่ใช่ PDF เท่านั้น ("ไฟล์นี้ไม่ใช่ PDF ...") · PDF ที่ไม่มีชั้นข้อความ (ภาพล้วน) หรือสรุป/ตรวจไม่ผ่าน = `extract_failed` · PDF อื่นทุกชนิดที่มีข้อความได้ `kind: "generic"` (ไม่ใช่ของ TMD = `not_tmd_like`)
-- หน้า `/demo` (10.4) แสดงผล `kind: "issue"` และ `"generic"` พร้อมภาพขั้นตอน ชนิดที่ยังไม่มีหน้าแสดงผล (`shipping`/`warning`/`weekly` จนกว่าแผน 11) แสดงคำแจ้ง "ระบบอ่านเอกสารนี้ได้แล้ว แต่..." (`lib/upload.ts` outcome `notice`, ไม่ใช่ข้อผิดพลาด)
+- หน้า `/demo` (10.4) แสดงผล `kind: "issue"` และ `"generic"` พร้อมภาพขั้นตอน และ `"warning"` ตั้งแต่ 11.4 (การ์ดเดียวกับ `/warnings`) ชนิดที่ยังไม่มีการแสดงผลใน `/demo` (`shipping`, `weekly` จนถึง 11.5) แสดงคำแจ้ง "ระบบอ่านเอกสารนี้ได้แล้ว แต่..." (`lib/upload.ts` outcome `notice`, ไม่ใช่ข้อผิดพลาด)
 - รูปคำตอบเปลี่ยน (`issue` → `kind` + `document`) ใน 10.2: Python (`SummarizeOk` = union แยกด้วย `kind`, `ok_response`) และ Zod (`summarizeOkSchema`) เปลี่ยนในชุดเดียวกัน (deploy พร้อมกันบน Vercel) และลบรูป v1 แล้ว
 - trace สร้างหลังท่อประมวลผลเสร็จจากผลระหว่างทาง (`tmd_plain.tracing.build_trace`, ขั้นของแต่ละชนิดใน `tmd_plain.doctypes`) ตัดให้เหลือไม่เกิน 90% ของเพดาน (เผื่อ JSON ฝั่งเว็บเขียนตัวเลขต่างกันเล็กน้อย) · คะแนนของตัวจัดประเภทใน trace ปัดทศนิยม 4 ตำแหน่ง
 
 ## v2.8 ฐานข้อมูล
 - ใช้ตารางเดิม `forecast_issue` ต่อ (`payload` = เอกสารตาม `doc_type`) · migration ใน 11.1 (ผู้ใช้รัน): เปลี่ยน check constraint เป็น `doc_type in ('daily','sevenday','shipping','warning','weekly','agro7','outlook3m')` ไม่ลบข้อมูล
-- ร่าง SQL (ยังไม่รัน): `alter table forecast_issue drop constraint forecast_issue_doc_type_check;` แล้ว `alter table forecast_issue add constraint forecast_issue_doc_type_check check (doc_type in (...));`
-- ตัวโหลดตรวจทุกไฟล์ด้วย Zod ตาม `doc_type` ก่อนเขียน (ไฟล์ผิดสัญญาไม่ขึ้น DB)
+- SQL: `db/migrations/001-doc-type-v2.sql` (11.1; drop if exists + add constraint ในธุรกรรมเดียว รันซ้ำได้) · `db/schema.sql` สำหรับฐานใหม่มีรายการเดียวกันแล้ว · **ผู้ใช้อนุมัติ (V6) และรันเองใน Neon SQL Editor** ก่อน `npm run load:neon` ไฟล์เดินเรือ (ไม่รัน constraint เดิมจะปฏิเสธแถว shipping และธุรกรรมของตัวโหลดย้อนทั้งหมด)
+- ตัวโหลดตรวจทุกไฟล์ด้วย Zod ตาม `doc_type` ก่อนเขียน (`lib/contract/stored.ts` `storedDocumentSchema` = รายวัน/7 วัน/เดินเรือ; ไฟล์ผิดสัญญาไม่ขึ้น DB) · ไฟล์ใน `lib/contract/` import กันแบบสัมพัทธ์ `./x.ts` เพราะตัวโหลดรันด้วย node ตรงๆ
 
 ## v2.9 ข้อตัดสินใจ V4 (ผู้ใช้ตอบ 2026-11-18: ตามข้อเสนอทั้งสองข้อ)
 - **(ก) ป้าย `cause` / `weather`:** ข้อเสนอ: คงบทบาทเดิมในผลสรุป (ป้ายใช้คัดคำแนะนำ) และแสดงป้ายทั้ง 4 แบบใน trace และโหมดทั่วไปเท่านั้น · ถ้าเพิ่มส่วน "สาเหตุ" ในสรุปรายวัน/7 วัน ผล 35 ไฟล์จะเปลี่ยน ขัดเป้าของแผน 10 ("ชนิดเดิมไม่เปลี่ยนแม้แต่ไบต์เดียว")
