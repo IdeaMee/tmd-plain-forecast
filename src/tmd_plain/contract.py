@@ -300,7 +300,8 @@ class WarningNotice(_Model):
     title: str = Field(min_length=1)
     series_no: int = Field(ge=1)
     notice_no: str
-    effect: EffectPeriod
+    # ไม่มีบรรทัดช่วงที่มีผลในต้นฉบับ = None (พบ 1 ใน 155 ฉบับ, ADR 0018)
+    effect: EffectPeriod | None = None
     next_issue_at: datetime | None = None
     regions: list[RegionKey] = Field(default_factory=list)
     provinces: list[str] = Field(default_factory=list)
