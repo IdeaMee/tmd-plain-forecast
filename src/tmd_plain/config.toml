@@ -34,6 +34,11 @@ heading_max_chars = 40
 max_units = 400
 max_json_bytes = 1000000
 
+[warning_split]
+# Phase 11.3: แบ่งประกาศเตือนภัยตามเหตุการณ์ (ชุดประกาศ 13 ชุด) เรียงตามเวลา: ทดสอบ = ล่าสุด, dev = ก่อนหน้า
+dev_events = 2
+test_events = 3
+
 [classify]
 # Phase 2.4: ค่าที่ลองบนชุด dev เท่านั้น · m ของ Naive Bayes = ตัวคูณ x |Vocabulary| (1.0 = add-one)
 nb_m_factors = [0.05, 0.1, 0.25, 0.5, 1.0, 2.0]
