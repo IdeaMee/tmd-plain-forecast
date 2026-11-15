@@ -1,4 +1,7 @@
-"""โหลดตัวจัดประเภทที่อนุมัติ (models/selected.json): ป้ายของข้อความ และคำอธิบายสำหรับภาพขั้นตอน."""
+"""โหลดตัวจัดประเภทที่อนุมัติ (models/selected.json): ป้ายของข้อความ และคำอธิบายสำหรับภาพขั้นตอน.
+
+ชนิดเอกสารที่มีตัวเฉพาะ (models/<ชนิด>_selected.json เช่น warning ใน 11.3) โหลดติดมาด้วย เรียกผ่าน for_doc()
+"""
 
 from __future__ import annotations
 
@@ -16,6 +19,8 @@ from tmd_plain.classify.naive_bayes import NaiveBayesModel
 
 TOP_WORDS = 5
 LABEL_CACHE_SIZE = 4096
+# ชนิดเอกสารที่อาจมีตัวจัดประเภทของตัวเอง (ไม่มีไฟล์ = ใช้ตัวของรายวัน)
+SPECIFIC_DOC_TYPES = ("warning",)
 
 
 @dataclass(frozen=True)
@@ -34,6 +39,14 @@ class Classifier:
     name: str
     label: Callable[[str], str]
     explain: Callable[[str], Explanation]
+    # ชนิดเอกสาร -> ตัวจัดประเภทเฉพาะชนิด (เรียงตามชื่อชนิด เพื่อให้ dataclass frozen เทียบค่าได้)
+    specific: tuple[tuple[str, Classifier], ...] = ()
+    # ตัวเฉพาะชนิดบอกชนิดของตัวเอง (ตัวหลัก = "")
+    doc_type: str = ""
+
+    def for_doc(self, doc_type: str) -> Classifier:
+        """ตัวเฉพาะของชนิดนี้ถ้ามี ไม่มีใช้ตัวหลัก (รายวัน/7 วัน)."""
+        return dict(self.specific).get(doc_type, self)
 
 
 def _softmax(log_scores: dict[str, float]) -> dict[str, float]:
@@ -86,9 +99,11 @@ def explain_knn(knn: KnnModel, bag: Counter[str]) -> Explanation:
     )
 
 
-def load_classifier(models_dir: Path) -> Classifier:
-    selected = json.loads((models_dir / "selected.json").read_text(encoding="utf-8"))["model"]
-    data = json.loads((models_dir / f"{selected}.json").read_text(encoding="utf-8"))
+def _load_one(models_dir: Path, prefix: str) -> Classifier:
+    selected = json.loads((models_dir / f"{prefix}selected.json").read_text(encoding="utf-8"))[
+        "model"
+    ]
+    data = json.loads((models_dir / f"{prefix}{selected}.json").read_text(encoding="utf-8"))
     model: NaiveBayesModel | KnnModel
     if selected == "naive_bayes":
         model = NaiveBayesModel.from_json(data)
@@ -106,7 +121,17 @@ def load_classifier(models_dir: Path) -> Classifier:
             return explain_naive_bayes(model, bag)
         return explain_knn(model, bag)
 
-    return Classifier(name=selected, label=predict, explain=explain)
+    return Classifier(name=selected, label=predict, explain=explain, doc_type=prefix.rstrip("_"))
+
+
+def load_classifier(models_dir: Path) -> Classifier:
+    """ตัวหลัก (selected.json) + ตัวเฉพาะชนิดที่มีไฟล์ <ชนิด>_selected.json."""
+    specific = tuple(
+        (key, _load_one(models_dir, f"{key}_"))
+        for key in sorted(SPECIFIC_DOC_TYPES)
+        if (models_dir / f"{key}_selected.json").exists()
+    )
+    return replace(_load_one(models_dir, ""), specific=specific)
 
 
 def with_label_cache(classifier: Classifier) -> Classifier:
@@ -114,7 +139,11 @@ def with_label_cache(classifier: Classifier) -> Classifier:
 
     สร้างใหม่ทุกคำขอ ไม่ให้ข้อความจากไฟล์ของผู้ใช้คนก่อนค้างในหน่วยความจำของฟังก์ชัน
     """
-    return replace(classifier, label=lru_cache(maxsize=LABEL_CACHE_SIZE)(classifier.label))
+    return replace(
+        classifier,
+        label=lru_cache(maxsize=LABEL_CACHE_SIZE)(classifier.label),
+        specific=tuple((key, with_label_cache(c)) for key, c in classifier.specific),
+    )
 
 
 def load_labeler(models_dir: Path) -> Callable[[str], str]:
