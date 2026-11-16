@@ -1,0 +1,245 @@
+{
+  "advice": [
+    {
+      "regions": [
+        "east",
+        "south_east_coast",
+        "south_west_coast"
+      ],
+      "source_unit_id": "sh-62ecfc56",
+      "text": "ชาวเรือควรตรวจสอบเส้นทางและเดินเรือด้วยความระมัดระวัง รวมทั้งหลีกเลี่ยงการเดินเรือในบริเวณที่มีฝนฟ้าคะนอง"
+    }
+  ],
+  "areas": {
+    "andaman_malacca": {
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "heavy_rain": "ฝนตกหนักบางแห่ง",
+            "rain_area_pct_high": 80,
+            "rain_area_pct_low": 80,
+            "rain_area_tenths_high": 8,
+            "rain_area_tenths_low": 8,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 80 ของพื้นที่ (ราว 8 ใน 10 ส่วนของพื้นที่ทะเลบริเวณนี้) มีฝนตกหนักบางแห่ง"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออก",
+            "wind_speed_kmh_high": 30,
+            "wind_speed_kmh_low": 15,
+            "wind_speed_kt_high": 16,
+            "wind_speed_kt_low": 8
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออก ความเร็ว 8-16 นอต (15-30 กม./ชม.)"
+        },
+        {
+          "facts": {
+            "wave_m_high": 1,
+            "wave_m_low": 1,
+            "wave_offshore_m_high": 1,
+            "wave_offshore_m_low": 1,
+            "wave_offshore_qualifier": "สูงมากกว่า",
+            "wave_qualifier": "สูงประมาณ",
+            "wave_storm_m_high": 2,
+            "wave_storm_m_low": 2,
+            "wave_storm_qualifier": "สูงมากกว่า"
+          },
+          "kind": "wave",
+          "text": "ทะเลมีคลื่นสูงราว 1 เมตร ห่างฝั่งคลื่นสูงกว่า 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+        }
+      ],
+      "name_th": "ทะเลอันดามันและช่องแคบมะละกา",
+      "parts": []
+    },
+    "ca_mau_cape": {
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "heavy_rain": "ฝนตกหนักบางแห่ง",
+            "rain_area_pct_high": 90,
+            "rain_area_pct_low": 90,
+            "rain_area_tenths_high": 9,
+            "rain_area_tenths_low": 9,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 90 ของพื้นที่ (ราว 9 ใน 10 ส่วนของพื้นที่ทะเลบริเวณนี้) มีฝนตกหนักบางแห่ง"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออก",
+            "wind_speed_kmh_high": 35,
+            "wind_speed_kmh_low": 15,
+            "wind_speed_kt_high": 18,
+            "wind_speed_kt_low": 8
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออก ความเร็ว 8-18 นอต (15-35 กม./ชม.)"
+        },
+        {
+          "facts": {
+            "wave_m_high": 2,
+            "wave_m_low": 1,
+            "wave_qualifier": "สูง",
+            "wave_storm_m_high": 2,
+            "wave_storm_m_low": 2,
+            "wave_storm_qualifier": "สูงมากกว่า"
+          },
+          "kind": "wave",
+          "text": "ทะเลมีคลื่นสูง 1-2 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+        }
+      ],
+      "name_th": "ปลายแหลมญวน",
+      "parts": []
+    },
+    "gulf_of_thailand": {
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "heavy_rain": "ฝนตกหนักบางแห่ง",
+            "rain_area_pct_high": 80,
+            "rain_area_pct_low": 80,
+            "rain_area_tenths_high": 8,
+            "rain_area_tenths_low": 8,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 80 ของพื้นที่ (ราว 8 ใน 10 ส่วนของพื้นที่ทะเลบริเวณนี้) มีฝนตกหนักบางแห่ง"
+        }
+      ],
+      "name_th": "อ่าวไทยทั้งสองฝั่ง",
+      "parts": [
+        {
+          "lines": [
+            {
+              "facts": {
+                "wind_dir": "ตะวันออก",
+                "wind_speed_kmh_high": 30,
+                "wind_speed_kmh_low": 15,
+                "wind_speed_kt_high": 16,
+                "wind_speed_kt_low": 8
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออก ความเร็ว 8-16 นอต (15-30 กม./ชม.)"
+            },
+            {
+              "facts": {
+                "wave_m_high": 1,
+                "wave_m_low": 1,
+                "wave_qualifier": "สูงประมาณ",
+                "wave_storm_m_high": 2,
+                "wave_storm_m_low": 2,
+                "wave_storm_qualifier": "สูงมากกว่า"
+              },
+              "kind": "wave",
+              "text": "ทะเลมีคลื่นสูงราว 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+            }
+          ],
+          "name_th": "ตอนบน"
+        },
+        {
+          "lines": [
+            {
+              "facts": {
+                "wind_dir": "ตะวันออกเฉียงใต้",
+                "wind_speed_kmh_high": 35,
+                "wind_speed_kmh_low": 15,
+                "wind_speed_kt_high": 18,
+                "wind_speed_kt_low": 8
+              },
+              "kind": "wind",
+              "text": "ลมพัดจากทิศตะวันออกเฉียงใต้ ความเร็ว 8-18 นอต (15-35 กม./ชม.)"
+            },
+            {
+              "facts": {
+                "wave_m_high": 2,
+                "wave_m_low": 1,
+                "wave_qualifier": "สูง",
+                "wave_storm_m_high": 2,
+                "wave_storm_m_low": 2,
+                "wave_storm_qualifier": "สูงมากกว่า"
+              },
+              "kind": "wave",
+              "text": "ทะเลมีคลื่นสูง 1-2 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+            }
+          ],
+          "name_th": "ตอนล่าง"
+        }
+      ]
+    },
+    "kota_bharu_singapore": {
+      "lines": [
+        {
+          "facts": {
+            "derived_formula": "rain_area_tenths = floor(rain_area_pct / 10 + 0.5)",
+            "heavy_rain": "ฝนตกหนักบางแห่ง",
+            "rain_area_pct_high": 70,
+            "rain_area_pct_low": 70,
+            "rain_area_tenths_high": 7,
+            "rain_area_tenths_low": 7,
+            "rain_kind": "ฝนฟ้าคะนอง"
+          },
+          "kind": "rain",
+          "text": "มีฝนฟ้าคะนองร้อยละ 70 ของพื้นที่ (ราว 7 ใน 10 ส่วนของพื้นที่ทะเลบริเวณนี้) มีฝนตกหนักบางแห่ง"
+        },
+        {
+          "facts": {
+            "wind_dir": "ตะวันออก",
+            "wind_speed_kmh_high": 30,
+            "wind_speed_kmh_low": 15,
+            "wind_speed_kt_high": 16,
+            "wind_speed_kt_low": 8
+          },
+          "kind": "wind",
+          "text": "ลมพัดจากทิศตะวันออก ความเร็ว 8-16 นอต (15-30 กม./ชม.)"
+        },
+        {
+          "facts": {
+            "wave_m_high": 1,
+            "wave_m_low": 1,
+            "wave_qualifier": "สูงประมาณ",
+            "wave_storm_m_high": 2,
+            "wave_storm_m_low": 2,
+            "wave_storm_qualifier": "สูงมากกว่า"
+          },
+          "kind": "wave",
+          "text": "ทะเลมีคลื่นสูงราว 1 เมตร บริเวณที่มีฝนฟ้าคะนองคลื่นสูงกว่า 2 เมตร"
+        }
+      ],
+      "name_th": "เส้นทางเดินเรือโกตาบารูถึงสิงคโปร์",
+      "parts": []
+    }
+  },
+  "doc_type": "shipping",
+  "issue_id": "071120260000",
+  "issued_at": "2026-11-07T00:00:00+07:00",
+  "overview": [
+    {
+      "facts": {
+        "heavy_rain": "ฝนตกหนักบางแห่ง",
+        "unit_role": "cause"
+      },
+      "kind": "rain",
+      "text": "ลมฝ่ายตะวันออกพัดปกคลุมอ่าวไทย ภาคใต้ และทะเลอันดามัน ทำให้บริเวณดังกล่าวมีฝนตกหนักบางแห่ง"
+    },
+    {
+      "facts": {
+        "unit_role": "cause",
+        "wave_storm_m_high": 2,
+        "wave_storm_m_low": 2,
+        "wave_storm_qualifier": "สูงมากกว่า"
+      },
+      "kind": "wave",
+      "text": "สำหรับทะเลอันดามันและอ่าวไทย บริเวณที่มีฝนฟ้าคะนองจะมีคลื่นสูงมากกว่า 2 เมตร"
+    }
+  ],
+  "pipeline_version": "0.1.0",
+  "source_label": "ออกประกาศ 07 พฤศจิกายน 2569 00:00 น."
+}
