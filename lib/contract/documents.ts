@@ -2,7 +2,7 @@
 // documents.test.ts ตรวจชื่อฟิลด์เทียบ JSON Schema และไฟล์ตัวอย่างใน tests/fixtures/contract
 import { z } from "zod";
 
-import { factValueSchema, regionKeySchema, summaryLineSchema } from "@/lib/contract/issue";
+import { factValueSchema, regionKeySchema, summaryLineSchema } from "./issue.ts";
 
 export const STORED_DOC_TYPES = ["daily", "sevenday", "shipping", "warning", "weekly"] as const;
 export const RESULT_KINDS = ["issue", "shipping", "warning", "weekly", "generic"] as const;
@@ -102,7 +102,8 @@ export const warningNoticeSchema = z
     title: z.string().min(1),
     series_no: z.number().int().min(1),
     notice_no: z.string().regex(/^\d+\/\d{4}$/),
-    effect: effectPeriodSchema,
+    // ไม่มีบรรทัดช่วงที่มีผลในต้นฉบับ = null (ADR 0018)
+    effect: effectPeriodSchema.nullable().default(null),
     next_issue_at: isoDateTime.nullable().default(null),
     regions: z.array(regionKeySchema).default([]),
     provinces: z.array(z.string()).default([]),
@@ -232,5 +233,7 @@ export type QuotedAdvice = z.infer<typeof quotedAdviceSchema>;
 export type ShippingIssue = z.infer<typeof shippingIssueSchema>;
 export type WarningNotice = z.infer<typeof warningNoticeSchema>;
 export type WeeklySummary = z.infer<typeof weeklySummarySchema>;
+export type WeeklyRegion = z.infer<typeof weeklyRegionSchema>;
+export type TableCell = z.infer<typeof tableCellSchema>;
 export type GenericDocument = z.infer<typeof genericDocumentSchema>;
 export type Trace = z.infer<typeof traceSchema>;
