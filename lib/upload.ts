@@ -6,14 +6,15 @@ export const MAX_UPLOAD_BYTES = 4 * 1024 * 1024;
 // ขอภาพขั้นตอนทุกครั้ง (เปิดเป็นค่าเริ่มต้นตามแผน 10.4) ผลสรุปเหมือนกันทุกไบต์ทั้งเปิด/ปิด
 export const SUMMARIZE_URL = "/api/summarize?trace=1";
 export const NETWORK_MESSAGE_TH = "ติดต่อระบบสรุปไม่สำเร็จ กรุณาลองใหม่อีกครั้ง";
-// ชนิดที่สัญญารองรับแต่หน้านี้ยังไม่มีหน้าแสดงผล (เดินเรือ/เตือนภัย/สรุปรายสัปดาห์ มาในแผน 11)
+// ชนิดที่สัญญารองรับแต่หน้านี้ยังไม่มีหน้าแสดงผล (เดินเรือ/สรุปรายสัปดาห์ มาในแผน 11; ประกาศเตือนภัยแสดงผลได้ตั้งแต่ 11.4)
 export const PENDING_KIND_MESSAGE_TH =
   "ระบบอ่านเอกสารนี้ได้แล้ว แต่หน้านี้ยังแสดงผลเอกสารชนิดนี้ไม่ได้ การแสดงผลจะเพิ่มในรุ่นถัดไป";
 
 export type FileInfo = { name: string; size: number; type: string };
 
-// ชนิดที่หน้านี้แสดงผลได้: ผลสรุปเต็มของรายวัน/7 วัน และโหมดทั่วไป
-export type ShownResult = Extract<SummarizeOk, { kind: "issue" | "generic" }>;
+// ชนิดที่หน้านี้แสดงผลได้: ผลสรุปเต็มของรายวัน/7 วัน พยากรณ์เดินเรือ ประกาศเตือนภัย และโหมดทั่วไป
+// (สรุปรายสัปดาห์ไม่มีเส้นทางจาก PDF: PDF ของหมวดนี้เป็นแผนที่ ไปโหมดทั่วไป จึงยังเป็นคำแจ้ง)
+export type ShownResult = Extract<SummarizeOk, { kind: "issue" | "shipping" | "warning" | "generic" }>;
 
 export type UploadOutcome =
   | { kind: "ok"; result: ShownResult }
@@ -39,7 +40,9 @@ export function readResponse(body: unknown): UploadOutcome {
   if (!parsed.success) return { kind: "network", message: NETWORK_MESSAGE_TH };
   if (parsed.data.ok) {
     const result = parsed.data;
-    if (result.kind === "issue" || result.kind === "generic") return { kind: "ok", result };
+    if (result.kind === "issue" || result.kind === "shipping" || result.kind === "warning" || result.kind === "generic") {
+      return { kind: "ok", result };
+    }
     // ชนิดที่ยังไม่มีหน้าแสดงผล บอกตรงๆ ไม่ใช่ข้อผิดพลาด
     return { kind: "notice", message: PENDING_KIND_MESSAGE_TH };
   }
