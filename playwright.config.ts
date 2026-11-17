@@ -34,6 +34,7 @@ export default defineConfig({
     { name: "model", testMatch: "model.spec.ts", use: { baseURL: "http://localhost:3100" } },
     { name: "shipping", testMatch: "shipping.spec.ts", use: { baseURL: "http://localhost:3100" } },
     { name: "warnings", testMatch: "warnings.spec.ts", use: { baseURL: "http://localhost:3100" } },
+    { name: "summaries", testMatch: "summaries.spec.ts", use: { baseURL: "http://localhost:3100" } },
     { name: "empty", testMatch: "empty.spec.ts", use: { baseURL: "http://localhost:3101" } },
     { name: "error", testMatch: "error.spec.ts", use: { baseURL: "http://localhost:3102" } },
   ],
