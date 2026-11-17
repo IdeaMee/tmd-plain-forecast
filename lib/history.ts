@@ -2,7 +2,7 @@
 // รายวัน: "ประจำวันที่ 16 พฤศจิกายน 2569 17.00 น." -> วัน "16 พฤศจิกายน 2569", รอบ "17.00 น."
 // เดินเรือ: "ออกประกาศ 16 พฤศจิกายน 2569 13:00 น." -> วัน "16 พฤศจิกายน 2569", รอบ "13:00 น." (คงรูปเวลาของต้นฉบับ)
 import type { IssueListItem } from "@/lib/forecast-rows";
-import { bangkokMonthKey } from "@/lib/format/thai";
+import { bangkokMonthKey, thaiMonthOfKey } from "@/lib/format/thai";
 
 export type HistoryEntry = { issueId: string; label: string };
 export type HistoryGroup = { day: string; entries: HistoryEntry[] };
@@ -26,6 +26,52 @@ export function groupByDay(items: IssueListItem[]): HistoryGroup[] {
     else groups.push({ day, entries: [entry] });
   }
   return groups;
+}
+
+// ---- ปฏิทินเลือกวัน (ตัวเลือกรอบแบบปฏิทิน) ----
+
+/** ช่องของปฏิทิน: label = ป้ายวันเต็มของ TMD, entries ว่าง = วันที่ไม่มีฉบับ (กดไม่ได้) เรียงรอบจากเช้าไปค่ำ */
+export type CalendarCell = { day: number; label: string; entries: HistoryEntry[] } | null;
+
+const DAY_NUMBER = /^(\d{1,2})\s+(.+)$/;
+
+export type Calendar = {
+  cells: CalendarCell[];
+  // ฉบับที่ป้ายวันไม่ใช่เดือนที่แสดง (เช่น รอบ 23.00 น. ของ 31 ต.ค. ที่ออกหลังเที่ยงคืนจึงนับเป็น พ.ย.) ใส่ในปฏิทินไม่ได้ จึงแสดงต่างหาก
+  extras: HistoryGroup[];
+};
+
+/**
+ * จัดกลุ่มรายวันของเดือนหนึ่งเป็นช่องปฏิทิน (เริ่มวันอาทิตย์ ช่องว่างหน้าเดือนเป็น null)
+ * ป้ายวันที่ไม่ตรงเดือนที่แสดงไปอยู่ extras ไม่ทิ้งฉบับ · ไม่มีวันใดใส่ปฏิทินได้เลย = null (ผู้เรียกใช้รายการเดิม)
+ */
+export function buildCalendar(month: string, groups: HistoryGroup[]): Calendar | null {
+  if (!MONTH_KEY.test(month)) return null;
+  const [year, mon] = month.split("-").map(Number);
+  const monthName = thaiMonthOfKey(month);
+  const daysInMonth = new Date(Date.UTC(year, mon, 0)).getUTCDate();
+  const byDay = new Map<number, { label: string; entries: HistoryEntry[] }>();
+  const extras: HistoryGroup[] = [];
+  for (const group of groups) {
+    const m = DAY_NUMBER.exec(group.day.trim());
+    const day = m ? Number(m[1]) : 0;
+    if (!m || m[2].trim() !== monthName || day < 1 || day > daysInMonth) {
+      extras.push(group);
+      continue;
+    }
+    const found = byDay.get(day);
+    if (found) found.entries.push(...group.entries);
+    else byDay.set(day, { label: group.day, entries: [...group.entries] });
+  }
+  if (byDay.size === 0) return null;
+  const lead = new Date(Date.UTC(year, mon - 1, 1)).getUTCDay();
+  const cells: CalendarCell[] = Array.from({ length: lead }, () => null);
+  for (let day = 1; day <= daysInMonth; day++) {
+    const found = byDay.get(day);
+    // รายการเข้ามาใหม่สุดก่อน แต่ปุ่มเวลาเรียงจากเช้าไปค่ำ
+    cells.push({ day, label: found?.label ?? "", entries: found ? [...found.entries].reverse() : [] });
+  }
+  return { cells, extras };
 }
 
 // ---- ตัวเลือกรอบแบบรายเดือน (11.6) ----

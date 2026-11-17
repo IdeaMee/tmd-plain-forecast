@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  buildCalendar,
   countByMonth,
   groupByDay,
   groupWeeks,
@@ -43,6 +44,52 @@ describe("ประวัติย้อนหลัง", () => {
       ["16 พฤศจิกายน 2569", ["17.00 น.", "11.00 น."]],
       ["15 พฤศจิกายน 2569", ["23.00 น."]],
     ]);
+  });
+});
+
+describe("ปฏิทินเลือกวัน", () => {
+  const groups = groupByDay([
+    item("181120261200", "ประจำวันที่ 18 พฤศจิกายน 2569 11.00 น."),
+    item("171120262300", "ประจำวันที่ 17 พฤศจิกายน 2569 23.00 น."),
+    item("171120261700", "ประจำวันที่ 17 พฤศจิกายน 2569 17.00 น."),
+    item("171120261100", "ประจำวันที่ 17 พฤศจิกายน 2569 11.00 น."),
+  ]);
+
+  it("เริ่มวันอาทิตย์ (1 พ.ย. 2026 เป็นวันอาทิตย์) มีครบ 30 วัน วันที่ไม่มีฉบับเป็นช่องว่าง", () => {
+    const { cells, extras } = buildCalendar("2026-11", groups)!;
+    expect(extras).toEqual([]);
+    expect(cells).toHaveLength(30);
+    expect(cells[0]).toMatchObject({ day: 1, entries: [] });
+    expect(cells[17]).toMatchObject({ day: 18, label: "18 พฤศจิกายน 2569" });
+    expect(cells[17]!.entries.map((e) => e.label)).toEqual(["11.00 น."]);
+  });
+
+  it("เลื่อนช่องตามวันแรกของเดือน และเรียงรอบจากเช้าไปค่ำ", () => {
+    // 1 ต.ค. 2026 เป็นวันพฤหัสบดี = เว้น 4 ช่อง
+    const { cells } = buildCalendar("2026-10", groupByDay([item("011020260500", "ประจำวันที่ 1 ตุลาคม 2569 05.00 น.")]))!;
+    expect(cells.slice(0, 4)).toEqual([null, null, null, null]);
+    expect(cells[4]).toMatchObject({ day: 1 });
+    expect(cells).toHaveLength(4 + 31);
+    const nov = buildCalendar("2026-11", groups)!.cells;
+    expect(nov[16]!.entries.map((e) => e.label)).toEqual(["11.00 น.", "17.00 น.", "23.00 น."]);
+  });
+
+  it("ฉบับที่ป้ายวันเป็นเดือนก่อน (23.00 น. ของ 31 ต.ค. ออกหลังเที่ยงคืนจึงนับเป็น พ.ย.) ไม่ถูกทิ้ง อยู่ใน extras", () => {
+    const withOverflow = groupByDay([
+      item("181120261200", "ประจำวันที่ 18 พฤศจิกายน 2569 11.00 น."),
+      item("011120260000", "ประจำวันที่ 31 ตุลาคม 2569 23.00 น."),
+    ]);
+    const cal = buildCalendar("2026-11", withOverflow)!;
+    expect(cal.cells.filter((c) => c && c.entries.length > 0)).toHaveLength(1);
+    expect(cal.extras).toEqual([{ day: "31 ตุลาคม 2569", entries: [{ issueId: "011120260000", label: "23.00 น." }] }]);
+  });
+
+  it("ใช้ไม่ได้ = null: ป้ายไม่มีเลขวัน เดือนผิดรูป ไม่มีรายการ ไม่มีวันใดตรงเดือน", () => {
+    expect(buildCalendar("2026-11", groupWeeks([item("a", "x")], "สัปดาห์ที่ออกประกาศในพฤศจิกายน 2569"))).toBeNull();
+    expect(buildCalendar("2026-13", groups)).toBeNull();
+    expect(buildCalendar("2026-11", [])).toBeNull();
+    expect(buildCalendar("2026-11", [{ day: "31 พฤศจิกายน 2569", entries: [] }])).toBeNull();
+    expect(buildCalendar("2026-10", groups)).toBeNull();
   });
 });
 
