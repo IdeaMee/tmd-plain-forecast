@@ -10,7 +10,7 @@ import { cn } from "@/lib/cn";
 type R = { report: SentenceRoleReport };
 
 const SPLIT_TH: Record<string, string> = { train: "ชุดฝึก", dev: "ชุดปรับค่า (dev)", test: "ชุดทดสอบ", gap: "ช่วงเว้น (ไม่ใช้)" };
-const DOC_TH: Record<string, string> = { daily: "พยากรณ์รายวัน", sevenday: "พยากรณ์ 7 วัน" };
+const DOC_TH: Record<string, string> = { daily: "พยากรณ์รายวัน", sevenday: "พยากรณ์ 7 วัน", warning: "ประกาศเตือนภัย" };
 
 const th = (report: SentenceRoleReport, label: string) => report.labels_th[label] ?? label;
 
@@ -98,8 +98,8 @@ export function DataSection({ report }: R) {
       title="ข้อมูลที่ใช้ฝึกและวัดผล"
       lead={
         <>
-          ตัดประกาศเป็นหน่วยประโยคได้ {total} หน่วย แต่ละหน่วยมีป้าย 1 ใน 4 แบบ แบ่งชุดตามวันที่ประกาศ
-          (ชุดทดสอบเป็นวันล่าสุด ไม่ให้โมเดลเห็นก่อน) {report.label_source_th}
+          ตัดประกาศเป็นหน่วยประโยคได้ {total} หน่วย แต่ละหน่วยมีป้าย 1 ใน {report.labels.length} แบบ {report.split_note_th}{" "}
+          {report.label_source_th}
         </>
       }
     >
@@ -204,7 +204,7 @@ export function TopWordsSection({ report }: R) {
             );
           })}
       </div>
-      {report.facts.other_units <= 1 ? (
+      {report.labels.includes("other") && report.facts.other_units <= 1 ? (
         <p className="text-body-sm text-body">
           ป้าย &quot;{th(report, "other")}&quot; มีแค่ {report.facts.other_units} หน่วยในข้อมูลทั้งหมด คำเด่นของป้ายนี้จึงแทบไม่มีความหมาย
         </p>
@@ -326,6 +326,8 @@ export function KnnSection({ report }: R) {
 
 export function EvaluationSection({ report }: R) {
   const labels = report.labels.map((l) => th(report, l));
+  // ชุดของประกาศไม่ได้นับครั้งที่พบต่อฉบับ จึงไม่มีคอลัมน์ถ่วงน้ำหนัก
+  const weighted = report.results.some((r) => r.test_all_weighted !== null);
   const nbAll = report.tuning.nb_m_factor.every((p) => p.dev_accuracy === report.tuning.nb_m_factor[0].dev_accuracy);
   return (
     <Section
@@ -393,7 +395,7 @@ export function EvaluationSection({ report }: R) {
                   <th scope="col" className="py-1 pr-4 font-normal">วิธี</th>
                   <th scope="col" className="py-1 pr-4 font-normal">dev</th>
                   <th scope="col" className="py-1 pr-4 font-normal">ทดสอบ ทุกหน่วย</th>
-                  <th scope="col" className="py-1 pr-4 font-normal">ทดสอบ ถ่วงตามครั้งที่พบ</th>
+                  {weighted ? <th scope="col" className="py-1 pr-4 font-normal">ทดสอบ ถ่วงตามครั้งที่พบ</th> : null}
                   <th scope="col" className="py-1 font-normal">ทดสอบ ถ้อยคำใหม่</th>
                 </tr>
               </thead>
@@ -403,7 +405,9 @@ export function EvaluationSection({ report }: R) {
                     <th scope="row" className="py-1 pr-4 font-normal">{r.name}</th>
                     <td className="py-1 pr-4">{pct(r.dev)}</td>
                     <td className="py-1 pr-4">{pct(r.test_all)}</td>
-                    <td className="py-1 pr-4">{pct(r.test_all_weighted)}</td>
+                    {weighted ? (
+                      <td className="py-1 pr-4">{r.test_all_weighted === null ? "-" : pct(r.test_all_weighted)}</td>
+                    ) : null}
                     <td className="py-1">{pct(r.test_new)}</td>
                   </tr>
                 ))}
@@ -432,7 +436,7 @@ export function LearningCurveSection({ report }: R) {
     <Section
       n={8}
       title="ข้อมูลมากขึ้น ช่วยแค่ไหน"
-      lead={`ฝึกด้วยวันแรกๆ ของชุดฝึก ${fractions} ของจำนวนวัน แล้ววัดบนชุด dev เดิม (dev มีแค่ ${dev} หน่วย เส้นจึงแกว่งได้ ดูแนวโน้มมากกว่าตัวเลขเป๊ะ)`}
+      lead={`ฝึกด้วย${report.group_th}แรกๆ ของชุดฝึก ${fractions} ของจำนวน${report.group_th} แล้ววัดบนชุด dev เดิม (dev มีแค่ ${dev} หน่วย เส้นจึงแกว่งได้ ดูแนวโน้มมากกว่าตัวเลขเป๊ะ)`}
     >
       <Card>
         <LineChart
@@ -461,7 +465,7 @@ export function LearningCurveSection({ report }: R) {
               <thead>
                 <tr className="text-body">
                   <th scope="col" className="py-1 pr-4 font-normal">ส่วนของชุดฝึก</th>
-                  <th scope="col" className="py-1 pr-4 font-normal">วัน / หน่วย</th>
+                  <th scope="col" className="py-1 pr-4 font-normal">{report.group_th} / หน่วย</th>
                   <th scope="col" className="py-1 pr-4 font-normal">NB ความแม่น / macro-F1</th>
                   <th scope="col" className="py-1 font-normal">k-NN ความแม่น / macro-F1</th>
                 </tr>
@@ -471,7 +475,7 @@ export function LearningCurveSection({ report }: R) {
                   <tr key={p.fraction}>
                     <th scope="row" className="py-1 pr-4 font-normal">{pct(p.fraction, 0)}</th>
                     <td className="py-1 pr-4">
-                      {p.train_days} / {p.train_units}
+                      {p.train_groups} / {p.train_units}
                     </td>
                     <td className="py-1 pr-4">
                       {pct(p.nb_dev_accuracy)} / {pct(p.nb_dev_macro_f1)}
@@ -515,7 +519,7 @@ export function LimitsSection({ report }: R) {
         <h3 className="text-title-sm">ข้อจำกัดที่ต้องรู้</h3>
         <ul className="list-disc space-y-2 pl-5 text-body-md text-ink">
           <li>{report.label_source_th}</li>
-          {keyword && chosen ? (
+          {keyword && chosen && keyword.test_new > chosen.test_new ? (
             <li>
               กฎคำสำคัญได้ {pct(keyword.test_new)} สูงกว่า {report.chosen} ({pct(chosen.test_new)}) ส่วนหนึ่งเพราะป้ายตรงกับกฎ{" "}
               {report.facts.keyword_agrees_with_labels}/{report.facts.total_units} หน่วยตั้งแต่ก่อนวัด และกรมใช้ถ้อยคำเป็นแบบแผน
@@ -524,11 +528,13 @@ export function LimitsSection({ report }: R) {
           ) : null}
           <li>
             ข้อมูลน้อย: ชุดฝึก {report.splits.find((s) => s.split === "train")?.total ?? 0} หน่วย dev{" "}
-            {report.splits.find((s) => s.split === "dev")?.total ?? 0} หน่วย ตัวเลขแกว่งได้มากถ้าเปลี่ยนวันแบ่งชุด
+            {report.splits.find((s) => s.split === "dev")?.total ?? 0} หน่วย ตัวเลขแกว่งได้มากถ้าเปลี่ยน{report.group_th}ที่ใช้แบ่งชุด
           </li>
-          <li>
-            ป้าย &quot;{th(report, "other")}&quot; มี {report.facts.other_units} หน่วยในข้อมูลทั้งหมด โมเดลจึงแทบทายป้ายนี้ไม่ได้
-          </li>
+          {report.labels.includes("other") ? (
+            <li>
+              ป้าย &quot;{th(report, "other")}&quot; มี {report.facts.other_units} หน่วยในข้อมูลทั้งหมด โมเดลจึงแทบทายป้ายนี้ไม่ได้
+            </li>
+          ) : null}
           <li>bag of words ไม่รู้ลำดับคำ ประโยคที่ใช้คำเดียวกันแต่คนละความหมายจึงสับสนได้</li>
         </ul>
       </Card>
