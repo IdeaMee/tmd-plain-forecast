@@ -5,6 +5,8 @@ import { useId, useRef, useState, type DragEvent, type FormEvent } from "react";
 import { GenericResult } from "@/app/demo/_components/generic-result";
 import { TraceStepper } from "@/app/demo/_components/trace-stepper";
 import { IssueSummary } from "@/components/features/issue-summary";
+import { ShippingSummary } from "@/components/features/shipping-summary";
+import { WarningNoticeCard } from "@/components/features/warning-notice";
 import { Alert } from "@/components/ui/alert";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -187,6 +189,32 @@ export function UploadForm() {
                     </p>
                   </div>
                   <IssueSummary issue={status.result.document} />
+                </>
+              ) : status.result.kind === "shipping" ? (
+                <>
+                  <div className="space-y-1">
+                    <h2 id={resultId} tabIndex={-1} className="text-display-sm">
+                      ผลสรุปพยากรณ์เดินเรือ
+                    </h2>
+                    <p className="text-body-md text-ink">{status.result.document.source_label}</p>
+                    <p className="text-body-sm text-body">
+                      คำนวณจากไฟล์ที่อัปโหลด ผลจาก PDF อาจแม่นน้อยกว่าผลบนหน้าหลัก ตรวจกับประกาศฉบับเต็มก่อนใช้ตัดสินใจเดินเรือ
+                    </p>
+                  </div>
+                  <ShippingSummary issue={status.result.document} />
+                </>
+              ) : status.result.kind === "warning" ? (
+                <>
+                  <div className="space-y-1">
+                    <h2 id={resultId} tabIndex={-1} className="text-display-sm">
+                      ผลสรุปประกาศเตือนภัย
+                    </h2>
+                    <p className="text-body-md text-ink">{status.result.document.source_label}</p>
+                    <p className="text-body-sm text-body">
+                      คำนวณจากไฟล์ที่อัปโหลด ข้อความคัดจากประกาศคำต่อคำ ตรวจกับประกาศฉบับเต็มก่อนใช้ตัดสินใจ
+                    </p>
+                  </div>
+                  <WarningNoticeCard notice={status.result.document} headingLevel={3} />
                 </>
               ) : (
                 <>
