@@ -6,12 +6,14 @@ type DisclosureProps = {
   summary: ReactNode;
   children: ReactNode;
   className?: string;
+  // เปิดไว้ตั้งแต่แรก (เช่น ผู้ใช้เลือกเดือนย้อนหลังแล้วหน้าโหลดใหม่ ต้องเห็นรายการที่เลือกต่อ)
+  defaultOpen?: boolean;
 };
 
 // กล่องเปิด-ปิดด้วย <details> (ใช้ได้โดยไม่มี JavaScript) · v2 แนวทาง A: ลูกศรหมุน เนื้อหาเลื่อนลงจางเข้า (D13)
-export function Disclosure({ summary, children, className }: DisclosureProps) {
+export function Disclosure({ summary, children, className, defaultOpen = false }: DisclosureProps) {
   return (
-    <details className={cn("group rounded-lg border border-hairline-strong bg-surface-card", className)}>
+    <details open={defaultOpen} className={cn("group rounded-lg border border-hairline-strong bg-surface-card", className)}>
       <summary className="flex min-h-11 cursor-pointer list-none items-center gap-3 rounded-lg px-4 py-2 text-button text-ink transition-colors duration-(--duration-base) hover:bg-canvas-soft [&::-webkit-details-marker]:hidden">
         <span className="min-w-0 flex-1">{summary}</span>
         <svg
