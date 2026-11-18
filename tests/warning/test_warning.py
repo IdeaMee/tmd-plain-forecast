@@ -251,3 +251,26 @@ def test_display_texts_rejoins_connectors_verbatim() -> None:
     ]
     # ไม่ติดกันในต้นฉบับ = ไม่ย้าย (คงคำต่อคำ)
     assert display_texts(pieces[1:], "อื่น") == pieces[1:]
+
+
+def test_display_texts_reattaches_extension_fragments() -> None:
+    # "ส่วนมาก..." เป็นส่วนขยายของประโยคก่อนหน้า (ตัวตัดท่อนตัดที่คำ "ส่วน" ทุกที่) ต่อกลับตอนแสดงเมื่อป้ายเดียวกันและติดกันในต้นฉบับ
+    source = "ฝนฟ้าคะนองเกิดขึ้นได้บางพื้นที่ ส่วนมากบริเวณด้านตะวันตกของภาคเหนือ ขอให้ประชาชนระวัง"
+    body = "".join(source.split())
+    texts = ["ฝนฟ้าคะนองเกิดขึ้นได้บางพื้นที่", "ส่วนมากบริเวณด้านตะวันตกของภาคเหนือ", "ขอให้ประชาชนระวัง"]
+    out = display_texts(texts, body, ["weather", "weather", "advice"])
+    assert out == ["ฝนฟ้าคะนองเกิดขึ้นได้บางพื้นที่ ส่วนมากบริเวณด้านตะวันตกของภาคเหนือ", "", "ขอให้ประชาชนระวัง"]
+    # ป้ายต่างกัน = ไม่ต่อ
+    assert display_texts(texts, body, ["weather", "advice", "advice"])[1] == texts[1]
+
+
+def test_next_issue_line_must_be_readable() -> None:
+    # ไม่มีทั้งวันเวลาฉบับต่อไปและคำว่าฉบับสุดท้าย = ข้อผิดพลาด ไม่ใช่ "ฉบับสุดท้าย" ที่ไม่มีหลักฐาน
+    assert parse_warning(SAMPLE).next_issue_at is not None
+    broken = SAMPLE.replace(
+        "กรมอุตุนิยมวิทยาจะออกประกาศฉบับต่อไปในวันที่ 2 พฤศจิกายน พ.ศ. 2569 เวลา 17.00 น.",
+        "กรมอุตุนิยมวิทยาจะติดตามสถานการณ์อย่างใกล้ชิด",
+    )
+    assert broken != SAMPLE
+    with pytest.raises(WarningParseError):
+        parse_warning(broken)
