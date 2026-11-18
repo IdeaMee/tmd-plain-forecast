@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { DocTypeTabs, RegionTabs } from "@/components/features/forecast-tabs";
 import { IssueSummary } from "@/components/features/issue-summary";
-import { RoundPicker } from "@/components/features/round-picker";
+import { MonthPicker } from "@/components/features/month-picker";
 import { ShippingSummary } from "@/components/features/shipping-summary";
 import { Alert } from "@/components/ui/alert";
 import { buttonVariants } from "@/components/ui/button";
@@ -14,10 +14,11 @@ import {
   getLatestIssue,
   getLatestShippingIssue,
   getShippingIssue,
-  listRecentIssues,
+  listIssueMonths,
+  listIssuesInMonth,
 } from "@/lib/data/forecasts";
 import { isRegionKey } from "@/lib/format/thai";
-import { groupByDay } from "@/lib/history";
+import { groupByDay, resolveMonth } from "@/lib/history";
 import { hasRegions, homeHref, parseHomeQuery, type HomeQuery, type HomeType } from "@/lib/routes";
 
 type ForecastViewProps = {
@@ -28,6 +29,13 @@ const TYPE_NAMES: Record<HomeType, string> = {
   daily: "พยากรณ์รายวัน",
   sevenday: "พยากรณ์ 7 วัน",
   shipping: "พยากรณ์เดินเรือ",
+};
+
+// หัวกล่องตัวเลือกรอบ: 7 วันเป็นฉบับ ที่เหลือเป็นรอบ
+const PICKER_TITLES: Record<HomeType, string> = {
+  daily: "เลือกรอบอื่น",
+  sevenday: "เลือกฉบับอื่น",
+  shipping: "เลือกรอบอื่น",
 };
 
 const INFO_ICON = (
@@ -51,8 +59,15 @@ async function loadSelected(query: HomeQuery): Promise<Selected> {
 // มุมมองหลักของหน้า / : ฉบับที่เลือก (ค่าเริ่มต้นล่าสุด) 7 ภาค หรือภาคเดียว หรือ 4 พื้นที่ทะเล + ตัวเลือกรอบย้อนหลัง
 export async function ForecastView({ searchParams }: ForecastViewProps) {
   const query = parseHomeQuery(await searchParams, isRegionKey);
-  const [history, selected] = await Promise.all([listRecentIssues(query.type), loadSelected(query)]);
+  const [months, selected] = await Promise.all([listIssueMonths(query.type), loadSelected(query)]);
   const typeName = TYPE_NAMES[query.type];
+  // เดือนของตัวเลือกรอบ: เดือนที่ขอ > เดือนของฉบับที่เลือก > เดือนล่าสุด
+  const month = resolveMonth(months, query.month, selected?.doc.issued_at ?? null);
+  const [items, latest] = await Promise.all([
+    selected && month ? listIssuesInMonth(query.type, month) : Promise.resolve([]),
+    selected && query.issue ? loadSelected({ ...query, issue: null }) : Promise.resolve(selected),
+  ]);
+  const total = months.reduce((sum, m) => sum + m.count, 0);
 
   return (
     <div className="space-y-6">
@@ -67,8 +82,8 @@ export async function ForecastView({ searchParams }: ForecastViewProps) {
           {query.issue ? (
             <>
               <p className="font-semibold">ไม่พบ{typeName}ฉบับที่เลือก</p>
-              <p className="mt-1">ฉบับนี้อาจเก่ากว่า 7 วันหรือยังไม่ได้โหลดเข้าระบบ</p>
-              <Link href={homeHref({ ...query, issue: null })} className={cn(buttonVariants({ variant: "secondary" }), "mt-3")}>
+              <p className="mt-1">ฉบับนี้อาจยังไม่ได้โหลดเข้าระบบ</p>
+              <Link href={homeHref({ ...query, issue: null, month: null })} className={cn(buttonVariants({ variant: "secondary" }), "mt-3")}>
                 ดูฉบับล่าสุด
               </Link>
             </>
@@ -86,15 +101,20 @@ export async function ForecastView({ searchParams }: ForecastViewProps) {
         <>
           <p className="text-body-sm text-body">
             {typeName} {selected.doc.source_label}
-            {history[0] && selected.doc.issue_id !== history[0].issueId ? " (ฉบับย้อนหลัง)" : ""}
+            {latest && selected.doc.issue_id !== latest.doc.issue_id ? " (ฉบับย้อนหลัง)" : ""}
           </p>
 
-          {history.length > 1 ? (
-            <RoundPicker
-              docType={query.type}
-              groups={groupByDay(history)}
+          {total > 1 && month ? (
+            <MonthPicker
+              title={PICKER_TITLES[query.type]}
+              months={months}
+              month={month}
+              groups={groupByDay(items)}
               currentId={selected.doc.issue_id}
-              hrefFor={(issueId) => homeHref({ ...query, issue: issueId })}
+              hrefForMonth={(m) => homeHref({ ...query, month: m })}
+              // เลือกฉบับแล้วไม่ต้องคงเดือนใน URL: หน้าใหม่ปิดกล่อง (เห็นผลสรุปทันที) และใช้เดือนของฉบับนั้นเอง
+              hrefForIssue={(issueId) => homeHref({ ...query, issue: issueId, month: null })}
+              defaultOpen={query.month !== null}
             />
           ) : null}
 
