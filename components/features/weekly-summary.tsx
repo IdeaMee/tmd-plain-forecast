@@ -28,6 +28,10 @@ function CellValue({ cell }: { cell: TableCell | null }) {
       ) : (
         cell.text
       )}
+      {/* ต้นฉบับบางช่องใส่ค่าผิดคอลัมน์ (เช่น อุณหภูมิในช่องฝน) คัดตามเดิมแต่บอกผู้อ่าน ไม่เดาว่าตั้งใจหรือพิมพ์ผิด */}
+      {cell.facts.column_unit_mismatch === true ? (
+        <span className="mt-1 block text-body-sm text-ink">หน่วยของค่านี้ไม่ตรงกับหัวแถวตามต้นฉบับของกรม ดูฉบับเต็มก่อนใช้</span>
+      ) : null}
     </span>
   );
 }
