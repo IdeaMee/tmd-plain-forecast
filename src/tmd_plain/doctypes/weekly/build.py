@@ -33,11 +33,13 @@ _WS = re.compile(r"\s+")
 # ช่องตาราง: "61.5 มม. ที่ อ.แม่สอด จ.ตาก เมื่อวันที่ 26 ส.ค." (อุณหภูมิ "º ซ." หรือ "° ซ." ต้นฉบับใช้ทั้งสองอักขระ)
 # อาจตามด้วยค่าที่สองในวงเล็บ (วงเล็บปิดบางฉบับหาย) · ช่องหนึ่งใน 985 ขึ้นต้นด้วยชื่อภาค ("ภาคกลาง 37.9 º ซ. ที่ ...")
 _CELL = re.compile(
-    r"^(?:ภาค\S*\s+)?(?P<v>\d+(?:\.\d+)?)\s*(?P<u>มม\.|[º°]\s*ซ\.)\s*ที่\s*(?P<place>.+?)\s*เมื่อวันที่\s*"
+    r"^(?:ภาค\S*\s+)?(?P<v>-?\d+(?:\.\d+)?)\s*(?P<u>มม\.|[º°]\s*ซ\.)\s*ที่\s*(?P<place>.+?)\s*เมื่อวันที่\s*"
     r"(?P<date>[^()]+?)\s*(?:\((?P<rest>.*?)\)?\s*)?$"
 )
 _UNIT = {"มม.": "มม."}
 _CELL_NAMES = ("rain_max", "temp_max", "temp_min")
+# หน่วยที่ควรอยู่ในแต่ละคอลัมน์ตามหัวตารางของ TMD (ต้นฉบับเองมีช่องที่ใส่ค่าผิดคอลัมน์ ดู check_weekly)
+_COLUMN_UNIT = {"rain_max": "มม.", "temp_max": "°ซ.", "temp_min": "°ซ."}
 
 
 def _tidy(text: str) -> str:
@@ -62,13 +64,13 @@ def _number(text: str) -> int | float:
     return float(text) if "." in text else int(text)
 
 
-def cell_facts(text: str) -> dict[str, str | float]:
+def cell_facts(text: str) -> dict[str, str | float | bool]:
     """ค่าจากช่องตาราง (ไม่ตรงรูปแบบ = {} ข้อความคำต่อคำยังแสดงได้ แต่ check_weekly จะรายงาน)."""
     m = _CELL.match(text)
     if m is None:
         return {}
     unit = _UNIT.get(m["u"], "°ซ.")
-    facts: dict[str, str | float] = {
+    facts: dict[str, str | float | bool] = {
         "value": float(m["v"]),
         "unit": unit,
         "place": m["place"].strip(),
@@ -89,7 +91,14 @@ def _region(region: ParsedRegion) -> WeeklyRegion:
     lines = [_line(piece) for paragraph in region.paragraphs for piece in _pieces(paragraph)]
     cells: dict[str, TableCell | None] = {}
     for name, text in zip(_CELL_NAMES, region.cells, strict=True):
-        cells[name] = TableCell(text=text, facts=cell_facts(text)) if text else None  # type: ignore[arg-type]
+        if not text:
+            cells[name] = None
+            continue
+        facts = cell_facts(text)
+        if facts and facts.get("unit") != _COLUMN_UNIT[name]:
+            # คัดตามต้นฉบับ แต่ติดธงให้หน้าเว็บบอกผู้อ่านว่าหน่วยไม่ตรงหัวคอลัมน์ (ไม่เดาว่าตั้งใจหรือพิมพ์ผิด)
+            facts["column_unit_mismatch"] = True
+        cells[name] = TableCell(text=text, facts=facts)  # type: ignore[arg-type]
     return WeeklyRegion(lines=lines, **cells)  # type: ignore[arg-type]
 
 
@@ -152,6 +161,6 @@ def check_weekly(summary: WeeklySummary, parsed: ParsedWeekly) -> list[str]:
                 value = cell.facts.get("value")
                 if value is None:
                     errors.append(f"{key}.{name}: ดึงค่าจากช่องไม่ได้: {cell.text}")
-                elif not any(float(n) == value for n in _NUM.findall(cell.text)):
+                elif not any(float(n) == abs(float(value)) for n in _NUM.findall(cell.text)):
                     errors.append(f"{key}.{name}: ค่า {value} ไม่อยู่ในช่อง")
     return errors

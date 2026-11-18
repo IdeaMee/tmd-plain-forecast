@@ -73,6 +73,7 @@
       ],
       "rain_max": {
         "facts": {
+          "column_unit_mismatch": true,
           "date_text": "29 ธ.ค.",
           "place": "อ.ชัยบาดาล จ.ลพบุรี",
           "unit": "°ซ.",
