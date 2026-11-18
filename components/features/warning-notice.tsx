@@ -35,6 +35,8 @@ function AlertIcon() {
 // ทุกข้อความคัดจากต้นฉบับคำต่อคำ (เนื้อหาไม่ถูกเขียนใหม่)
 export function WarningNoticeCard({ notice, headingLevel = 2 }: WarningNoticeProps) {
   const Heading = headingLevel === 2 ? "h2" : "h3";
+  // หัวข้อย่อยในการ์ดต้องอยู่ใต้ชื่อเรื่อง (ชื่อเรื่อง h2 -> ย่อย h3, ชื่อเรื่อง h3 ใน /demo -> ย่อย h4)
+  const Sub = headingLevel === 2 ? "h3" : "h4";
   const isFinal = notice.next_issue_at === null;
   return (
     <Card className="animate-enter-up space-y-6">
@@ -58,7 +60,7 @@ export function WarningNoticeCard({ notice, headingLevel = 2 }: WarningNoticePro
         <section aria-label="พื้นที่ที่กล่าวถึง" className="space-y-3">
           {notice.regions.length > 0 ? (
             <>
-              <h3 className="text-title-sm">พื้นที่ที่กล่าวถึง</h3>
+              <Sub className="text-title-sm">พื้นที่ที่กล่าวถึง</Sub>
               <ul className="flex flex-wrap gap-2" aria-label="ภาคที่กล่าวถึง">
                 {notice.regions.map((key) => (
                   <li
@@ -81,14 +83,14 @@ export function WarningNoticeCard({ notice, headingLevel = 2 }: WarningNoticePro
 
       {notice.lines.length > 0 ? (
         <section className="space-y-3 border-t border-hairline pt-6">
-          <h3 className="text-title-md">สถานการณ์</h3>
+          <Sub className="text-title-md">สถานการณ์</Sub>
           <SummaryLines lines={notice.lines} />
         </section>
       ) : null}
 
       {notice.precautions.length > 0 ? (
         <section className="space-y-3 border-t border-hairline pt-6">
-          <h3 className="text-title-md">ข้อควรระวัง</h3>
+          <Sub className="text-title-md">ข้อควรระวัง</Sub>
           <AdviceList items={notice.precautions} />
         </section>
       ) : null}
