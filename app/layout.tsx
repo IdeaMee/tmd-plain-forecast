@@ -5,7 +5,7 @@ import { Header } from "@/components/layout/header";
 
 import "./globals.css";
 
-// ฟอนต์เดียวทั้งแอป (แทน Inter ของ DESIGN-expo.md ตาม docs/spec/design-system.md ข้อ D1); ไม่ระบุ weight = ฟอนต์ตัวแปร
+// ฟอนต์เดียวทั้งแอป (แทน Inter ของ docs/design/DESIGN-expo.md ตาม docs/spec/design-system.md ข้อ D1); ไม่ระบุ weight = ฟอนต์ตัวแปร
 const anuphan = Anuphan({
   subsets: ["thai", "latin"],
   variable: "--font-anuphan",

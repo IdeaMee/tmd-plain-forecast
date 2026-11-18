@@ -5,7 +5,7 @@
 @source "../lib";
 
 /*
- * โทเคนจาก DESIGN-expo.md (front matter) ชื่อเดียวกับมาตรฐาน ห้ามใส่ hex ในคอมโพเนนต์
+ * โทเคนจาก docs/design/DESIGN-expo.md (front matter) ชื่อเดียวกับมาตรฐาน ห้ามใส่ hex ในคอมโพเนนต์
  * ส่วนที่ปรับสำหรับภาษาไทย (line-height, letter-spacing 0) ตาม docs/spec/design-system.md หัวข้อ 3.1 และ 4
  */
 @theme {
@@ -59,7 +59,7 @@
   --shadow-panel: 0 12px 24px rgba(0, 0, 0, 0.08);
 
   /*
-   * การเคลื่อนไหว (D13): DESIGN-expo.md ไม่กำหนด (animation timings อยู่นอกขอบเขต) ค่าจากต้นแบบ A
+   * การเคลื่อนไหว (D13): docs/design/DESIGN-expo.md ไม่กำหนด (animation timings อยู่นอกขอบเขต) ค่าจากต้นแบบ A
    * เคลื่อนแค่ transform/opacity ไม่ทำอนิเมชันกับค่าตัวเลข ปิดทั้งหมดเมื่อ prefers-reduced-motion
    */
   --duration-fast: 120ms;

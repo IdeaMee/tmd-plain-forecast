@@ -12,7 +12,7 @@ export function Hero() {
       <Container className="py-12 lg:py-16">
         <h1 className="animate-enter-up text-display-mega-mobile sm:text-display-xl">สรุปพยากรณ์อากาศแบบอ่านง่าย</h1>
         <p className="mt-3 max-w-prose animate-enter-up text-body-md text-ink stagger" style={{ "--i": 1 } as CSSProperties}>
-          พยากรณ์รายวันและ 7 วันของกรมอุตุนิยมวิทยา เขียนใหม่เป็นภาษาไทยง่ายๆ แยกตามภาค
+          พยากรณ์รายวัน 7 วัน และพยากรณ์เดินเรือของกรมอุตุนิยมวิทยา เขียนใหม่เป็นภาษาไทยง่ายๆ แยกตามภาคและพื้นที่ทะเล
         </p>
         <div className="mt-6 animate-enter-up stagger" style={{ "--i": 2 } as CSSProperties}>
           <Link href="/demo" className={buttonVariants({ variant: "primary" })}>
