@@ -115,7 +115,11 @@ _PURPOSE = re.compile(r"(?:ทั้งนี้\s*)?เพื่อความ
 _ADVICE_WORD = re.compile(r"ขอให้|ควร")
 
 
-def display_texts(texts: list[str], body: str) -> list[str]:
+# "ส่วนมาก"/"ส่วนใหญ่" เป็นส่วนขยายของประโยคก่อนหน้า (ตัวตัดท่อนตัดที่คำ "ส่วน" ทุกที่)
+_FRAGMENT = re.compile(r"^ส่วน(?:มาก|ใหญ่)")
+
+
+def display_texts(texts: list[str], body: str, labels: list[str] | None = None) -> list[str]:
     """ข้อความที่แสดงของแต่ละท่อน: ย้ายคำเชื่อม/วลีจุดประสงค์ที่ค้างท้ายท่อนไปต้นท่อนถัดไป.
 
     ย้ายเฉพาะเมื่อข้อความที่ต่อแล้วอยู่ติดกันในต้นฉบับจริง (body = เนื้อหาที่ตัดช่องว่างแล้ว) จึงยังคำต่อคำ
@@ -135,6 +139,13 @@ def display_texts(texts: list[str], body: str) -> list[str]:
             joined = "จึง" + out[i + 1]
             if norm(joined) in body:
                 out[i], out[i + 1] = out[i][: m.start()].strip(), joined
+    # ต่อท่อนส่วนขยายกลับท่อนก่อนหน้า (ป้ายเดียวกัน ติดกันในต้นฉบับ) ท่อนที่ถูกต่อไปแล้วเป็น "" (ผู้เรียกข้าม)
+    for i in range(1, len(out)):
+        same = labels is None or labels[i] == labels[i - 1]
+        if out[i] and _FRAGMENT.match(out[i]) and out[i - 1] and same:
+            joined = f"{out[i - 1]} {out[i]}"
+            if norm(joined) in body:
+                out[i - 1], out[i] = joined, ""
     return out
 
 
@@ -154,8 +165,10 @@ def assemble_warning(
     lines: list[SummaryLine] = []
     precautions: list[QuotedAdvice] = []
     seen: set[str] = set()
-    texts = display_texts([u.text for u in units], norm(parsed.body()))
+    texts = display_texts([u.text for u in units], norm(parsed.body()), [u.label for u in units])
     for unit, text in zip(units, texts, strict=True):
+        if not text:
+            continue
         if unit.label != "advice":
             lines.append(_line(unit, text))
         elif unit.unit_id not in seen:

@@ -121,6 +121,10 @@ def parse_warning(text: str) -> ParsedWarning:
     nm = _NEXT.search(next_line)
     if nm:
         next_issue_at = _datetime(nm.group("date"), nm.group("h"), nm.group("m"))
+    if next_issue_at is None and not _FINAL.search(next_line):
+        # ไม่มีทั้งวันเวลาฉบับต่อไปและคำว่าฉบับสุดท้าย: สัญญาใช้ next_issue_at = None แทน "ฉบับสุดท้าย"
+        # จึงต้องไม่ปล่อยผ่าน ไม่งั้นการ์ดจะบอกว่าเป็นฉบับสุดท้ายทั้งที่ไม่รู้ (ข้อมูลความปลอดภัย)
+        raise WarningParseError("อ่านบรรทัดฉบับต่อไป/ฉบับสุดท้ายไม่ได้")
     body = [ln for ln in lines[body_start:issued_at_idx] if not _SIGN.match(ln)]
     paragraphs = _paragraphs(body)
     if not paragraphs:
