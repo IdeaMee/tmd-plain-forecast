@@ -74,6 +74,8 @@
   --animate-drop-in: drop-in var(--duration-slow) var(--ease-enter) backwards;
   --animate-fade-in: fade-in var(--duration-base) var(--ease-enter) backwards;
   --animate-pop: pop var(--duration-base) var(--ease-standard);
+  /* แท่งคะแนนยืดจากซ้าย (เคลื่อนแค่ transform ตัวเลขข้างแท่งแสดงค่าสุดท้ายทันที) */
+  --animate-grow-x: grow-x var(--duration-slow) var(--ease-enter) backwards;
 
   @keyframes enter-up {
     from {
@@ -95,6 +97,11 @@
   @keyframes pop {
     from {
       transform: scale(0.94);
+    }
+  }
+  @keyframes grow-x {
+    from {
+      transform: scaleX(0);
     }
   }
 
@@ -179,6 +186,61 @@
       transition: none !important;
       scroll-behavior: auto !important;
     }
+  }
+}
+
+/*
+ * ทรานสิชันเปลี่ยนหน้า (D13, Phase 7.3): Header อยู่นิ่ง เนื้อหาเก่าจางออก เนื้อหาใหม่จางเข้า + เลื่อนขึ้น 8px
+ * คลิกระหว่างทรานสิชันผ่านไปถึงหน้าจริง · ลดการเคลื่อนไหวแล้วเปลี่ยนทันที
+ */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+::view-transition-old(.page-exit) {
+  animation: var(--duration-fast) var(--ease-exit) both page-fade reverse;
+}
+::view-transition-new(.page-enter) {
+  animation:
+    var(--duration-base) var(--ease-enter) var(--duration-fast) both page-fade,
+    var(--duration-slow) var(--ease-enter) both page-rise;
+}
+/* การ์ดภาคชื่อเดียวกันก่อน/หลังเปลี่ยนภาคหรือชนิด (Phase 7.4): เลื่อนและขยายเข้าที่ใหม่ */
+::view-transition-group(.region-morph) {
+  animation-duration: var(--duration-slow);
+  animation-timing-function: var(--ease-standard);
+}
+::view-transition-old(.region-morph) {
+  animation-duration: var(--duration-fast);
+}
+::view-transition-old(.region-exit) {
+  animation: var(--duration-fast) var(--ease-exit) both page-fade reverse;
+}
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes page-rise {
+  from {
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
   }
 }
 
