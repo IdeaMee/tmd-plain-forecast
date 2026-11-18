@@ -205,3 +205,17 @@ def test_processed_files_follow_contract() -> None:
     for path in files:
         summary = WeeklySummary.model_validate(json.loads(path.read_text(encoding="utf-8")))
         assert summary.issue_id == path.stem
+
+
+def test_cell_negative_value_and_column_unit_flag() -> None:
+    assert cell_facts("-1.2 º ซ. ที่ อ.ก จ.ข เมื่อวันที่ 9 ม.ค.")["value"] == -1.2
+    # ต้นฉบับบางฉบับใส่อุณหภูมิในช่องฝน: คัดตามเดิมแต่ติดธง ไม่ปล่อยเงียบ
+    parsed = parse_weekly(
+        _sample({"ภาคกลาง": "14.9 º ซ. ที่ อ.ชัยบาดาล จ.ลพบุรี เมื่อวันที่ 29 ธ.ค.		"})
+    )
+    summary = assemble_weekly(parsed)
+    flagged = summary.regions["central"].rain_max
+    assert flagged is not None and flagged.facts["column_unit_mismatch"] is True
+    ok = summary.regions["north"].rain_max
+    assert ok is not None and "column_unit_mismatch" not in ok.facts
+    assert check_weekly(summary, parsed) == []
